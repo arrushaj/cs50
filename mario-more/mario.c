@@ -8,5 +8,5 @@ int main(void)
     {
         n = get_int("Height: ");
     }
-    while ()
+    while (n > 0 && n < 8)
 }
