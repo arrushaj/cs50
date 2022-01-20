@@ -12,12 +12,15 @@ int main(void)
 
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < k; j++)
+        for (int j = 0; j < n; j++)
         {
-            for (int k = 8; k < n; k--)
+            int c = 0;
+            do
             {
                 printf("#");
+                c--
             }
+            while (c > j)
             printf(".");
         }
         printf("\n");
