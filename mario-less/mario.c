@@ -20,6 +20,10 @@ int main(void)
         {
             printf("#");
         }
+
+        printf("  \n");
+
+        for (int )
         printf("\n");
     }
 }
