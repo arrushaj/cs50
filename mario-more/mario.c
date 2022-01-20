@@ -8,12 +8,19 @@ int main(void)
     {
         height = get_int("Height: ");
     }
-    while (height < 1 || n > height);
+    while (height < 1 || height > 8);
 
-    for (int i = 0; i < height; i++)
+int i;
+int k;
+int j;
+
+    for (i = 0; i < height; i++)
     {
-        for (int k = 0; )
-        for (int j = 0; j < height; j++)
+        for (k = 8; k > height - i; k--)
+        {
+            printf(".");
+        }
+        for (j = 0; j < height; j++)
         {
             printf("#");
         }
