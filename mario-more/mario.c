@@ -14,14 +14,7 @@ int main(void)
     {
         for (int j = 0; j < n; j++)
         {
-            int c = 0;
-            do
-            {
-                printf("#");
-                c--
-            }
-            while (c > j)
-            printf(".");
+            printf("#");
         }
         printf("\n");
     }
