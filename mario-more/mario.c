@@ -14,13 +14,13 @@ int i;
 int k;
 int j;
 
-    for (i = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
     {
-        for (k = 0; k < height - i ; k++)
+        for (k = 0; k < height - i - 1; k++)
         {
-            printf(".");
+            printf(" ");
         }
-        for (j = 0; j < 2*i - 1; j++)
+        for (j = 0; j < i + 1; j++)
         {
             printf("#");
         }
