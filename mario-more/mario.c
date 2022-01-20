@@ -18,11 +18,11 @@ int j;
     {
         for (k = 0; k < height - i; k++)
         {
-            printf("#");
-        }
-        for (j = 8; j > height - i; j--)
-        {
             printf(".");
+        }
+        for (j = 0; j > height - i; j--)
+        {
+            printf("#");
         }
         printf("\n");
     }
