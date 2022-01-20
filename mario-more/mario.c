@@ -16,11 +16,11 @@ int j;
 
     for (i = 0; i < height; i++)
     {
-        for (k = 8; k <= height + 1; k++)
+        for (k = 0; k < height - i; k++)
         {
             printf("#");
         }
-        for (j = 0; j < height + i; j++)
+        for (j = 8; j > height - i; j--)
         {
             printf(".");
         }
