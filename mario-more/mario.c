@@ -16,7 +16,7 @@ int j;
 
     for (i = 0; i < height; i++)
     {
-        for (k = 0; k < height; k++)
+        for (k = 0; k < height - i ; k++)
         {
             printf(".");
         }
