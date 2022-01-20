@@ -21,9 +21,19 @@ int main(void)
             printf("#");
         }
 
-        printf("  \n");
+        printf("  ");
 
-        for (int )
+
+        for (int m = 0; m < i + 1; m++)  //how many hashes (which row you're in (starting from 0) + 1)
+        {
+            printf("#");
+        }
+
+         for (int l = 0; l < height - i - 1; l++)  //how many spaces (number of rows - 1 - the row starting from 0)
+        {
+            printf(" ");
+        }
+
         printf("\n");
     }
 }
