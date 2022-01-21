@@ -10,26 +10,27 @@ int main(void)
     }
     while (height < 1 || height > 8);
 
-    for (int i = 0; i < height; i++)  //row
+    for (int i = 0; i < height; i++)  // Row
     {
-        for (int k = 0; k < height - i - 1; k++)  //how many spaces (number of rows - 1 - the row starting from 0)
+        // Column
+        for (int k = 0; k < height - i - 1; k++)  // How many spaces (Number of rows - 1 - the row indexed from 0)
         {
             printf(" ");
         }
-        for (int j = 0; j < i + 1; j++)  //how many hashes (which row you're in (starting from 0) + 1)
+        for (int j = 0; j < i + 1; j++)  // How many hashes (Which row you're in (indexed from 0) + 1)
         {
             printf("#");
         }
 
         printf("  ");
 
-
-        for (int m = 0; m < i + 1; m++)  //how many hashes (which row you're in (starting from 0) + 1)
+        // Column
+        for (int m = 0; m < i + 1; m++)  // How many hashes (Which row you're in (indexed from 0) + 1)
         {
             printf("#");
         }
 
-         for (int l = 0; l < height - i - 1; l++)  //how many spaces (number of rows - 1 - the row starting from 0)
+         for (int l = 0; l < height - i - 1; l++)  // How many spaces (number of rows - 1 - the row indexed from 0)
         {
             printf(" ");
         }
