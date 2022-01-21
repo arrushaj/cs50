@@ -1,4 +1,3 @@
-
 #include <cs50.h>
 #include <stdio.h>
 
@@ -11,11 +10,7 @@ int calculate_pennies(int cents);
 int main(void)
 {
     // Ask how many cents the customer is owed
-    do
-    {
-        int cents = get_cents("How many cents? ");
-    }
-    while (get_cents > 0);
+    int cents = get_cents();
 
     // Calculate the number of quarters to give the customer
     int quarters = calculate_quarters(cents);
