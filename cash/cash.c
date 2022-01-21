@@ -51,24 +51,26 @@ int calculate_quarters(int cents)
 {
     int a;
     a = cents / 25;
-    // TODO
     return a;
 }
 
 int calculate_dimes(int cents)
 {
-    // TODO
-    return 0;
+    int b;
+    b = cents / 10;
+    return b;
 }
 
 int calculate_nickels(int cents)
 {
-    // TODO
-    return 0;
+    int c;
+    c = cents / 5;
+    return c;
 }
 
 int calculate_pennies(int cents)
 {
-    // TODO
-    return 0;
+    int d;
+    d = cents / 1;
+    return d;
 }
