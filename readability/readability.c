@@ -18,7 +18,11 @@ int main(int argc, string argv[])
     printf("%i letters\n", total_letters);
     printf("%i words\n", total_words);
     printf("%i sentences\n", total_sentences);
-    int index = (0.0588 * ((double) total_letters / (double) total_words) * 100) - 0.296 * ((double) total_sentences / (double) total_words) * 100) - 15.8);   // index = 0.0588 * L - 0.296 * S - 15.8
+    int index = round(0.0588 * ((double) total_letters / (double) total_words) * 100) - 0.296 * ((double) total_sentences / (double) total_words) * 100) - 15.8);   // index = 0.0588 * L - 0.296 * S - 15.8
+    if index < 1
+    {
+        printf("Below Grade 1")
+    }
     printf("Grade: %i\n", index);
 }
 
