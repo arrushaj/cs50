@@ -11,7 +11,6 @@ int count_sentences(string text);
 int main(int argc, string argv[])
 {
     string text1 = get_string("Text: ");
-    printf("%s\n", text1);
     int total_letters = count_letters(text1);
     int total_words = count_words(text1);
     int total_sentences = count_sentences(text1);
@@ -28,7 +27,7 @@ int main(int argc, string argv[])
     {
         printf("Grade 16+\n");
     }
-    else
+    else if (index > 1 && index < 16)
     {
         printf("Grade: %i\n", round_index);
     }
