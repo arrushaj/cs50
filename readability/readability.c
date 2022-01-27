@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 int count_letters(string text);
 int count_words(string text);
@@ -17,6 +18,8 @@ int main(int argc, string argv[])
     printf("%i letters\n", total_letters);
     printf("%i words\n", total_words);
     printf("%i sentences\n", total_sentences);
+    int index = round(0.0588 * ((total_letters / total_words) * 100) - 0.296 * ((total_sentences / total_words) * 100) - 15.8);   // index = 0.0588 * L - 0.296 * S - 15.8
+    printf("Grade: %i\n", index);
 }
 
 int count_letters(string text)
