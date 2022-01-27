@@ -18,19 +18,19 @@ int main(int argc, string argv[])
     printf("%i letters\n", total_letters);
     printf("%i words\n", total_words);
     printf("%i sentences\n", total_sentences);
-    double index = (0.0588 * ((double) total_letters / (double) total_words) * 100) - 0.296 * ((double) total_sentences / (double) total_words) * 100) - 15.8);   // index = 0.0588 * L - 0.296 * S - 15.8
-    int round_index = round(index);
-    if (index < 1)
+    double index = 0.0588 * (double) total_letters / (double) total_words * 100 - 0.296 * (double) total_sentences / (double) total_words * 100 - 15.8;   // index = 0.0588 * L - 0.296 * S - 15.8
+    int round_index = round(index);  // Rounds float above and turns into int, chopping off everything after decimal
+    if (index < 1)      // Checking index before rounding
     {
         printf("Before Grade 1");
     }
     if (index > 16)
     {
-        printf("Grade 16+");)
+        printf("Grade 16+");
     }
     else
     {
-        printf("Grade: %i\n", round(index));
+        printf("Grade: %i\n", round_index);
     }
 
 }
