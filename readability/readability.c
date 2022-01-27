@@ -4,6 +4,7 @@
 #include <ctype.h>
 
 int count_letters(string text);
+int count_words(string text);
 
 int main(int argc, string argv[])
 {
@@ -32,4 +33,22 @@ int count_letters(string text)
         }
     }
     return total_letters;
+}
+
+int count_words(string text)
+{
+    int total_words = 0;
+    for (int i = 0, n = strlen(text); i < n, i++)
+    {
+        if ((text[i]) = " ")
+        {
+            total_words = total_words + 1;
+        }
+        else
+        {
+            total_words = total_words + 0;
+        }
+    }
+    total_words = total_words + 1 // In order to account for word after last space
+    return total_words;
 }
