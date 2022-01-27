@@ -13,8 +13,10 @@ int main(int argc, string argv[])
     printf("%s\n", text1);
     int total_letters = count_letters(text1);
     int total_words = count_words(text1);
+    int total_sentences = count_sentences(text1);
     printf("%i letters\n", total_letters);
     printf("%i words\n", total_words);
+    printf("%i sentences\n", total_sentences);
 }
 
 int count_letters(string text)
@@ -57,3 +59,18 @@ int count_words(string text)
 }
 
 int count_sentences(string text)
+{
+    int total_sentences = 0;
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        if (text [i] == 33 || text[i] == 46 || text[i] == 63)
+        {
+            total_sentences = total_sentences + 1;
+        }
+        else
+        {
+            total_sentences = total_sentences + 0;
+        }
+    }
+    return total_sentences;
+}
