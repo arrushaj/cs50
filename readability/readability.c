@@ -14,7 +14,8 @@ int main(int argc, string argv[])
     int total_letters = count_letters(text1);
     int total_words = count_words(text1);
     int total_sentences = count_sentences(text1);
-    double index = 0.0588 * (double) total_letters / (double) total_words * 100 - 0.296 * (double) total_sentences / (double) total_words * 100 - 15.8;   // index = 0.0588 * L - 0.296 * S - 15.8
+    double index = 0.0588 * (double) total_letters / (double) total_words * 100 - 0.296 * (double) total_sentences /
+                    (double) total_words * 100 - 15.8;   // index = 0.0588 * L - 0.296 * S - 15.8
     int round_index = round(index);  // Rounds float above and turns into int, chopping off everything after decimal
     if (index < 1)      // Checking index before rounding
     {
