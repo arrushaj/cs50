@@ -9,3 +9,4 @@ int main(int argc, string argv[])
     printf("%s\n", a);
 }
 
+int count_letters(string text)
