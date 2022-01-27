@@ -11,7 +11,9 @@ int main(int argc, string argv[])
     string text1 = get_string("Text: ");
     printf("%s\n", text1);
     int total_letters = count_letters(text1);
+    int total_words = count_words(text1);
     printf("%i letters\n", total_letters);
+    printf("%i words\n", total_words);
 }
 
 int count_letters(string text)
@@ -38,7 +40,7 @@ int count_letters(string text)
 int count_words(string text)
 {
     int total_words = 0;
-    for (int i = 0, n = strlen(text); i < n, i++)
+    for (int i = 0, n = strlen(text); i < n; i++)
     {
         if ((text[i]) = " ")
         {
@@ -49,6 +51,6 @@ int count_words(string text)
             total_words = total_words + 0;
         }
     }
-    total_words = total_words + 1 // In order to account for word after last space
+    total_words = total_words + 1; // In order to account for word after last space
     return total_words;
 }
