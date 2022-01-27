@@ -22,11 +22,11 @@ int main(int argc, string argv[])
     int round_index = round(index);  // Rounds float above and turns into int, chopping off everything after decimal
     if (index < 1)      // Checking index before rounding
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     if (index > 16)
     {
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
     else
     {
