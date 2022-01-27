@@ -42,7 +42,7 @@ int count_words(string text)
     int total_words = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if ((text[i]) = " ")
+        if (text[i] == 32)
         {
             total_words = total_words + 1;
         }
