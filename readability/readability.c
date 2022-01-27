@@ -26,7 +26,7 @@ int main(int argc, string argv[])
     }
     else if (index > 1 && index < 16)
     {
-        printf("Grade: %i\n", round_index);
+        printf("Grade %i\n", round_index);
     }
 
 }
