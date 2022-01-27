@@ -5,6 +5,7 @@
 
 int count_letters(string text);
 int count_words(string text);
+int count_sentences(string text);
 
 int main(int argc, string argv[])
 {
@@ -54,3 +55,5 @@ int count_words(string text)
     total_words = total_words + 1; // In order to account for word after last space
     return total_words;
 }
+
+int count_sentences(string text)
