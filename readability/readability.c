@@ -26,9 +26,13 @@ int main(int argc, string argv[])
     }
     if (index > 16)
     {
-        printf(")
+        printf("Grade 16+");)
     }
-    printf("Grade: %i\n", round_index);
+    else
+    {
+        printf("Grade: %i\n", round(index));
+    }
+
 }
 
 int count_letters(string text)
