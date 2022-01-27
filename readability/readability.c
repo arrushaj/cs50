@@ -1,8 +1,11 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int count_letters(string text)
+
 int main(int argc, string argv[])
 {
-    string text = get_string("Text: ");
-    printf("%s\n", text);
+    string a = get_string("Text: ");
+    printf("%s\n", a);
 }
+
