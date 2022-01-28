@@ -37,15 +37,16 @@ int main(int argc, string argv[])
 
 int uniqueness(string key)
 {
+    int unique = 0;
     for (int i = 0, n = strlen(key); i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
             if (key[i] == key[j])
             {
-            return 1;
+                unique = 1;
             }
         }
     }
-    return 0;
+    return unique;
 }
