@@ -23,7 +23,8 @@ int main(int argc, string argv[])
         {
             for (int j = 0, n = strlen(argv[1]); j < n; j++)
             {
-                if
+                if argv[1][i] == argv[1][j];
+                
             }
         }
         printf("Nice!\n");
