@@ -22,11 +22,11 @@ int main(int argc, string argv[])
         if (strlen(argv[1]) == 26)
         {
             int unique = uniqueness(argv[1]);
-            if (unique = 1)
+            if (unique == 1)
             {
                 printf("Each character isn't unique!\n");
             }
-            else if (unique = 0)
+            else if (unique == 0)
             {
                 printf("Nice!\n");
                 return 0;
@@ -37,11 +37,11 @@ int main(int argc, string argv[])
 
 int uniqueness(string key)
 {
-    for (int i = 0, n = strlen(argv[1]); i < n; i++)
+    for (int i = 0, n = strlen(key); i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            if (argv[1][i] == argv[1][j])
+            if (key[i] == key[j])
             {
             return 1;
             }
