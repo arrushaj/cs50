@@ -61,15 +61,11 @@ int main(int argc, string argv[])
                 {
                     for (int j = 0, n = strlen(argv[1][j]); j < n; j++)
                     {
-                        argv[1][j] = j
-                        if isupper(plaintext[i])
+                        if (plaintext[i] == argv[1][j])
                         {
+                            if isupper(plaintext[i])
                             x = 0;
-                            
-                        }
-                        if islower(plaintext[i])
-                        {
-
+                            if islower(plaintext[i])
                         }
                     }
                 }
