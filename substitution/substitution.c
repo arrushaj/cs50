@@ -62,10 +62,11 @@ int main(int argc, string argv[])
                     {
                         if (plaintext[i] == argv[1][j])
                         {
-                            if isupper(plaintext[i])
-                            {
-                                ciphertext[i] = plaintext[i] - 
-                            }
+                             ciphertext[i] = plaintext[i] + j;
+                        }
+                        if (plaintext[i] == toupper(argv[1][j]))
+                        {
+                            ciphertext[i] = plaintext[i] + j;
                         }
                     }
                 }
