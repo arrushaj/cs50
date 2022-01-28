@@ -40,7 +40,7 @@ int uniqueness(string key)
     int unique = 0;
     for (int i = 0, n = strlen(key); i < n; i++)
     {
-        for (int j = 1; j < n; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if (key[i] == key[j])
             {
