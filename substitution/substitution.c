@@ -23,6 +23,10 @@ int main(int argc, string argv[])
         {
             for (int i = 0, a = strlen(argv[1]); i < a; i++)
             {
+                if (argv[1][i])
+                {
+                    isalpha
+                }
                 if (argv[1][i] > 90 && argv[1][i] < 97)
                 {
                     printf("Not alphabetical character.\n");
