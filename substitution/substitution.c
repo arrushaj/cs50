@@ -30,8 +30,8 @@ int main(int argc, string argv[])
             else if (unique == 0)
             {
                 printf("Nice!\n");
-                get_string("plaintext: ");
-                
+                string plaintext = get_string("plaintext: ");
+                for (int i = 0, n = strlen(plaintext); i < n,)
                 return 0;
             }
         }
