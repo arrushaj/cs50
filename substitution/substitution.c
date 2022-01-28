@@ -63,7 +63,7 @@ int main(int argc, string argv[])
                         argv[1][j] = j
                         if isupper(plaintext[i])
                         {
-
+                            ciphertext[i] = 
                         }
                         if islower(plaintext[i])
                         {
