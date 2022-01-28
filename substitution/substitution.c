@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 
+int unique(string key);
+
 int main(int argc, string argv[])
 {
     if (argc != 2)  // If no input
@@ -35,3 +37,5 @@ int main(int argc, string argv[])
         }
     }
 }
+
+int unique(string key);
