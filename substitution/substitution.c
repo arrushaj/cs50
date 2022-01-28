@@ -10,10 +10,10 @@ int main(int argc, string argv[])
     }
     if (argc == 2)
     {
-        if (strlen(argv)) < 26
+        if (strlen(argv) != 26)
         {
         printf("Not enough letters in key\n");
         }
-        if (strlen(argv)) = 26
+        if (strlen(argv) == 26)
     }
 }
