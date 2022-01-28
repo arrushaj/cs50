@@ -63,8 +63,7 @@ int main(int argc, string argv[])
                     {
                         if (plaintext[i] == argv[1][j])
                         {
-                            if isupper(plaintext[i])
-                            x = 0;
+                            ciphertext[i] = 63 + plaintext[i]
                             if islower(plaintext[i])
                         }
                     }
