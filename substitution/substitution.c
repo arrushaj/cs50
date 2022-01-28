@@ -21,9 +21,9 @@ int main(int argc, string argv[])
         {
         for (int i = 0, n = strlen(argv[1]); i < n; i++)
         {
-            for (int j = 0, n = strlen(argv[1]); j < n; i++)
+            for (int j = 0, n = strlen(argv[1]); j < n; j++)
             {
-                if 
+                if
             }
         }
         printf("Nice!\n");
