@@ -23,7 +23,7 @@ int main(int argc, string argv[])
         {
             for (int i = 0, a = strlen(argv[1]); i < a, i++)
             {
-                if (argv[1][i] > 64 && argv[1][i] < 91)
+                if (argv[1][i] > 90 || argv[1][i] < 97)
             }
 
             int unique = uniqueness(argv[1]);
