@@ -23,25 +23,29 @@ int main(int argc, string argv[])
         {
             for (int i = 0, a = strlen(argv[1]); i < a; i++)
             {
-                if (argv[1][i])
+                if (isalpha(argv[1][i]))
                 {
-                    isalpha
+                    i++;
                 }
-                if (argv[1][i] > 90 && argv[1][i] < 97)
-                {
-                    printf("Not alphabetical character.\n");
-                    return 1;
-                }
-                if (argv[1][i] < 65)
+                else
                 {
                     printf("Not alphabetical character.\n");
                     return 1;
                 }
-                if (argv[1][i] > 123)
-                {
-                    printf("Not alphabetical character.\n");
-                    return 1;
-                }
+            //    if (argv[1][i] > 90 && argv[1][i] < 97)
+            //    {
+            //        printf("Not alphabetical character.\n");
+            //        return 1;
+            //    }
+            //    if (argv[1][i] < 65)
+            //    {
+            //        printf("Not alphabetical character.\n");
+            //        return 1;
+            //    }
+            //    if (argv[1][i] > 123)
+            //    {
+            //        printf("Not alphabetical character.\n");
+            //        return 1;
             }
 
             int unique = uniqueness(argv[1]);
