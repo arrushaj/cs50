@@ -19,6 +19,13 @@ int main(int argc, string argv[])
         }
         if (strlen(argv[1]) == 26)
         {
+        for (i = 0, n = strlen(argv[1]); i < n; i++)
+        {
+            for 
+            {
+
+            }
+        }
         printf("Nice!\n");
         return 0;
         }
