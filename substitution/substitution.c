@@ -23,11 +23,7 @@ int main(int argc, string argv[])
         {
             for (int i = 0, a = strlen(argv[1]); i < a; i++)
             {
-                if (isalpha(argv[1][i]))
-                {
-                    i++;
-                }
-                else
+                if (isalpha(argv[1][i]) == 0)
                 {
                     printf("Not alphabetical character.\n");
                     return 1;
