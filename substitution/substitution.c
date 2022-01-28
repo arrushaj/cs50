@@ -56,6 +56,7 @@ int main(int argc, string argv[])
                 printf("Nice!\n");
                 string plaintext = get_string("plaintext: ");
                 string ciphertext;
+                int x;
                 for (int i = 0, m = strlen(plaintext); i < m; i++)
                 {
                     for (int j = 0, n = strlen(argv[1][j]); j < n; j++)
@@ -63,7 +64,8 @@ int main(int argc, string argv[])
                         argv[1][j] = j
                         if isupper(plaintext[i])
                         {
-                            ciphertext[i] = 
+                            x = 0;
+                            
                         }
                         if islower(plaintext[i])
                         {
