@@ -53,11 +53,15 @@ int main(int argc, string argv[])
             }
             else if (unique == 0)
             {
+                for (int j = 0, n = strlen(arg[1][j]); j < n; j++)
+                {
+                    
+                }
                 printf("Nice!\n");
                 string plaintext = get_string("plaintext: ");
                 for (int i = 0, n = strlen(plaintext); i < n; i++)
                 {
-                    
+
                 }
                 return 0;
             }
