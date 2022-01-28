@@ -21,21 +21,26 @@ int main(int argc, string argv[])
         }
         if (strlen(argv[1]) == 26)
         {
-        for (int i = 0, n = strlen(argv[1]); i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                if (argv[1][i] == argv[1][j])
-                {
-                    printf("Each character isn't unique!\n");
-                    return 1;
-                }
-            }
-        }
+
         printf("Nice!\n");
         return 0;
         }
     }
 }
 
-int unique(string key);
+int unique(string key)
+{
+    for (int i = 0, n = strlen(argv[1]); i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (argv[1][i] == argv[1][j])
+            {
+            printf("Each character isn't unique!\n");
+            return 1;
+
+            }
+        }
+    }
+    return 0;
+}
