@@ -21,11 +21,13 @@ int main(int argc, string argv[])
         }
         if (strlen(argv[1]) == 26)
         {
+            
             int unique = uniqueness(argv[1]);
 
             if (unique == 1)
             {
                 printf("Each character isn't unique!\n");
+                return 1;
             }
             else if (unique == 0)
             {
@@ -33,7 +35,7 @@ int main(int argc, string argv[])
                 string plaintext = get_string("plaintext: ");
                 for (int i = 0, n = strlen(plaintext); i < n; i++)
                 {
-                    
+
                 }
                 return 0;
             }
