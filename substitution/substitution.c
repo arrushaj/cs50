@@ -9,8 +9,8 @@ int main(int argc, string argv[])
 {
     if (argc != 2)  // If no input
     {
-         printf("Usage: ./substitution key\n");
-         return 1;
+        printf("Usage: ./substitution key\n");
+        return 1;
     }
     if (argc == 2)
     {
@@ -28,20 +28,6 @@ int main(int argc, string argv[])
                     printf("Not alphabetical character.\n");
                     return 1;
                 }
-            //    if (argv[1][i] > 90 && argv[1][i] < 97)
-            //    {
-            //        printf("Not alphabetical character.\n");
-            //        return 1;
-            //    }
-            //    if (argv[1][i] < 65)
-            //    {
-            //        printf("Not alphabetical character.\n");
-            //        return 1;
-            //    }
-            //    if (argv[1][i] > 123)
-            //    {
-            //        printf("Not alphabetical character.\n");
-            //        return 1;
             }
 
             int unique = uniqueness(argv[1]);
@@ -57,7 +43,7 @@ int main(int argc, string argv[])
                 string plaintext = get_string("plaintext: ");
                 for (int i = 0, m = strlen(plaintext); i < m; i++)
                 {
-                    int x = 0;
+                    int x = 0;                                          // WE WANT TO FIND A WAY TO GET THE CHARACTER OF THE PLAINTEXT STRING AND MAP IT TO THE INDEX OF THE KEY
                     if isupper(plaintext[i])
                     {
                         x = plaintext[i] - 65;
