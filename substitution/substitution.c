@@ -63,7 +63,8 @@ int main(int argc, string argv[])
                     {
                         if isupper(plaintext[i])
                         {
-                            x = plaintext[i] 
+                            x = plaintext[i] - 63
+                            ciphertext[i] = argv[1][x]
                         }
                     }
                 }
