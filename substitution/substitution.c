@@ -16,5 +16,9 @@ int main(int argc, string argv[])
         return 1;
         }
         if (strlen(argv) == 26)
+        {
+        printf("Nice!\n");
+        return 0;
+        }
     }
 }
