@@ -67,7 +67,7 @@ int main(int argc, string argv[])
                     }
                     if islower(plaintext[i])
                     {
-                        x = plaintext[i] - 97
+                        x = plaintext[i] - 97;
                         ciphertext[i] = tolower(argv[1][x]);
                     }
                 }
