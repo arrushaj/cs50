@@ -60,13 +60,13 @@ int main(int argc, string argv[])
                 {
                     for (int j = 0, n = strlen(argv[1][j]); j < n; j++)
                     {
-                        if (plaintext[i] == argv[1][j])
+                        if isupper(plaintext[i])
                         {
-                             ciphertext[i] = plaintext[i] + j;
+
                         }
-                        if (plaintext[i] == toupper(argv[1][j]))
+                        if islower(plaintext[i])
                         {
-                            ciphertext[i] = plaintext[i] + j;
+                            
                         }
                     }
                 }
