@@ -55,7 +55,7 @@ int main(int argc, string argv[])
             {
                 for (int j = 0, n = strlen(arg[1][j]); j < n; j++)
                 {
-                    
+                    arg[1][j] = 0;
                 }
                 printf("Nice!\n");
                 string plaintext = get_string("plaintext: ");
