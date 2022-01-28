@@ -25,17 +25,17 @@ int main(int argc, string argv[])
             {
                 if (argv[1][i] > 90 && argv[1][i] < 97)
                 {
-                    printf("Not alphabetical character.");
+                    printf("Not alphabetical character.\n");
                     return 1;
                 }
                 if (argv[1][i] < 65)
                 {
-                    printf("Not alphabetical character.");
+                    printf("Not alphabetical character.\n");
                     return 1;
                 }
                 if (argv[1][i] > 123)
                 {
-                    printf("Not alphabetical character.");
+                    printf("Not alphabetical character.\n");
                     return 1;
                 }
             }
