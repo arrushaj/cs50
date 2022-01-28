@@ -3,8 +3,9 @@
 
 int main(int argc, string argv[])
 {
-    if (argc == 1)  // If no input
+    if (argc != 1)  // If no input
     {
-        
+         printf("missing command-line argument\n");
+         return 1;
     }
 }
