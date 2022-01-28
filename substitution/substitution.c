@@ -21,7 +21,11 @@ int main(int argc, string argv[])
         }
         if (strlen(argv[1]) == 26)
         {
-            
+            for (int i = 0, a = strlen(argv[1]); i < a, i++)
+            {
+                if (argv[1][i])
+            }
+
             int unique = uniqueness(argv[1]);
 
             if (unique == 1)
