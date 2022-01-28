@@ -73,7 +73,7 @@ int main(int argc, string argv[])
                 string ciphertext = plaintext;
                 printf("ciphertext: %s\n", ciphertext);
                 return 0;
-            }
+            
             }
         }
     }
