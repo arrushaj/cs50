@@ -21,9 +21,9 @@ int main(int argc, string argv[])
         }
         if (strlen(argv[1]) == 26)
         {
-            for (int i = 0, a = strlen(argv[1]); i < a, i++)
+            for (int i = 0, a = strlen(argv[1]); i < a; i++)
             {
-                if (argv[1][i] > 90 || argv[1][i] < 97)
+                if (argv[1][i] > 90 && argv[1][i] < 97)
                 {
                     printf("Not alphabetical character.");
                     return 1;
