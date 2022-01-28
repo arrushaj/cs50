@@ -70,10 +70,10 @@ int main(int argc, string argv[])
                         plaintext[i] = tolower(argv[1][x]);
                     }
                 }
-            }
                 string ciphertext = plaintext;
                 printf("ciphertext: %s\n", ciphertext);
                 return 0;
+            }
             }
         }
     }
