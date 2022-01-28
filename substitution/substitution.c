@@ -57,9 +57,13 @@ int main(int argc, string argv[])
                 string plaintext = get_string("plaintext: ");
                 for (int i = 0, m = strlen(plaintext); i < m; i++)
                 {
-                    for (int j = 0, n = strlen(argv[1][i]); j < n; j++)
+                    for (int j = 0, n = strlen(argv[1][j]); j < n; j++)
                     {
-                        if (plaintext[i] = )
+                        if (plaintext[i] == argv[1][j])
+                        {
+                            if isupper(plaintext[i])
+                                
+                        }
                     }
                 }
                 return 0;
