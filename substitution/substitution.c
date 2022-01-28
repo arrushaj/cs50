@@ -21,9 +21,9 @@ int main(int argc, string argv[])
         {
         for (int i = 0, n = strlen(argv[1]); i < n; i++)
         {
-            for (int j = 0, n = strlen(argv[1]); j < n; j++)
+            for (int j = 0; j < n; j++)
             {
-                if argv[1][i] == argv[1][j];
+                if (argv[1][i] == argv[1][j])
                 {
                     printf("Each character isn't unique!\n");
                     return 1;
