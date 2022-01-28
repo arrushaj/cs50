@@ -22,6 +22,7 @@ int main(int argc, string argv[])
         if (strlen(argv[1]) == 26)
         {
             int unique = uniqueness(argv[1]);
+            
             if (unique == 1)
             {
                 printf("Each character isn't unique!\n");
