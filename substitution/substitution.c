@@ -55,23 +55,24 @@ int main(int argc, string argv[])
             {
                 printf("Nice!\n");
                 string plaintext = get_string("plaintext: ");
-                string ciphertext;
                 for (int i = 0, m = strlen(plaintext); i < m; i++)
                 {
                     int x = 0;
                     if isupper(plaintext[i])
                     {
                         x = plaintext[i] - 65;
-                        ciphertext[i] = toupper(argv[1][x]);
+                        plaintext[i] = toupper(argv[1][x]);
 
                     }
                     if islower(plaintext[i])
                     {
                         x = plaintext[i] - 97;
-                        ciphertext[i] = tolower(argv[1][x]);
+                        plaintext[i] = tolower(argv[1][x]);
                     }
                 }
             }
+                string ciphertext = plaintext;
+                printf("ciphertext: %s\n", ciphertext);
                 return 0;
             }
         }
