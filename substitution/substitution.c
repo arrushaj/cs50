@@ -9,7 +9,7 @@ int main(int argc, string argv[])
 {
     if (argc != 2)  // If no input
     {
-         printf("Missing command-line argument\n");
+         printf("Usage: ./substitution key\n");
          return 1;
     }
     if (argc == 2)
@@ -73,7 +73,7 @@ int main(int argc, string argv[])
                 string ciphertext = plaintext;
                 printf("ciphertext: %s\n", ciphertext);
                 return 0;
-            
+
             }
         }
     }
