@@ -179,6 +179,7 @@ bool print_winner(void)
     }
     if (highest > (total / 2))
     {
+        
         return true;
     }
     return false;
