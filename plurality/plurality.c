@@ -90,6 +90,7 @@ void print_winner(void)
     int
     for (int i = 0; i < candidate_count; i++, candidate_count--)
     {
+        for (int i= 0, i < candidate_count;)
         If candidates[i].votes > candidates[i+1].votes
         {
             sorted[i] = candidates[i+1];
