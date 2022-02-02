@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Run time is lower for sorted text.
+
+sort2 uses: Merge Sort
+
+How do you know?: Run time is significantly lower than Bubble Sort and Selection Sort when data is unsorted.
+
+sort3 uses: Selection Sort
+
+How do you know?: Run time is the same for reversed and sorted text.
