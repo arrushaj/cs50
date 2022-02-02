@@ -13,6 +13,13 @@ typedef struct
 }
 candidate;
 
+typedef struct
+{
+    string name;
+    int votes;
+}
+sorted;
+
 // Array of candidates
 candidate candidates[MAX];
 
@@ -85,7 +92,8 @@ void print_winner(void)
     {
         If candidates[i].votes > candidates[i+1].votes
         {
-            
+            sorted[i] = candidates[i+1];
+            sorted[i+1] = candidates[i]
         }
     }
     return;
