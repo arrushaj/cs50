@@ -169,17 +169,19 @@ bool print_winner(void)
 {
     int highest = 0;
     int total = 0;
+    string name;
     for (int i = 0; i < candidate_count; i++)
     {
         total = total + candidates[i].votes;
         if (candidates[i].votes > highest)
         {
             highest = candidates[i].votes;
+            name = candidates[i].name;
         }
     }
     if (highest > (total / 2))
     {
-        
+        printf("%s\n", name);
         return true;
     }
     return false;
