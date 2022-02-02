@@ -13,13 +13,6 @@ typedef struct
 }
 candidate;
 
-typedef struct
-{
-    string name;
-    int votes;
-}
-sorted;
-
 // Array of candidates
 candidate candidates[MAX];
 
@@ -87,17 +80,13 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    for (int i = 0; i < candidate_count; i++, candidate_count--)
+    int highest = 0
+    for (int i = 0; i < candidate_count - 1; i++)
     {
-        for (int j = 0; j < candidate_count; j++, candidate_count--)
+        if (candidates[i].votes > candidates[i+1].votes)
         {
-            If candidates[i].votes > candidates[i+1].votes
-            {
-                sorted[i] = candidates[i+1];
-                sorted[i+1] = candidates[i];
-            }
+            
         }
-
     }
     return;
 }
