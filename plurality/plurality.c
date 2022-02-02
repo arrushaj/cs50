@@ -73,9 +73,12 @@ bool vote(string name)
             candidates[i].votes += 1;
             return true;
         }
-        else
-        return false;
+        if (strcmp(candidates[i].name, name) != 0)
+        {
+            return false;
+        }
     }
+    return false;
 }
 
 // Print the winner (or winners) of the election
@@ -84,7 +87,10 @@ void print_winner(void)
     int
     for (int i = 0; i < candidate_count; i++, candidate_count--)
     {
-        If candidates[i].votes > candidates[i]
+        If candidates[i].votes > candidates[i+1].votes
+        {
+
+        }
     }
     return;
 }
