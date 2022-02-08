@@ -117,8 +117,8 @@ RGBTRIPLE copy[height - 1][width - 1];
             }
             if (i == height - 1 && j == 0)
             {
-                averageRed = (copy[height - 1][j].rgbtRed + copy[i + 1][j].rgbtRed + copy[i][j + 1].rgbtRed + copy[i + 1][j + 1].rgbtRed) / 4.0;
-                averageGreen = (copy[i][j].rgbtGreen + copy[i + 1][j].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen) / 4.0;
+                averageRed = (copy[height - 1][j].rgbtRed + copy[height - 2][j].rgbtRed + copy[height - 1]][j + 1].rgbtRed + copy[height - 2][j + 1].rgbtRed) / 4.0;
+                averageGreen = (copy[height - 1][j].rgbtGreen + copy[ + 1][j].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen) / 4.0;
                 averageBlue = (copy[i][j].rgbtBlue + copy[i + 1][j].rgbtBlue + copy[i][j + 1].rgbtBlue + copy[i + 1][j + 1].rgbtBlue) / 4.0;
             }
         }
