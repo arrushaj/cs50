@@ -117,7 +117,7 @@ RGBTRIPLE copy[height - 1][width - 1];
             }
             if (i == height - 1 && j == 0)                  // BOTTOM LEFT CORNER
             {
-                averageRed = (copy[height - 1][j].rgbtRed + copy[height - 2][j].rgbtRed + copy[height - 1]][j + 1].rgbtRed + copy[height - 2][j + 1].rgbtRed) / 4.0;
+                averageRed = (copy[height - 1][j].rgbtRed + copy[height - 2][j].rgbtRed + copy[height - 1][j + 1].rgbtRed + copy[height - 2][j + 1].rgbtRed) / 4.0;
                 averageGreen = (copy[height - 1][j].rgbtGreen + copy[height - 2][j].rgbtGreen + copy[height - 1][j + 1].rgbtGreen + copy[height - 2][j + 1].rgbtGreen) / 4.0;
                 averageBlue = (copy[height - 1][j].rgbtBlue + copy[height - 2][j].rgbtBlue + copy[height - 1][j + 1].rgbtBlue + copy[height - 2][j + 1].rgbtBlue) / 4.0;
                 image[i][j].rgbtRed = round(averageRed);
