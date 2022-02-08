@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <math.h>
+#include <stdio.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -89,12 +90,13 @@ RGBTRIPLE copy[height][width];
         for (int h = 0; h < width; h++)
         {
             copy[k][h] = image[k][h];
-            if (copy[1][1].rgbtRed == image[1][1].rgbtRed)
-            {
-                printf("Yes\n");
-            }    // Copy image pixels to seperate array so they don't mess things up when we blur each pixel individually
+           // Copy image pixels to seperate array so they don't mess things up when we blur each pixel individually
         }
     }
+     if (copy[1][1].rgbtRed == image[1][1].rgbtRed)
+            {
+                printf("Yes\n");
+            }    
 
     for (int i = 0; i < height; i++)
     {
