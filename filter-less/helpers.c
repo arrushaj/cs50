@@ -133,6 +133,7 @@ RGBTRIPLE copy[height - 1][width - 1];
                 image[i][j].rgbtGreen = round(averageGreen);
                 image[i][j].rgbtBlue = round(averageBlue);
             }
+            if (j == 0)
         }
     }
     return;
