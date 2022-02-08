@@ -96,11 +96,11 @@ RGBTRIPLE copy[height][width];
     {
         for (int j = 0; j < width; j++)
         {
-            if (i = 0 && j = 0)                 // If located in the top left corner of image
+            if (i == 0 && j == 0)                 // If located in the top left corner of image
             {
-                averageRed = (copy[i][j].rgbtRed + copy[i + 1][j].rgbtRed + copy[i][j + 1].rgbtRed + copy[i + 1][j + 1].rgbtRed) / 4.0);
-                averageGreen = (copy[i][j].rgbtGreen + copy[i + 1][j].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen) / 4.0);
-                averageBlue = (copy[i][j].rgbtBlue + copy[i + 1][j].rgbtBlue + copy[i][j + 1].rgbtBlue + copy[i + 1][j + 1].rgbtBlue) / 4.0);
+                averageRed = (copy[i][j].rgbtRed + copy[i + 1][j].rgbtRed + copy[i][j + 1].rgbtRed + copy[i + 1][j + 1].rgbtRed) / 4.0;
+                averageGreen = (copy[i][j].rgbtGreen + copy[i + 1][j].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen) / 4.0;
+                averageBlue = (copy[i][j].rgbtBlue + copy[i + 1][j].rgbtBlue + copy[i][j + 1].rgbtBlue + copy[i + 1][j + 1].rgbtBlue) / 4.0;
                 image[i][j].rgbtRed = round(averageRed);
                 image[i][j].rgbtGreen = round(averageGreen);
                 image[i][j].rgbtBlue = round(averageBlue);
