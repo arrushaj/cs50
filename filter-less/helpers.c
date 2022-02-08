@@ -124,7 +124,7 @@ RGBTRIPLE copy[height - 1][width - 1];
                 image[i][j].rgbtGreen = round(averageGreen);
                 image[i][j].rgbtBlue = round(averageBlue);
             }
-            if (i == height - 1 && j == width - 1)           // BOTTOM RIGHT CORNER
+            if (i == height && j == width)           // BOTTOM RIGHT CORNER
             {
                 averageRed = (copy[i][j].rgbtRed + copy[i - 1][j].rgbtRed + copy[i][j - 1].rgbtRed + copy[i - 1][j - 1].rgbtRed) / 4.0;
                 averageGreen = (copy[i][j].rgbtGreen + copy[i - 1][j].rgbtGreen + copy[i][j - 1].rgbtGreen + copy[i - 1][j - 1].rgbtGreen) / 4.0;
