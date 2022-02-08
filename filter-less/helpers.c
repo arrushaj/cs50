@@ -169,7 +169,7 @@ RGBTRIPLE copy[height - 1][width - 1];
                 image[i][j].rgbtGreen = round(averageGreen);
                 image[i][j].rgbtBlue = round(averageBlue);
             }
-            else
+            else if (i > 0 && i < height - 1 && j > 0 && j < width - 1)
             {
                 averageRed = (copy[i][j].rgbtRed + copy[i - 1][j].rgbtRed + copy[i][j - 1].rgbtRed + copy[i][j + 1].rgbtRed + copy[i - 1][j - 1].rgbtRed + copy[i - 1][j + 1].rgbtRed + copy[i + 1][j - 1].rgbtRed + copy[i + 1][j + 1].rgbtRed + copy[i + 1][j].rgbtRed) / 9.0;
                 averageGreen = (copy[i][j].rgbtGreen + copy[i - 1][j].rgbtGreen + copy[i][j - 1].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i - 1][j - 1].rgbtGreen + copy[i - 1][j + 1].rgbtGreen + copy[i + 1][j - 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen + copy[i + 1][j].rgbtGreen) / 9.0;
