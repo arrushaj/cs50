@@ -93,11 +93,6 @@ RGBTRIPLE copy[height - 1][width - 1];
            // Copy image pixels to seperate array so they don't mess things up when we blur each pixel individually
         }
     }
-    if (copy[1][1].rgbtRed == image[1][1].rgbtRed)
-    {
-                printf("Yes\n");
-    }
-
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
