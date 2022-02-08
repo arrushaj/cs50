@@ -88,7 +88,7 @@ RGBTRIPLE copy[height][width];
     {
         for (int h = 0; h < width; h++)
         {
-            copy[k][h] = image[k][h];    // Copy image pixels so they don't mess things up when we blur each pixel individually
+            copy[k][h] = image[k][h];    // Copy image pixels to seperate array so they don't mess things up when we blur each pixel individually
         }
     }
 
@@ -104,6 +104,21 @@ RGBTRIPLE copy[height][width];
                 image[i][j].rgbtRed = round(averageRed);
                 image[i][j].rgbtGreen = round(averageGreen);
                 image[i][j].rgbtBlue = round(averageBlue);
+            }
+            if (i == 0 && j == width - 1)
+            {
+                averageRed = (copy[i][width - 1].rgbtRed + copy[i + 1][width - 1].rgbtRed + copy[i][width - 2].rgbtRed + copy[i + 1][width - 2].rgbtRed) / 4.0;
+                averageGreen = (copy[i][width - 1].rgbtGreen + copy[i + 1][width - 1].rgbtGreen + copy[i][width - 2].rgbtGreen + copy[i + 1][width - 2].rgbtGreen) / 4.0;
+                averageBlue = (copy[i][width - 1].rgbtBlue + copy[i + 1][width - 1].rgbtBlue + copy[i][width - 2].rgbtBlue + copy[i + 1][width - 2].rgbtBlue) / 4.0;
+                image[i][j].rgbtRed = round(averageRed);
+                image[i][j].rgbtGreen = round(averageGreen);
+                image[i][j].rgbtBlue = round(averageBlue);
+            }
+            if (i == height - 1 && j == 0)
+            {
+                averageRed = (copy[height - 1][j].rgbtRed + copy[i + 1][j].rgbtRed + copy[i][j + 1].rgbtRed + copy[i + 1][j + 1].rgbtRed) / 4.0;
+                averageGreen = (copy[i][j].rgbtGreen + copy[i + 1][j].rgbtGreen + copy[i][j + 1].rgbtGreen + copy[i + 1][j + 1].rgbtGreen) / 4.0;
+                averageBlue = (copy[i][j].rgbtBlue + copy[i + 1][j].rgbtBlue + copy[i][j + 1].rgbtBlue + copy[i + 1][j + 1].rgbtBlue) / 4.0;
             }
         }
     }
