@@ -82,6 +82,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 float averageRed;
 float averageGreen;
 float averageBlue;
+int copy[height][width]
 
     for (int i = 0; i < height; i++)
     {
@@ -89,6 +90,7 @@ float averageBlue;
         {
             if (i = 0 && j = 0)                 // If located in the top left corner of image
             {
+                copy
                 averageRed = (image[i][j].rgbtRed + image[i + 1][j].rgbtRed + image[i][j + 1].rgbtRed + image[i + 1][j + 1].rgbtRed) / 4.0;
                 averageGreen = (image[i][j].rgbtGreen + image[i + 1][j].rgbtGreen + image[i][j + 1].rgbtGreen + image[i + 1][j + 1].rgbtGreen) / 4.0;
                 averageBlue = (image[i][j].rgbtBlue + image[i + 1][j].rgbtBlue + image[i][j + 1].rgbtBlue + image[i + 1][j + 1].rgbtBlue) / 4.0;
