@@ -84,9 +84,9 @@ float averageGreen;
 float averageBlue;
 RGBTRIPLE copy[height][width];
 
-    for (int k = 0; i < height; i++)
+    for (int k = 0; k < height; k++)
     {
-        for (int h = 0; j < width; j++)
+        for (int h = 0; h < width; h++)
         {
             copy[k][h] = image[k][h];    // Copy image pixels so they don't mess things up when we blur each pixel individually
         }
