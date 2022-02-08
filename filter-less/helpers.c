@@ -82,14 +82,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 float averageRed;
 float averageGreen;
 float averageBlue;
-typedef struct
-{
-    BYTE  rgbtBlue;
-    BYTE  rgbtGreen;
-    BYTE  rgbtRed;
-} __attribute__((__packed__))
-copy;
-
 
     for (int k = 0; i < height; i++)
     {
