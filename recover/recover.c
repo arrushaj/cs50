@@ -34,5 +34,12 @@ int main(int argc, char *argv[])
                 i++;
             }
         }
+        else
+        {
+            if (i > 1)
+            {
+                fwrite(jpeg, 1, BLOCK_SIZE, img);
+            }
+        }
     }
 }
