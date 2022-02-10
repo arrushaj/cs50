@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
             FILE *img = fopen(filename, "w");
             if (i == 1)
             {
-                FILE *img = fopen(filename, "w");
                 fwrite(jpeg, 1, BLOCK_SIZE, img);
                 i++;
             }
