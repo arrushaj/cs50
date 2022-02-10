@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
             sprintf(filename, "%03i.jpg", i);
             i++;
             FILE *img = fopen(filename, "w");
-            
+            fwrite(jpeg, BYTE, BLOCK_SIZE, img);
         }
     }
 
