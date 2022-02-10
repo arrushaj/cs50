@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
             if (i == 1)
             {
                 sprintf(filename, "%03i.jpg", i);
-                FILE *img = fopen(filename, "w");
+                img = fopen(filename, "w");
                 fwrite(jpeg, 1, BLOCK_SIZE, img);
                 i++;
             }
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
             {
                 fclose(img);
                 sprintf(filename, "%03i.jpg", i);
-                FILE *img = fopen(filename, "w");
+                img = fopen(filename, "w");
                 fwrite(jpeg, 1, BLOCK_SIZE, img);
                 i++;
             }
@@ -42,6 +42,6 @@ int main(int argc, char *argv[])
             }
         }
     }
-    close(img);
-    close(argv[1]);
+    fclose(img);
+    fclose(file);
 }
