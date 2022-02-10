@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {
+    if
     const int BLOCK_SIZE = 512;
     typedef uint8_t BYTE;
     BYTE jpeg[BLOCK_SIZE];
