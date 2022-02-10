@@ -42,4 +42,6 @@ int main(int argc, char *argv[])
             }
         }
     }
+    close(img);
+    close(argv[1]);
 }
