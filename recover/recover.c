@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
             }
             else if (i > 1)
             {
-                fclose(*img);
+                fclose(img);
             }
         }
     }
