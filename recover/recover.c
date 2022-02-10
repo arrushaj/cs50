@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 
     FILE *file = fopen(argv[1], "r");
     int i = 1;
+    string filename = NULL;
 
     while (fread(jpeg, 1, BLOCK_SIZE, file) == 512)
     {
@@ -18,7 +19,6 @@ int main(int argc, char *argv[])
         {
             if (i == 1)
             {
-                string filename = NULL;
                 sprintf(filename, "%03i.jpg", i);
                 FILE *img = fopen(filename, "w");
                 fwrite(jpeg, 1, BLOCK_SIZE, img);
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
             }
             else if (i > 1)
             {
-                fclose(filename);
+                fclose(*img);
             }
         }
     }
