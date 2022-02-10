@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
     {
         if (jpeg[0] == 0xff & jpeg[1] == 0xd8 & jpeg[2] == 0xff & (jpeg[3] & 0xf0) == 0xe0)
         {
+            sprintf(filename, "%03i.jpg", i);
             if (i == 1)
             {
-                sprintf(filename, "%03i.jpg", i);
                 FILE *img = fopen(filename, "w");
                 fwrite(jpeg, 1, BLOCK_SIZE, img);
                 i++;
