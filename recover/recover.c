@@ -3,6 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-    
-    fread()
+
+    FILE* card = fopen(argv[1], "r");
+
+
 }
