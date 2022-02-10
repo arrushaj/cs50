@@ -19,11 +19,10 @@ int main(int argc, char *argv[])
             {
                 string filename;
                 sprintf(filename, "%03i.jpg", i);
-                FILE *img = fopen(filename, "w");
+                FILE *img = fopen(ilename, "w");
                 fwrite(jpeg, BYTE, BLOCK_SIZE, img);
                 i++;
             }
-            else if (i > 1)
         }
     }
 
