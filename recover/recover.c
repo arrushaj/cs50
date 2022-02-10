@@ -17,9 +17,13 @@ int main(int argc, char *argv[])
         {
             string filename;
             sprintf(filename, "%03i.jpg", i);
-            i++;
+            if (i > 1)
+            {
+                fclose(img);
+            }
             FILE *img = fopen(filename, "w");
             fwrite(jpeg, BYTE, BLOCK_SIZE, img);
+            i++;
         }
     }
 
