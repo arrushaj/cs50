@@ -12,17 +12,21 @@ int main(int argc, char *argv[])
     FILE *file = fopen(argv[1], "r");
     int i = 1;
 
-    while (fread(jpeg, BYTE, BLOCK_SIZE, file) == 512)
+    while (fread(jpeg, 1, BLOCK_SIZE, file) == 512)
     {
-        if (buffer[0] == 0xff & buffer[1] == 0xd8 & buffer[2] == 0xff & (buffer[3] && 0xf0) == 0xe0)
+        if (jpeg[0] == 0xff & jpeg[1] == 0xd8 & jpeg[2] == 0xff & (jpeg[3] & 0xf0) == 0xe0)
         {
-            if (i = 1)
+            if (i == 1)
             {
-                string filename;
+                string filename = NULL;
                 sprintf(filename, "%03i.jpg", i);
-                FILE *img = fopen(ilename, "w");
-                fwrite(jpeg, BYTE, BLOCK_SIZE, img);
+                FILE *img = fopen(filename, "w");
+                fwrite(jpeg, 1, BLOCK_SIZE, img);
                 i++;
+            }
+            else if (i > 1)
+            {
+                fclose(filename);
             }
         }
     }
