@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     FILE *file = fopen(argv[1], "r");
     int i = 1;
-    string filename = NULL;
+    char filename[8];
     FILE *img;
 
     while (fread(jpeg, 1, BLOCK_SIZE, file) == 512)
