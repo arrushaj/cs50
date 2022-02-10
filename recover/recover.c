@@ -8,13 +8,16 @@ int main(int argc, char *argv[])
     BYTE jpeg[BLOCK_SIZE];
 
     FILE *file = fopen(argv[1], "r");
-    int i = 0;
+    int i = 1;
 
     while (fread(jpeg, BYTE, BLOCK_SIZE, file) == 512)
     {
         if (buffer[0] == 0xff & buffer[1] == 0xd8 & buffer[2] == 0xff & (buffer[3] && 0xf0) == 0xe0)
         {
+            string filename;
             sprintf(filename, "%03i.jpg", i);
+            i++;
+            
         }
     }
 
