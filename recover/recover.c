@@ -5,7 +5,12 @@
 
 int main(int argc, char *argv[])
 {
-    if
+    if (argc != 2)
+    {
+        printf("Usage: ./recover <forensic_file>\n");
+        return 1;
+    }
+    
     const int BLOCK_SIZE = 512;
     typedef uint8_t BYTE;
     BYTE jpeg[BLOCK_SIZE];
