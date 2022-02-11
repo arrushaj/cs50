@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     char filename[8];
     FILE *img;
 
-    while (fread(jpeg, 1, BLOCK_SIZE, file) == 512)
+    while (fread(jpeg, 1, BLOCK_SIZE, file) == 512)         //512 BYTES OF MEMORY IN A BLOCK, IF LESS THAN THAT ARE READ THAT MEANS ITS THE END OF THE PROGRAM
     {
         if (jpeg[0] == 0xff & jpeg[1] == 0xd8 & jpeg[2] == 0xff & (jpeg[3] & 0xf0) == 0xe0)     // IF BLOCK BELONGS TO JPEG
         {
