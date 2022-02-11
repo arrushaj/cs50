@@ -10,12 +10,17 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover <forensic_file>\n");
         return 1;
     }
-    
+
     const int BLOCK_SIZE = 512;
     typedef uint8_t BYTE;
     BYTE jpeg[BLOCK_SIZE];
 
     FILE *file = fopen(argv[1], "r");
+    if (file == NULL)
+    {
+        printf("Forensic image cannot be opened for reading.\n");
+        return 1;
+    }
     int i = 0;
     char filename[8];
     FILE *img;
