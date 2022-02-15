@@ -42,7 +42,9 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    while (fscanf(dictionary, "%s", node->word) != EOF)
+
+    char buffer[LENGTH + 1];
+    while (fscanf(dictionary, "%s", buffer) != EOF)
     {
         
     }
