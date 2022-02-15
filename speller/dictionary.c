@@ -33,9 +33,10 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     int index = 0;
-    for (int i = 0, int n = strlen(word); i < n; i++)
+    int n = strlen(word);
+    for (int i = 0; i < n; i++)
     {
-        if (word[i] = '\'')
+        if (word[i] == '\'')
         {
             index = index + 0;
         }
