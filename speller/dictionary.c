@@ -52,6 +52,8 @@ bool load(const char *dictionary)
             return false;
         }
         strcopy(n->word, buffer);
+        int index = hash(n->word);
+        
     }
     return false;
 }
