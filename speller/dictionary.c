@@ -37,14 +37,14 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE dictionary = fopen(dictionary, "r");
-    If (dictionary == NULL)
+    FILE file = fopen(dictionary, "r");
+    If (file == NULL)
     {
         return false;
     }
 
     char buffer[LENGTH + 1];
-    while (fscanf(dictionary, "%s", buffer) != EOF)
+    while (fscanf(file, "%s", buffer) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
