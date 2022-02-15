@@ -51,7 +51,7 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        
+        strcopy(n->word, buffer);
     }
     return false;
 }
