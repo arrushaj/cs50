@@ -38,9 +38,9 @@ unsigned int hash(const char *word)
     {
         if (word[i] == '\'')
         {
-            index = index + 0;
+            index += 0;
         }
-        index = index + (toupper(word[i]) - 'A');
+        index += (toupper(word[i]) - 'A');
     }
     // TODO: Improve this hash function
     return index;
