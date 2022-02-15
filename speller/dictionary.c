@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <cs50.h>
 
 #include "dictionary.h"
 
@@ -38,7 +39,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     FILE *file = fopen(dictionary, "r");
-    If (file == NULL)
+    if (file == NULL)
     {
         return false;
     }
