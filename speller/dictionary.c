@@ -35,10 +35,7 @@ unsigned int hash(const char *word)
     int index = 0;
     For (int i = 0, n = strlen(word); i < n; i++)
     {
-        if (islower(word[i]))
-        {
-            
-        }
+        toupper(word[i]) - 'A';
     }
     // TODO: Improve this hash function
     return toupper(word[0]) - 'A';
