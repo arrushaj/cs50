@@ -4,8 +4,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <cs50.h>
-
+#include <stdlib.h>
 #include "dictionary.h"
+#include <string.h>
 
 // Represents a node in a hash table
 typedef struct node
@@ -52,7 +53,7 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        strcopy(n->word, buffer);
+        strcpy(n->word, buffer);
         int index = hash(n->word);
         n->next = table[index];
         table[index] = n;
