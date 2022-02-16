@@ -88,8 +88,8 @@ unsigned int size(void)
             total++;
             n = n->next;
         }
-        return total;
     }
+    return total;
 
     return 0;
 }
