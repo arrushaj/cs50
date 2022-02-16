@@ -17,7 +17,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = (26^2);      // Buckets for first 2 letters (aa, ab, ac, etc)
+const unsigned int N = 250;
 
 // Hash table
 node *table[N];
