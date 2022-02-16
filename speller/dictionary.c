@@ -136,6 +136,7 @@ bool unload(void)
             free(tmp);
             tmp = cursor;
         }
+        return true;
     }
 
 
