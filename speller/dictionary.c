@@ -45,7 +45,6 @@ bool check(const char *word)
         }
     }
     return false;
-    free(*n);
 }
 
 // Hashes word to a number
@@ -91,7 +90,6 @@ bool load(const char *dictionary)
         table[index] = n;
     }
     return true;
-    free(n);
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
