@@ -61,7 +61,7 @@ unsigned int hash(const char *word)
         index += (toupper(word[i]) - 'A');
     }
     // TODO: Improve this hash function
-    if (index > N - 1)
+    if (index > N)
     {
         index = index % N;
     }
