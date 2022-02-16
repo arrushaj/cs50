@@ -44,8 +44,8 @@ bool check(const char *word)
             n = n->next;
         }
     }
-    return false;
     free(n);
+    return false;
 }
 
 // Hashes word to a number
@@ -90,8 +90,8 @@ bool load(const char *dictionary)
         n->next = table[index];
         table[index] = n;
     }
-    return true;
     fclose(file);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
@@ -112,8 +112,8 @@ unsigned int size(void)
             n = n->next;
         }
     }
-    return total;
     free(n);
+    return total;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
