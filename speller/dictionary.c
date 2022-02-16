@@ -116,6 +116,16 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    node *n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return false;
+    }
+    node *tmp = malloc(sizeof(node));
+    if (tmp == NULL)
+    {
+        return false;
+    }
+    
     return false;
 }
