@@ -111,7 +111,6 @@ unsigned int size(void)
         }
     }
     return total;
-    free(n);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
@@ -137,7 +136,6 @@ bool unload(void)
             free(tmp);
             tmp = cursor;
         }
-        return true;
     }
-    return false;
+    return true;
 }
