@@ -58,7 +58,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-
+    int size = 0;
     char buffer[LENGTH + 1];
     while (fscanf(file, "%s", buffer) != EOF)
     {
@@ -71,6 +71,7 @@ bool load(const char *dictionary)
         int index = hash(n->word);
         n->next = table[index];
         table[index] = n;
+        size += 1;
     }
     return true;
 }
