@@ -45,6 +45,7 @@ bool check(const char *word)
         }
     }
     return false;
+    free(*n);
 }
 
 // Hashes word to a number
@@ -90,6 +91,7 @@ bool load(const char *dictionary)
         table[index] = n;
     }
     return true;
+    free(n);
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
@@ -111,6 +113,7 @@ unsigned int size(void)
         }
     }
     return total;
+    free(n);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
@@ -128,17 +131,15 @@ bool unload(void)
     }
     for (int i = 0; i < N; i++)
     {
-        tmp = table[i];
+        tmp = table[i];             // Set 2 pointers equal to linked list
         cursor = table[i];
         while (cursor != NULL)
         {
-            cursor = cursor->next;
+            cursor = cursor->next;      // Keep moving along the linked list while not orphaning and losing track of where you are
             free(tmp);
             tmp = cursor;
         }
         return true;
     }
-
-
     return false;
 }
