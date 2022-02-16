@@ -73,6 +73,7 @@ bool load(const char *dictionary)
         table[index] = n;
         size += 1;
     }
+    size(size);
     return true;
 }
 
