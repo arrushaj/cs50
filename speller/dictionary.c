@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "dictionary.h"
 #include <string.h>
+#include <strings.h>
 
 // Represents a node in a hash table
 typedef struct node
@@ -28,7 +29,17 @@ bool check(const char *word)
     int index = hash(word);
     node *n = malloc(sizeof(node));
     n = table[index];
-    while 
+    while (n->next != NULL)
+    {
+        if (strcamp(n->word, word) == 0)
+        {
+            return true;
+        }
+        else
+        {
+            
+        }
+    }
     return false;
 }
 
