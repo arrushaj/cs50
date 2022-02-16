@@ -58,7 +58,6 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    int size = 0;
     char buffer[LENGTH + 1];
     while (fscanf(file, "%s", buffer) != EOF)
     {
@@ -79,8 +78,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-   if load = true;
-    return 0;
+
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
