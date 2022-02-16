@@ -80,9 +80,14 @@ unsigned int size(void)
 {
     int total = 1;
     node *n = malloc(sizeof(node));
-    for (int i = 0, i < N, i++)
+    for (int i = 0; i < N; i++)
     {
+        n->next = table[N];
         while (n->next != NULL)
+        {
+            total++;
+            n->next = 
+        }
     }
 
     return 0;
