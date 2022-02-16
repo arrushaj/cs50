@@ -37,6 +37,7 @@ bool check(const char *word)
     {
         if (strcasecmp(n->word, word) == 0)
         {
+            free(n);
             return true;
         }
         else
@@ -44,7 +45,6 @@ bool check(const char *word)
             n = n->next;
         }
     }
-    free(n);
     return false;
 }
 
