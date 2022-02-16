@@ -126,10 +126,18 @@ bool unload(void)
     {
         return false;
     }
-    while (cursor != NULL)
+    for (int i = 0; i < N; i++)
     {
-        
+        tmp = table[i];
+        cursor = table[i];
+        while (cursor != NULL)
+        {
+            cursor = cursor->next;
+            free(tmp);
+            tmp = cursor;
+        }
     }
+
 
     return false;
 }
