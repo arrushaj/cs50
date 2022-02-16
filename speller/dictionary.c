@@ -82,12 +82,13 @@ unsigned int size(void)
     node *n = malloc(sizeof(node));
     for (int i = 0; i < N; i++)
     {
-        n->next = table[N];
+        n = table[N];
         while (n->next != NULL)
         {
             total++;
-            n->next = 
+            n = n->next;
         }
+        return total;
     }
 
     return 0;
