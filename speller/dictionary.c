@@ -70,7 +70,7 @@ bool load(const char *dictionary)
         int index = hash(n->word);
         n->next = table[index];
         table[index] = n;
-        size += 1;
+        size;
     }
     return true;
 }
@@ -78,7 +78,10 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
+    int size;
+    size += 1;
 
+    return 0;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
