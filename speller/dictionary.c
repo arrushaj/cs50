@@ -98,11 +98,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     int total = 0;
-    node *n = malloc(sizeof(node));
-    if (n == NULL)
-    {
-        return false;
-    }
+    node *n = NULL;
     for (int i = 0; i < N; i++)
     {
         n = table[i];
