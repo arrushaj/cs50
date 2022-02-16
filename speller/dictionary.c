@@ -104,7 +104,7 @@ unsigned int size(void)
     for (int i = 0; i < N; i++)
     {
         n = table[i];
-        while (n == NULL)
+        while (n != NULL)
         {
             total++;
             n = n->next;
