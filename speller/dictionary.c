@@ -116,8 +116,8 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    node *n = malloc(sizeof(node));
-    if (n == NULL)
+    node *cursor = malloc(sizeof(node));
+    if (cursor == NULL)
     {
         return false;
     }
@@ -126,6 +126,10 @@ bool unload(void)
     {
         return false;
     }
-    
+    while (cursor != NULL)
+    {
+        
+    }
+
     return false;
 }
