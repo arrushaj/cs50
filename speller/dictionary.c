@@ -28,6 +28,10 @@ bool check(const char *word)
 {
     int index = hash(word);
     node *n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return false;
+    }
     n = table[index];
     while (n != NULL)
     {
