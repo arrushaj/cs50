@@ -27,18 +27,13 @@ node *table[N];
 bool check(const char *word)
 {
     int index = hash(word);
-    node *n = malloc(sizeof(node));
-    if (n == NULL)
-    {
-        return false;
-    }
+    node *n = NULL;
     n = table[index];
     while (n != NULL)
     {
         if (strcasecmp(n->word, word) == 0)
         {
             return true;
-            free(n);
         }
         else
         {
@@ -108,23 +103,14 @@ unsigned int size(void)
             n = n->next;
         }
     }
-    free(n);
     return total;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    node *cursor = malloc(sizeof(node));
-    if (cursor == NULL)
-    {
-        return false;
-    }
-    node *tmp = malloc(sizeof(node));
-    if (tmp == NULL)
-    {
-        return false;
-    }
+    node *cursor = NULL;
+    node *tmp = NULL;
     for (int i = 0; i < N; i++)
     {
         tmp = table[i];             // Set 2 pointers equal to linked list
