@@ -92,6 +92,7 @@ bool load(const char *dictionary)
     }
     return true;
     fclose(file);
+    free(n);
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
@@ -113,6 +114,7 @@ unsigned int size(void)
         }
     }
     return total;
+    free(n);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
