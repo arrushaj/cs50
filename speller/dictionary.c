@@ -90,8 +90,6 @@ unsigned int size(void)
         }
     }
     return total;
-
-    return 0;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
