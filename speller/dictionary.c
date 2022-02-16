@@ -70,7 +70,7 @@ bool load(const char *dictionary)
         int index = hash(n->word);
         n->next = table[index];
         table[index] = n;
-        size;
+        size();
     }
     return true;
 }
