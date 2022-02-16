@@ -29,15 +29,15 @@ bool check(const char *word)
     int index = hash(word);
     node *n = malloc(sizeof(node));
     n = table[index];
-    while (n->next != NULL)
+    while (n != NULL)
     {
-        if (strcamp(n->word, word) == 0)
+        if (strcasecmp(n->word, word) == 0)
         {
             return true;
         }
         else
         {
-            
+            n = n->next;
         }
     }
     return false;
@@ -92,12 +92,12 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    int total = 1;
+    int total = 0;
     node *n = malloc(sizeof(node));
     for (int i = 0; i < N; i++)
     {
         n = table[i];
-        while (n->next != NULL)
+        while (n == NULL)
         {
             total++;
             n = n->next;
