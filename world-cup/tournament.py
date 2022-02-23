@@ -28,7 +28,7 @@ def main():
         if winner in counts:
             counts[winner] += 1
         else:
-            counts.append(winner)
+            counts[winn]
             counts[winner] = 1
 
     # TODO: Simulate N tournaments and keep track of win counts
