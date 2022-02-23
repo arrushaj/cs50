@@ -26,7 +26,7 @@ def main():
     counts = {}
     for i in range(N):
         winner = simulate_tournament(teams)
-        if winner["team"] in counts:
+        if winner in counts:
             counts[winner["team"]] += 1
         else:
             counts[winner["team"]] = 1
@@ -66,7 +66,8 @@ def simulate_tournament(teams):
     while len(winners) > 1:
         winners = simulate_round(winners)
 
-    return winners[0]
+    winner = winners[0]
+    return winner["team"]
 
     # TODO
 
