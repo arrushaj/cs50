@@ -20,10 +20,9 @@ def main():
     with open(filename, "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            name = row["team"]
-            rating = int(row["rating"])
-            dict = {name, rating}
-            teams.append(dict)
+            name = {"team", row["team"]}
+            rating = {"rating", int(row["rating"])}
+            teams.append(name)
 
     counts = {}
     for i in range(N):
