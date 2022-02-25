@@ -7,6 +7,6 @@ n = get_int("Height: ")
 
 for i in range(n)
     for j in range(n)
-        print(" " * )
-        print("#" * n)
+        print(" " * ())
+        print("#" * (i+1))
 
