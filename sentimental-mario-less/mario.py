@@ -10,4 +10,4 @@ for i in range(n):
     print("#" * (i+1), end="")
     print("  ", end="")
     print("#" * (i+1), end="")
-    print(" " * (n-i-1), end="\n")
+    print(" " * (n-i-1))
