@@ -6,7 +6,6 @@ while True:
         break
 
 for i in range(n):
-    for j in range(n):
         print(" " * (n-i-1), end="")
         print("#" * (i+1), end="\n")
 
