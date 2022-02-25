@@ -5,5 +5,6 @@ n = get_int("Height: ")
     if n > 0 or n < 9:
         break
 
-
+for i in range(n)
+    for j in range(4)
 
