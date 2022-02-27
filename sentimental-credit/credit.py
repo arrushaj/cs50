@@ -16,7 +16,7 @@ for i in range(1, length, 2):
     checksum = checksum + total + digit
 
 length_checksum = len(str(checksum))
-if str(checksum)[length_checksum-1] != 0:
+if str(checksum)[length_checksum] != 0:
     print("INVALID")
 
 if length == 15:
