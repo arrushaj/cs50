@@ -15,4 +15,7 @@ for i in range(1, length, 2):
     digit = int(str(number)[i])
     checksum = checksum + total + digit
 
-print(checksum)
+if checksum % 10 != 0:
+    print("INVALID")
+
+
