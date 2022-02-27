@@ -7,16 +7,12 @@ length = len(str(number))
 total = 0
 checksum = 0
 for i in range(0, length, 2):
-    digit = int(str(number)[i])
-    print(digit)
+    digit = int(str(number)[length-i])
     digit = digit * 2
     total = total + digit
 
-print("TOTAL!!!!")
-print(total)
-
 for i in range(1, length, 2):
-    digit = int(str(number)[i])
+    digit = int(str(number)[length-i])
     checksum = checksum + total + digit
 
 print(checksum)
