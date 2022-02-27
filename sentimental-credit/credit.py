@@ -8,8 +8,7 @@ total = 0
 checksum = 0
 j = 1
 for i in range(length):
-    place = 10^j
-    print(place)
+    place = 10 ** j
     digit = number % (place)
     print(digit)
     double = digit * 2
