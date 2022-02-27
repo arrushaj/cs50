@@ -10,11 +10,11 @@ for i in range(1, length, 2):
     digit = int(str(number)[length-i-1])
     digit = digit * 2
     total = total + digit
-
-print(total)
+    
+checksum = checksum + total
 for i in range(0, length, 2):
     digit = int(str(number)[length-i-1])
-    checksum = checksum + total + digit
+    checksum = checksum + digit
 
 print(checksum)
 
