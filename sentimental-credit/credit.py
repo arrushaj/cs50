@@ -22,7 +22,7 @@ for i in range(1, length, 2):
 print(checksum)
 
 length_checksum = len(str(checksum))
-if str(checksum)[length_checksum-1] != 0:
+if str(checksum)[length_checksum-1] != str(0):
     print("INVALID")
 
 if length == 15:
