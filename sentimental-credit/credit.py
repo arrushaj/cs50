@@ -30,7 +30,7 @@ if length == 15:
         print(str(number)[0] + str(number)[1])
 
 elif length == 13 or length == 16:
-    if int(str(number)[0] + str(number)[1]) == 51 or 55:
+    if int(str(number)[0] + str(number)[1]) == 51 or 52:
         print("MASTERCARD")
     elif str(number)[0] == str(4):
         print("VISA")
