@@ -19,5 +19,5 @@ if checksum % 10 != 0:
     print("INVALID")
 
 if length == 15:
-        if str(number)[0] + str(number)(1) == 34 or 37:
+        if str(number)[0] + str(number)[1] == str(34) or str(37):
             print("AMEX")
