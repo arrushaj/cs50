@@ -31,7 +31,7 @@ elif length == 16:
     if str(number)[0] + str(number)[1] == str(51) or str(52) or str(53) or str(54) or str(55):
         print("MASTERCARD")
 
-elif length == 13 or 16:
+elif length == 13 or length == 16:
     if str(number)[0] == str(4):
         print("VISA")
 
