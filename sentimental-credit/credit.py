@@ -19,6 +19,6 @@ for k in range(length):
     digit = number % (10^j)
     checksum = checksum + total + digit
     j = j + 2
-    i = i + 2
+    k = k + 2
 
 print(checksum)
