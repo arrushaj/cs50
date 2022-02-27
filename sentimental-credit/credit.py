@@ -10,4 +10,5 @@ for i in range(len(number)):
     j = j + 2
     i = i + 2
 
-for 
+for k in range(len(number)):
+    
