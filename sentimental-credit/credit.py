@@ -31,5 +31,6 @@ elif length == 13 or length == 16:
         print("MASTERCARD")
     elif str(number)[0] == str(4):
         print("VISA")
+    print(str(number)[0] + str(number)[1])
 
 
