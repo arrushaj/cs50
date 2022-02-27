@@ -23,5 +23,14 @@ if str(checksum)[length_checksum-1] != str(0):
     print("INVALID")
 
 if length == 15:
-        if str(number)[0] + str(number)[1] == str(34) or str(37):
-            print("AMEX")
+    if str(number)[0] + str(number)[1] == str(34) or str(37):
+        print("AMEX")
+
+elif length == 16:
+    if str(number)[0] + str(number)[1] == str(51) or str(52) or str(53) or str(54) or str(55):
+        print("MASTERCARD")
+
+elif length == 13 or 16:
+    if str(number)[0] == str(4):
+        print("VISA")
+
