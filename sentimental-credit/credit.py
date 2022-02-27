@@ -27,6 +27,7 @@ if length == 15:
         print("AMEX")
 
 elif length == 16:
+    print(str(number)[0] + str(number)[1])
     if str(number)[0] + str(number)[1] == str(51) or str(52) or str(53) or str(54) or str(55):
         print("MASTERCARD")
 
