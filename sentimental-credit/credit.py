@@ -8,8 +8,13 @@ total = 0
 checksum = 0
 for i in range(0, length, 2):
     digit = int(str(number)[i])
+    print(digit)
     digit = digit * 2
     total = total + digit
+
+print(total)
+
+break
 
 for i in range(1, length, 2):
     digit = int(str(number)[i])
