@@ -18,4 +18,7 @@ for i in range(1, length, 2):
 if checksum % 10 != 0:
     print("INVALID")
 
-for i in range()
+if length == 15:
+    {
+        if 
+    }
