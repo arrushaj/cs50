@@ -4,6 +4,8 @@ number = get_int("Number: ")
 
 length = len(str(number))
 
+total = 0
+checksum = 0
 for i in range(length):
     j = 1
     digit = number % (10^j)
