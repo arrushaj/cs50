@@ -12,8 +12,6 @@ for i in range(0, length, 2):
     digit = digit * 2
     total = total + digit
 
-
-
 for i in range(1, length, 2):
     digit = int(str(number)[length-i-1])
     print(digit)
