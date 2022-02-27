@@ -2,6 +2,8 @@ from cs50 import get_int
 
 number = get_int("Number: ")
 
+
+
 for i in range(len(number)):
     j = 1
     digit = number % (10^j)
