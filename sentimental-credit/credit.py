@@ -6,13 +6,13 @@ length = len(str(number))
 
 total = 0
 checksum = 0
-for i in range(0, length, 2):
+for i in range(1, length, 2):
     digit = int(str(number)[length-i-1])
     digit = digit * 2
     print(digit)
     total = total + digit
 
-for i in range(1, length, 2):
+for i in range(0, length, 2):
     digit = int(str(number)[length-i-1])
     print(digit)
     checksum = checksum + total + digit
