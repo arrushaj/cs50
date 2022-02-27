@@ -12,9 +12,8 @@ for i in range(0, length, 2):
     digit = digit * 2
     total = total + digit
 
+print("TOTAL!!!!")
 print(total)
-
-break
 
 for i in range(1, length, 2):
     digit = int(str(number)[i])
