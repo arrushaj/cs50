@@ -15,10 +15,10 @@ for i in range(1, length, 2):
     digit = int(str(number)[i])
     checksum = checksum + total + digit
 
-length = len(str(checksum))
-if str(checksum)[length-1] != 0:
+length_checksum = len(str(checksum))
+if str(checksum)[length_checksum-1] != 0:
     print("INVALID")
-    
+
 if length == 15:
         if str(number)[0] + str(number)[1] == str(34) or str(37):
             print("AMEX")
