@@ -8,12 +8,12 @@ total = 0
 checksum = 0
 j = 1
 for i in range(length):
-    digit = number % (10^j)
+    digit = number % (10)
     print(digit)
     double = digit * 2
     total = total + double
-    j = j + 2
-    i = i + 2
+    j += 2
+    i += 2
 
 j = 2
 for k in range(length):
