@@ -6,14 +6,13 @@ length = len(str(number))
 
 total = 0
 checksum = 0
-j = 1
 for i in range(0, length, 2):
-    digit = int()
+    digit = int(str(number)[i])
+    digit = digit * 2
+    total = total + digit
 
-j = 2
-for k in range(1, length, 2):
-    digit = number % (10^j)
+for i in range(1, length, 2):
+    digit = int(str(number)[i])
     checksum = checksum + total + digit
-    j = j + 2
 
 print(checksum)
