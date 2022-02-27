@@ -9,16 +9,14 @@ checksum = 0
 for i in range(1, length, 2):
     digit = int(str(number)[length-i-1])
     digit = digit * 2
-    print(digit)
+    if digit > 9:
+        digit = int(str(digit)[0]) + int(str(digit)[1])
     total = total + digit
 
-print(total)
 checksum = checksum + total
 for i in range(0, length, 2):
     digit = int(str(number)[length-i-1])
     checksum = checksum + digit
-
-print(checksum)
 
 length_checksum = len(str(checksum))
 if str(checksum)[length_checksum-1] != str(0):
