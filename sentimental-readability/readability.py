@@ -16,7 +16,8 @@ for i in range(len(text)):
     elif text[i] == "?" or "." or "!":
         sentences += 1
     else:
-        pass
+        i+= 1
+        
 index = 0.0588 * (letters / words * 100) - 0.296 * (sentences / words * 100) - 15.8
 
 if index < 1:
