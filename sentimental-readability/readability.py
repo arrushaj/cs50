@@ -8,12 +8,12 @@ letters = 0
 
 lower = text.lower
 
-for i in range(len(text)):
-    if ord(lower(i)) > ord('a') and ord(lower(i]) < ord('z'):
+for i in text:
+    if ord(text[i]) > ord('a') and ord(text[i]) < ord('z'):
         letters += 1
-    elif lower[i] == " ":
+    elif text[i] == " ":
         words += 1
-    elif lower[i] == "?" or "." or "!":
+    elif text[i] == "?" or "." or "!":
         sentences += 1
 
 index = 0.0588 * (letters / words * 100) - 0.296 * (sentences / words * 100) - 15.8
