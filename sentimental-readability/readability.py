@@ -24,6 +24,7 @@ for i in range(len(text)):
     elif ord(text[i]) == ord("!"):
         sentences += 1
 
+words = words + 1
 
 index = 0.0588 * letters / words * 100 - 0.296 * sentences / words * 100 - 15.8
 
