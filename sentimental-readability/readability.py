@@ -13,10 +13,16 @@ for i in range(len(text)):
         letters += 1
     elif ord(text[i]) == ord(" "):
         words += 1
-    elif ord(text[i]) == ord("?") or ord(".") or ord("!"):
+    elif ord(text[i]) == ord(","):
+        pass
+    elif ord(text[i]) == ord("'"):
+        pass
+    elif ord(text[i]) == ord("?"):
         sentences += 1
-    elif ord(text[i]) == ord(",") or ord("'"):
-        words += 0
+    elif ord(text[i]) == ord("."):
+        sentences += 1
+    elif ord(text[i]) == ord("!"):
+        sentences += 1
 
 
 index = 0.0588 * letters / words * 100 - 0.296 * sentences / words * 100 - 15.8
