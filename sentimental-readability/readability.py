@@ -6,5 +6,5 @@ words = 0
 sentences = 0
 
 for i in range(len(text)):
-    
+    if text[i].lower > ord(a) and
     if text[i] = " ":
