@@ -13,11 +13,11 @@ for i in range(len(text)):
         letters += 1
     elif text[i] == " ":
         words += 1
+    elif text[i] == "," or "'":
+        pass
     elif text[i] == "?" or "." or "!":
         sentences += 1
-    else:
-        i+= 1
-        
+
 index = 0.0588 * (letters / words * 100) - 0.296 * (sentences / words * 100) - 15.8
 
 if index < 1:
