@@ -6,10 +6,10 @@ words = 0
 sentences = 0
 letters = 0
 
-lower = text.lower
-
-for i in text:
+for i in range(len(text)):
     if ord(text[i]) > ord('a') and ord(text[i]) < ord('z'):
+        letters += 1
+    elif ord(text[i]) > ord('A') and ord(text[i]) < ord('Z'):
         letters += 1
     elif text[i] == " ":
         words += 1
@@ -25,5 +25,5 @@ elif index > 16:
     print("Grade 16+")
 
 else:
-    print("Grade " + round(index))
+    print("Grade " + str(round(index)))
 
