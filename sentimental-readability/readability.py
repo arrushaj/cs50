@@ -11,11 +11,11 @@ for i in range(len(text)):
         letters += 1
     elif ord(text[i]) >= ord('A') and ord(text[i]) <= ord('Z'):
         letters += 1
-    elif text[i] == " ":
+    elif ord(text[i]) == ord(" "):
         words += 1
-    elif text[i] == "?" or "." or "!":
+    elif ord(text[i]) == ord("?") or ord(".") or ord("!"):
         sentences += 1
-    elif text[i] == "," or "'":
+    elif ord(text[i]) == ord(",") or ord("'"):
         words += 0
 
 
