@@ -7,9 +7,9 @@ sentences = 0
 letters = 0
 
 for i in range(len(text)):
-    if ord(text[i]) > ord('a') and ord(text[i]) < ord('z'):
+    if ord(text[i]) >= ord('a') and ord(text[i]) <= ord('z'):
         letters += 1
-    elif ord(text[i]) > ord('A') and ord(text[i]) < ord('Z'):
+    elif ord(text[i]) >= ord('A') and ord(text[i]) <= ord('Z'):
         letters += 1
     elif text[i] == " ":
         words += 1
