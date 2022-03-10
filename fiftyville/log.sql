@@ -42,3 +42,5 @@ SELECT account_number, amount, transaction_type FROM atm_transactions WHERE year
 SELECT origin_airport_id, destination_airport_id, hour, minute FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour, minute;
 -- Using the above query, we were able to get the earliest flight that took place at 8:20 the next day (the 29th)
 -- The origin_airport_id is 8 and the destination_airport_id is 4
+ SELECT city FROM airports WHERE id = 4;
+-- Using the above query, we discover that the city the thief most likely fled to was New York City!!
