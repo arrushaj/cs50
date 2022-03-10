@@ -80,3 +80,12 @@ AND passport_number IN (SELECT passport_number FROM passengers WHERE flight_id I
 | (499) 555-9472 | (717) 555-1342 | 50       |
 | (367) 555-5533 | (704) 555-5790 | 75       |
 +----------------+----------------+----------+
+SELECT name FROM people JOIN bank_accounts ON people.id = bank_accounts.person_id WHERE bank_accounts.account_number IN (SELECT account_number FROM atm_transactions WHERE year = 2021 AND month = 7 AND atm_location = "Leggett Street")
+AND (name = "Bruce" OR name = "Sofia" OR name = "Kelsey" OR name = "Luca");
+-- The above query provides a list of people from the group of suspects that also used the ATM on the day of the crime
++-------+
+| name  |
++-------+
+| Bruce |
+| Luca  |
++-------+
