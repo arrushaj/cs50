@@ -61,3 +61,11 @@ SELECT passport_number, seat FROM passengers WHERE flight_id IN (SELECT id FROM 
 SELECT name, phone_number FROM people WHERE license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 and day = 28 AND hour = 10 AND minute > 15 AND minute < 25)
 AND passport_number IN (SELECT passport_number FROM passengers WHERE flight_id IN (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 AND hour = 8 AND minute = 20));
 -- This query reveals a list of people and phone numbers who are the suspects
++--------+----------------+
+|  name  |  phone_number  |
++--------+----------------+
+| Sofia  | (130) 555-0289 |
+| Luca   | (389) 555-5198 |
+| Kelsey | (499) 555-9472 |
+| Bruce  | (367) 555-5533 |
++--------+----------------+
