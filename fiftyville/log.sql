@@ -24,3 +24,18 @@ SELECT activity, license_plate FROM bakery_security_logs WHERE year = 2021 AND m
 --| exit     | 322W7JE       |
 --| exit     | 0NTHK55       |
 --+----------+---------------+
+SELECT account_number, amount, transaction_type FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street";
+-- The query above was used in accordance with Eugene's testimony about the ATM. It reveals all the transactions that took place on Leggett along with their account number and amount.
+--+----------------+--------+------------------+
+--| account_number | amount | transaction_type |
+--+----------------+--------+------------------+
+--| 28500762       | 48     | withdraw         |
+--| 28296815       | 20     | withdraw         |
+--| 76054385       | 60     | withdraw         |
+--| 49610011       | 50     | withdraw         |
+--| 16153065       | 80     | withdraw         |
+--| 86363979       | 10     | deposit          |
+--| 25506511       | 20     | withdraw         |
+--| 81061156       | 30     | withdraw         |
+--| 26013199       | 35     | withdraw         |
+--+----------------+--------+------------------+
