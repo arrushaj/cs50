@@ -10,20 +10,17 @@ SELECT name, transcript FROM interviews WHERE year = 2021 AND month = 7 and day 
 -- Raymond reveals that as the thief was leaving the bakery, he talked to someone on the phone and he heard him say that he was planning on taking the earliest flight out of Fiftyville the next day
 -- Raymond also reveals that the thief asked the person on the line to purchase the flight tickets
 -- Emma, the bakery owner, heard someone whispering in the store for half an hour
-SELECT activity, license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND minute < 25;
--- Using Ruth's testimony, I looked up footage that took place within 10 minutes of the crime and it reveals (from 10:15 to 10:25) and it reveals these license plates exited the parking lot:
---+----------+---------------+
---| activity | license_plate |
---+----------+---------------+
---| exit     | 5P2BI95       |
---| exit     | 94KL13X       |
---| exit     | 6P58WS2       |
---| exit     | 4328GD8       |
---| exit     | G412CB7       |
---| exit     | L93JTIZ       |
---| exit     | 322W7JE       |
---| exit     | 0NTHK55       |
---+----------+---------------+
+SELECT activity, license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 10 AND minute < 20;
+-- Using Ruth's testimony, I looked up footage that took place within 10 minutes of the crime and it reveals (from 10:10 to 10:20) and it reveals these license plates exited the parking lot:
++----------+---------------+
+| activity | license_plate |
++----------+---------------+
+| entrance | 13FNH73       |
+| exit     | 5P2BI95       |
+| exit     | 94KL13X       |
+| exit     | 6P58WS2       |
+| exit     | 4328GD8       |
++----------+---------------+
 SELECT account_number, amount, transaction_type FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street";
 -- The query above was used in accordance with Eugene's testimony about the ATM. It reveals all the transactions that took place on Leggett along with their account number and amount.
 --+----------------+--------+------------------+
@@ -58,7 +55,7 @@ SELECT passport_number, seat FROM passengers WHERE flight_id IN (SELECT id FROM 
 | 9878712108      | 7A   |
 | 8496433585      | 7B   |
 +-----------------+------+
-SELECT name, phone_number FROM people WHERE license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 and day = 28 AND hour = 10 AND minute > 15 AND minute < 25)
+SELECT name, phone_number FROM people WHERE license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 and day = 28 AND hour = 10 AND minute > 10 AND minute < 25)
 AND passport_number IN (SELECT passport_number FROM passengers WHERE flight_id IN (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 AND hour = 8 AND minute = 20));
 -- This query reveals a list of people and phone numbers who are the suspects
 +--------+----------------+
