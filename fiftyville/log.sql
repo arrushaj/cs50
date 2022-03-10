@@ -91,4 +91,6 @@ AND (name = "Bruce" OR name = "Sofia" OR name = "Kelsey" OR name = "Luca");
 +-------+
 CT passport_number FROM passengers WHERE passport_number IN (SELECT passport_number FROM people WHERE (name = "Bruce" OR name = "Luca") AND (phone_number = "(367) 555-5533" OR phone_number = "(389) 555-5198"))
 AND flight_id IN (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 AND hour = 8 AND minute = 20);
--- The above query reveals that both Bruce and Luca were on the flight that took place the next day (the earliest flight). It is most likely that Bruce is the thief considering that Luca never placed a call the day of the crime.
+-- The above query reveals that both Bruce and Luca were on the flight that took place the next day (the earliest flight).
+-- It is most likely that Bruce is the thief considering that Luca never placed a call the day of the crime.
+
