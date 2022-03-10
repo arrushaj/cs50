@@ -103,3 +103,11 @@ SELECT name, passport_number, license_plate FROM people WHERE phone_number IN (S
 | Robin   |                 | 4V16VO0       |
 | Deborah | 8714200946      | 10I5658       |
 +---------+-----------------+---------------+
+SELECT people.name, bank_accounts.account_number, bank_accounts.creation_year FROM people JOIN bank_accounts ON bank_accounts.person_id = people.id
+WHERE (people.name = "Gregory" OR people.name = "Carl" OR people.name = "Robin" OR people.name = "Deborah");
+-- This query reveals that only Robin has a bank account
++-------+----------------+---------------+
+| name  | account_number | creation_year |
++-------+----------------+---------------+
+| Robin | 94751264       | 2019          |
++-------+----------------+---------------+
