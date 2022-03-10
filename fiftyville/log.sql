@@ -11,7 +11,7 @@ SELECT name, transcript FROM interviews WHERE year = 2021 AND month = 7 and day 
 -- Raymond also reveals that the thief asked the person on the line to purchase the flight tickets
 -- Emma, the bakery owner, heard someone whispering in the store for half an hour
 SELECT activity, license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 10 AND minute < 20;
--- Using Ruth's testimony, I looked up footage that took place within 10 minutes of the crime and it reveals (from 10:10 to 10:20) and it reveals these license plates exited the parking lot:
+-- Using Ruth's testimony, I looked up footage that took place within 10 minutes of the crime and it reveals (from 10:05 to 10:25) and it reveals these license plates exited the parking lot:
 +----------+---------------+
 | activity | license_plate |
 +----------+---------------+
