@@ -66,3 +66,17 @@ AND passport_number IN (SELECT passport_number FROM passengers WHERE flight_id I
 | Kelsey | (499) 555-9472 |
 | Bruce  | (367) 555-5533 |
 +--------+----------------+
+SELECT caller, receiver, duration FROM phone_calls WHERE year = 2021 AND month = 7 AND day = 28 AND caller IN (SELECT phone_number FROM people WHERE license_plate IN (SELECT license_plate FROM bakery_security_logs WHERE year = 2021 AND month = 7 and day = 28 AND hour = 10 AND minute > 5 AND minute < 25)
+AND passport_number IN (SELECT passport_number FROM passengers WHERE flight_id IN (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 AND hour = 8 AND minute = 20)));
+-- The above query provides a list of phone calls that took place the day of the crime involving the suspects
++----------------+----------------+----------+
+|     caller     |    receiver    | duration |
++----------------+----------------+----------+
+| (130) 555-0289 | (996) 555-8899 | 51       |
+| (499) 555-9472 | (892) 555-8872 | 36       |
+| (367) 555-5533 | (375) 555-8161 | 45       |
+| (367) 555-5533 | (344) 555-9601 | 120      |
+| (367) 555-5533 | (022) 555-4052 | 241      |
+| (499) 555-9472 | (717) 555-1342 | 50       |
+| (367) 555-5533 | (704) 555-5790 | 75       |
++----------------+----------------+----------+
