@@ -93,16 +93,16 @@ SELECT passport_number FROM passengers WHERE passport_number IN (SELECT passport
 AND flight_id IN (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 AND hour = 8 AND minute = 20);
 -- The above query reveals that both Bruce and Luca were on the flight that took place the next day (the earliest flight).
 -- It is most likely that Bruce is the thief considering that Luca never placed a call the day of the crime.
-SELECT name, passport_number, license_plate FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHERE year = 2021 AND month = 7 AND day = 28 AND caller = "(367) 555-5533");
+SELECT name, passport_number, license_plate, phone_number FROM people WHERE phone_number IN (SELECT receiver FROM phone_calls WHERE year = 2021 AND month = 7 AND day = 28 AND caller = "(367) 555-5533");
 -- This reveals the names of the people that Bruce placed a call to that day.
-+---------+-----------------+---------------+
-|  name   | passport_number | license_plate |
-+---------+-----------------+---------------+
-| Gregory | 3355598951      | V4C670D       |
-| Carl    | 7771405611      | 81MZ921       |
-| Robin   |                 | 4V16VO0       |
-| Deborah | 8714200946      | 10I5658       |
-+---------+-----------------+---------------+
++---------+-----------------+---------------+----------------+
+|  name   | passport_number | license_plate |  phone_number  |
++---------+-----------------+---------------+----------------+
+| Gregory | 3355598951      | V4C670D       | (022) 555-4052 |
+| Carl    | 7771405611      | 81MZ921       | (704) 555-5790 |
+| Robin   |                 | 4V16VO0       | (375) 555-8161 |
+| Deborah | 8714200946      | 10I5658       | (344) 555-9601 |
++---------+-----------------+---------------+----------------+
 SELECT people.name, bank_accounts.account_number, bank_accounts.creation_year FROM people JOIN bank_accounts ON bank_accounts.person_id = people.id
 WHERE (people.name = "Gregory" OR people.name = "Carl" OR people.name = "Robin" OR people.name = "Deborah");
 -- This query reveals that only Robin has a bank account
