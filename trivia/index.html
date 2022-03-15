@@ -53,15 +53,15 @@
                 correct.innerHTML = "Correct!";
             });
             button2.addEventListener('click', function() {
-                button1.style.backgroundColor = 'red';
+                button2.style.backgroundColor = 'red';
                 correct.innerHTML = "Incorrect!";
             });
             button3.addEventListener('click', function() {
-                button1.style.backgroundColor = 'red';
+                button3.style.backgroundColor = 'red';
                 correct.innerHTML = "Incorrect!";
             });
             submit.addEventListener('click', function() {
-                if (answer.Value = "Venusaur") {
+                if (answer.Value == 'Venusaur') {
                     correct2.innerHTML = "Correct!"
                     answer.style.backgroundColor = 'green';
                 }
