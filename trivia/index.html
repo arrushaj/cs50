@@ -16,6 +16,7 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3 id="question">Which type is Bulbasaur? </h3>
+                <p id="placeholder"></p>
                 <button id="grass">
                 Grass
                 </button>
@@ -34,16 +35,24 @@
                 <!-- TODO: Add free response question here -->
             </div>
         </div>
-            <script>
+        <script>
             // TODO: Add code to check answers to questions
-            let question = document.querySelector('question');
+            let correct = document.querySelector('#placeholder');
             let button1 = document.querySelector('#grass');
             let button2 = document.querySelector('#fire');
             let button3 = document.querySelector('#water');
             document.querySelector('#grass').addEventListener('click', function() {
                 button1.style.backgroundColor = 'green';
-                question.innerHTML = 'Correct!';
+                correct.innerHTML = "Correct!";
             });
-            </script>
+            document.querySelector('#fire').addEventListener('click', function() {
+                button1.style.backgroundColor = 'red';
+                correct.innerHTML = "Incorrect!";
+            });
+            document.querySelector('#water').addEventListener('click', function() {
+                button1.style.backgroundColor = 'red';
+                correct.innerHTML = "Incorrect!";
+            });
+        </script>
     </body>
 </html>
