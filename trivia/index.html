@@ -36,26 +36,37 @@
                 <h3>What is Bulbasaur's fully evolved form?</h3>
                 <p id="placeholder2"></p>
                 <input type="text" id="answer">
-                <input type="submit">
+                <input type="submit" id="submit">
             </div>
         </div>
         <script>
             // TODO: Add code to check answers to questions
             let correct = document.querySelector('#placeholder');
+            let correct2 = document.querySelector('#placeholder2');
             let button1 = document.querySelector('#grass');
             let button2 = document.querySelector('#fire');
             let button3 = document.querySelector('#water');
-            document.querySelector('#grass').addEventListener('click', function() {
+            let submit = document.querySelector('#submit');
+            let answer = document.querySelector('#answer');
+            button1.addEventListener('click', function() {
                 button1.style.backgroundColor = 'green';
                 correct.innerHTML = "Correct!";
             });
-            document.querySelector('#fire').addEventListener('click', function() {
+            button2.addEventListener('click', function() {
                 button1.style.backgroundColor = 'red';
                 correct.innerHTML = "Incorrect!";
             });
-            document.querySelector('#water').addEventListener('click', function() {
+            button3.addEventListener('click', function() {
                 button1.style.backgroundColor = 'red';
                 correct.innerHTML = "Incorrect!";
+            });
+            submit.addEventListener('click', function() {
+                if (answer.Value == "Venusaur") {
+                    correct2.innerHTML = "Correct!"
+                }
+                else {
+                    correct2.innerHTML = "Incorrect!"
+                }
             });
         </script>
     </body>
