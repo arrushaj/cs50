@@ -61,11 +61,13 @@
                 correct.innerHTML = "Incorrect!";
             });
             submit.addEventListener('click', function() {
-                if (answer.Value == "Venusaur") {
+                if (answer.Value = "Venusaur") {
                     correct2.innerHTML = "Correct!"
+                    answer.style.backgroundColor = 'green';
                 }
                 else {
                     correct2.innerHTML = "Incorrect!"
+                    answer.style.backgroundColor = 'red';
                 }
             });
         </script>
