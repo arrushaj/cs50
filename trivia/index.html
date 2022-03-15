@@ -5,17 +5,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
-        <script>
-            // TODO: Add code to check answers to questions
-            let question = document.querySelector('question');
-            let button1 = document.querySelector('#grass');
-            let button2 = document.querySelector('#fire');
-            let button3 = document.querySelector('#water');
-            document.querySelector('#grass').addEventListener('click', function() {
-                button1.style.backgroundColor = 'green';
-                //question.value = question.value\n + 'Correct!';
-            });
-        </script>
     </head>
     <body>
         <div class="header">
@@ -44,6 +33,17 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
             </div>
-        </div>
+        </div>\
+            <script>
+            // TODO: Add code to check answers to questions
+            let question = document.querySelector('question');
+            let button1 = document.querySelector('#grass');
+            let button2 = document.querySelector('#fire');
+            let button3 = document.querySelector('#water');
+            document.querySelector('#grass').addEventListener('click', function() {
+                button1.style.backgroundColor = 'green';
+                //question.value = question.value\n + 'Correct!';
+            });
+            </script>
     </body>
 </html>
