@@ -9,4 +9,8 @@
     margin-right: auto
 }
 
-.panel-body {background-color:black !important;}
+hr {
+    display: block; height: 1px;
+    border: 0; border-top: 5px solid brown;
+    margin: 1em 0; padding: 0;
+}
