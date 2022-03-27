@@ -13,3 +13,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  table {
+    width: 200px;
+  }
