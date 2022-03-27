@@ -14,3 +14,8 @@ hr {
     border: 0; border-top: 7px solid black;
     margin: 1em 0; padding: 0;
 }
+
+a {
+    text-decoration: none
+}
+
