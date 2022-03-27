@@ -9,6 +9,4 @@
     margin-right: auto
 }
 
-.panel-default > .panel-heading {
-    background-color:#000;
-}
+.panel-body {background-color:black !important;}
