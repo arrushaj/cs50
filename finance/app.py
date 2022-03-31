@@ -124,6 +124,10 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username")
 
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        
+
         elif request.form.get("username") in users["username"]:
             return apology("username already taken")
 
