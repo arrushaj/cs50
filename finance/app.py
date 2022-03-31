@@ -120,9 +120,17 @@ def register():
     users = db.execute("SELECT username FROM users")
 
     if not request.form.get("username"):
-            return apology("must provide username")
+        return apology("must provide username")
 
-    elif
+    elif request.form.get("username") in users:
+        return apology("username already taken")
+
+    elif not request.form.get("password"):
+        return apology("must provide username")
+
+    elif request.form.get("password") is not request.form.get("confirmation")
+        return apology("passwords don't match")
+        
     return apology("TODO")
 
 
