@@ -124,7 +124,7 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username")
 
-        elif request.form.get("username") in users:
+        elif request.form.get("username") in users["username"]:
             return apology("username already taken")
 
         elif not request.form.get("password"):
