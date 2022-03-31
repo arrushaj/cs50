@@ -131,7 +131,10 @@ def register():
     elif request.form.get("password") is not request.form.get("confirmation")
         return apology("passwords don't match")
 
-    db.execute("INSERT INTO )
+    user = request.form.get("username")
+    hash = generate_password_hash(request.form.get("password"))
+
+    db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
     return apology("TODO")
 
 
