@@ -131,7 +131,7 @@ def register():
     elif request.form.get("password") is not request.form.get("confirmation")
         return apology("passwords don't match")
 
-    
+    db.execute("INSERT INTO )
     return apology("TODO")
 
 
