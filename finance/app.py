@@ -119,7 +119,10 @@ def register():
     """Register user"""
     users = db.execute("SELECT username FROM users")
 
-    
+    if not request.form.get("username"):
+            return apology("must provide username")
+
+    elif
     return apology("TODO")
 
 
