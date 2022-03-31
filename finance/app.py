@@ -117,25 +117,31 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    users = db.execute("SELECT username FROM users")
+    if request.method == "POST":
 
-    if not request.form.get("username"):
-        return apology("must provide username")
+        users = db.execute("SELECT username FROM users")
 
-    elif request.form.get("username") in users:
-        return apology("username already taken")
+        if not request.form.get("username"):
+            return apology("must provide username")
 
-    elif not request.form.get("password"):
-        return apology("must provide username")
+        elif request.form.get("username") in users:
+            return apology("username already taken")
 
-    elif request.form.get("password") is not request.form.get("confirmation")
-        return apology("passwords don't match")
+        elif not request.form.get("password"):
+            return apology("must provide username")
 
-    user = request.form.get("username")
-    hash = generate_password_hash(request.form.get("password"))
+        elif request.form.get("password") is not request.form.get("confirmation")
+            return apology("passwords don't match")
 
-    db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
-    return apology("TODO")
+        user = request.form.get("username")
+        hash = generate_password_hash(request.form.get("password"))
+
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
+
+        return redirect("/")
+
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
