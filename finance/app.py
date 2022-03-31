@@ -134,7 +134,8 @@ def register():
             return apology("passwords don't match")
 
         user = request.form.get("username")
-        hash = generate_password_hash(request.form.get("password"))
+        password = request.form.get("password")
+        hash = generate_password_hash(password)
 
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
 
