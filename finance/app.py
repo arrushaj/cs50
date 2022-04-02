@@ -59,7 +59,7 @@ def buy():
 
         shares = request.form.get("shares")
 
-        if int(shares) < 0:
+        if shares < 0:
             return apology("shares cannot be negative")
 
         stock = lookup(ticker)
