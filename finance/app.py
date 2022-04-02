@@ -75,10 +75,10 @@ def buy():
         dt = datetime.datetime.now()
 
         # This is going to remove the milliseconds
-        x = dt.replace(microsecond=0)
+        time = dt.replace(microsecond=0)
 
-        db.execute("INSERT INTO transactions)
-
+        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", session["user id"], ticker, shares, price, cost, time)
+        db.execute("UPDATE users WHERE id = ?", session["user id"])
 
     return apology("TODO")
 
