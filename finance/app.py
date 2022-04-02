@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -63,8 +64,8 @@ def buy():
 
         stock = lookup(ticker)
         price = stock["price"]
-        user = db.execute("SELECT * FROM users WHERE id = ?", id)
-        cash = user["cash"]
+        rows = db.execute("SELECT * FROM users WHERE id = ?", id)
+        cash = rows[0]["cash"]
         cost = price * shares
         new_cash = cash - cost
 
@@ -79,6 +80,8 @@ def buy():
 
         db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, cost, time)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
+
+        return render_template("buy.html")
 
     else:
         return render_template("buy.html")
