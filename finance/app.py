@@ -68,6 +68,8 @@ def buy():
 
         cash = db.execute("SELECT)
 
+        session = session["user id"]
+
 
     return apology("TODO")
 
