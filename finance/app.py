@@ -65,7 +65,7 @@ def buy():
         price = stock["price"]
         cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cost = price * shares
-        print
+        print(cash)
         new_cash = cash - cost
 
         if new_cash < 0:
