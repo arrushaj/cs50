@@ -77,7 +77,7 @@ def buy():
         # This is going to remove the milliseconds
         x = dt.replace(microsecond=0)
 
-        
+        db.execute("INSERT INTO transactions)
 
 
     return apology("TODO")
