@@ -63,7 +63,8 @@ def buy():
 
         stock = lookup(ticker)
         price = stock["price"]
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        user = db.execute("SELECT * FROM users WHERE id = ?", id)
+        cash = user["cash"]
         cost = price * shares
         new_cash = cash - cost
 
