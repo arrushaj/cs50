@@ -59,9 +59,11 @@ def buy():
 
         shares = request.form.get("shares")
 
+        id = session["user id"]
+
         stock = lookup(ticker)
         price = stock["price"]
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cost = price * shares
         new_cash = cash - cost
 
@@ -74,8 +76,8 @@ def buy():
         # This is going to remove the milliseconds
         time = dt.replace(microsecond=0)
 
-        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", session["user id"], ticker, shares, price, cost, time)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, session["user id"])
+        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, cost, time)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
 
     else:
         return render_template("buy.html")
