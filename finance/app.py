@@ -59,9 +59,6 @@ def buy():
 
         shares = request.form.get("shares")
 
-        if shares < 0:
-            return apology("shares cannot be negative")
-
         stock = lookup(ticker)
         price = stock["price"]
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
