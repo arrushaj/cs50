@@ -50,6 +50,11 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
+    if request.method == "POST":
+        
+        ticker = request.form.get("symbol")
+        shares = request.form.get("shares")
+
     return apology("TODO")
 
 
@@ -115,6 +120,9 @@ def quote():
         symbol = request.form.get("symbol")
 
         stock = lookup(symbol)
+
+        if stock == None:
+            return apology("ticker doesn't exist")
 
         return render_template("quoted.html", stock=stock)
 
