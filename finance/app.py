@@ -57,7 +57,7 @@ def buy():
         if ticker == None:
             return apology("ticker doesn't exist")
 
-        shares = request.form.get("shares")
+        shares = float(request.form.get("shares"))
 
         id = session["user_id"]
 
