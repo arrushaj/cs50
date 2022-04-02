@@ -68,12 +68,15 @@ def buy():
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
 
+
+        new_cash = cash - (price * shares)
+        
         # Get current date and time
         dt = datetime.datetime.now()
 
         # This is going to remove the milliseconds
         x = dt.replace(microsecond=0)
-        print(x)
+
 
     return apology("TODO")
 
