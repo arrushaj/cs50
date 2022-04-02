@@ -63,20 +63,21 @@ def buy():
             return apology("shares cannot be negative")
 
         stock = lookup(ticker)
-
         price = stock["price"]
-
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
-
         cost = price * shares
-
         new_cash = cash - cost
+
+        if new_cash < 0:
+            return apology("not enough cash to purchase")
 
         # Get current date and time
         dt = datetime.datetime.now()
 
         # This is going to remove the milliseconds
         x = dt.replace(microsecond=0)
+
+        
 
 
     return apology("TODO")
