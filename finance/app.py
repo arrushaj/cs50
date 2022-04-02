@@ -59,7 +59,7 @@ def buy():
 
         shares = request.form.get("shares")
 
-        id = session["user id"]
+        id = session["user_id"]
 
         stock = lookup(ticker)
         price = stock["price"]
