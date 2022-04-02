@@ -68,9 +68,10 @@ def buy():
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
 
+        cost = price * shares
 
-        new_cash = cash - (price * shares)
-        
+        new_cash = cash - cost
+
         # Get current date and time
         dt = datetime.datetime.now()
 
