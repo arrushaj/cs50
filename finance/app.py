@@ -66,10 +66,9 @@ def buy():
 
         price = stock["price"]
 
-        cash = db.execute("SELECT)
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user id"])
 
-        session = session["user id"]
-
+        
 
     return apology("TODO")
 
