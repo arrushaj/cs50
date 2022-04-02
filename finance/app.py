@@ -51,9 +51,23 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        
+
         ticker = request.form.get("symbol")
+
+        if ticker == None:
+            return apology("ticker doesn't exist")
+
         shares = request.form.get("shares")
+
+        if shares < 0:
+            return apology("shares cannot be negative")
+
+        stock = lookup(ticker)
+
+        price = stock["price"]
+
+        
+
 
     return apology("TODO")
 
