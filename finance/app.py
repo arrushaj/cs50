@@ -66,7 +66,7 @@ def buy():
 
         price = stock["price"]
 
-        
+        cash = db.execute("SELECT)
 
 
     return apology("TODO")
