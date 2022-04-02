@@ -78,9 +78,10 @@ def buy():
         time = dt.replace(microsecond=0)
 
         db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", session["user id"], ticker, shares, price, cost, time)
-        db.execute("UPDATE users WHERE id = ?", session["user id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, session["user id"])
 
-    return apology("TODO")
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
