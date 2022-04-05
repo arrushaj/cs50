@@ -75,6 +75,13 @@ def buy():
         except ValueError:
             return apology("Shares cannot be strings")
 
+        try:
+            int(shares)
+        except ValueError:
+            return apology("Shares cannot be fractions")
+
+        shares = float(shares)
+
         if shares < 0:
             return apology("shares cannot be negative")
 
