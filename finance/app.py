@@ -246,7 +246,7 @@ def sell():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, session["user_id"])
 
         flash('Sell successful!')
-        return render_template("index.html")
+        return redirect("/")
 
     else:
         return render_template("sell.html")
