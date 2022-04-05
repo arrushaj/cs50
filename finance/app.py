@@ -68,7 +68,6 @@ def buy():
         if check == None:
             return apology("ticker not found")
 
-        shares = float(request.form.get("shares"))
 
         if shares < 0:
             return apology("shares cannot be negative")
@@ -78,8 +77,8 @@ def buy():
 
         if int(shares) != shares:
             return apology("shares cannot be fraction")
-
-
+            
+        shares = float(request.form.get("shares"))
 
         id = session["user_id"]
 
