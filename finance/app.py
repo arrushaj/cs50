@@ -213,7 +213,8 @@ def sell():
 
         if check == None:
             return apology("ticker not found")
-        
+
+        row = db.execute("SELECT * FROM transactions WHERE id = ?", session["user_id"])
         shares = float(request.form.get("shares"))
 
 
