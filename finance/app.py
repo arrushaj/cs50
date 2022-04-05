@@ -225,7 +225,28 @@ def sell():
 
         if (rows[0]["SUM(shares)"] < shares):
             return apology("you own less shares than that")
-            
+
+        stock = lookup(ticker)
+        price = stock["price"]
+        rows = db.execute("SELECT * FROM users WHERE id = ?", id)
+        cash = rows[0]["cash"]
+        gain = price * shares
+        new_cash = cash + gain
+
+        # For database purposes, we want shares to be negative so that when we sum it up it is deducted
+        shares = shares * -1
+
+        # Get current date and time
+        dt = datetime.datetime.now()
+
+        # This is going to remove the milliseconds
+        time = dt.replace(microsecond=0)
+
+        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, gain, time)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
+
+        flash('Buy successful!')
+        return render_template("buy.html")
 
 
     return apology("TODO")
