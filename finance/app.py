@@ -259,7 +259,11 @@ def sell():
 def password():
     """Change Password"""
     if request.method == "POST":
-        
+        current = request.form.get("current")
+
+    row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+
+    
 
 
     else:
