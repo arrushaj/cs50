@@ -215,10 +215,14 @@ def sell():
         if check == None:
             return apology("ticker not found")
 
+        if shares < 0:
+            return apology("shares cannot be negative")
+
         rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? AND ticker = ? GROUP BY ticker", session["user_id"], ticker)
 
-        if len(rows) != 1 or (rows[0]["SUM(shares)"] < shares):
-            return apology("not enough shares")
+        if len(rows) != 1:
+            return apology("ticker not found in portfolio")
 
-
+        if (rows[0]["SUM(shares)"] < shares):
+            return apology("too many shares")
     return apology("TODO")
