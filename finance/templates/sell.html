@@ -7,7 +7,16 @@
 {% block main %}
 <form action="/sell" method="post">
     <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text">
+        <select class="form-select mx-auto w-auto" name="symbol">
+            <option disabled selected>Symbol</option>
+
+                <option value="AMD">AMD</option>
+
+                <option value="INTC">INTC</option>
+
+                <option value="TSLA">TSLA</option>
+
+        </select>
     </div>
     <div class="mb-3">
         <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="shares" placeholder="Shares" type="number">
