@@ -72,7 +72,10 @@ def buy():
 
         if shares < 0:
             return apology("shares cannot be negative")
-            
+
+        if int(shares) != shares:
+            return apology("shares cannot be fraction")
+
         id = session["user_id"]
 
         stock = lookup(ticker)
