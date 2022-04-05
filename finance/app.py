@@ -44,7 +44,15 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker", session["user_id"])
+
+    sum = 0
+    for row in rows:
+        sum = sum + ((row["SUM(shares)"]) * lookup(row["ticker"])["price"])
+
+    row = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    cash = row[0]["cash"]
+    return render_template("index.html", rows=rows, lookup=lookup, sum=sum, cash=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -81,6 +89,7 @@ def buy():
         db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, cost, time)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
 
+        flash('Buy successful!')
         return render_template("buy.html")
 
     else:
@@ -183,6 +192,7 @@ def register():
 
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
 
+        flash('Registered!')
         return redirect("/login")
 
     else:
