@@ -228,7 +228,7 @@ def sell():
 
         stock = lookup(ticker)
         price = stock["price"]
-        rows = db.execute("SELECT * FROM users WHERE id = ?", id)
+        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         cash = rows[0]["cash"]
         gain = price * shares
         new_cash = cash + gain
@@ -242,8 +242,8 @@ def sell():
         # This is going to remove the milliseconds
         time = dt.replace(microsecond=0)
 
-        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, gain, time)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
+        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", session["user_id"], ticker, shares, price, gain, time)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, session["user_id"])
 
         flash('Sell successful!')
         return render_template("index.html")
