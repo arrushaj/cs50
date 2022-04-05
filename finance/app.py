@@ -267,8 +267,8 @@ def sell():
         return redirect("/")
 
     else:
-        
-        return render_template("sell.html")
+        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker", session["user_id"])
+        return render_template("sell.html", rows=rows)
 
 @app.route("/password", methods=["GET", "POST"])
 def password():
