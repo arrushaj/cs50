@@ -73,10 +73,10 @@ def buy():
             break
         except ValueError
 
-        if isinstance(shares, str):
-            return apology("shares cannot be string")
+        ##if isinstance(shares, str):
+        ##    return apology("shares cannot be string")
 
-        elif shares < 0:
+        if shares < 0:
             return apology("shares cannot be negative")
 
         elif int(shares) != shares:
