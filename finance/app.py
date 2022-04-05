@@ -70,9 +70,6 @@ def buy():
 
         shares = request.form.get("shares")
 
-        if isinstance(shares, str):
-            return apology("shares cannot be string")
-
         elif shares < 0:
             return apology("shares cannot be negative")
 
