@@ -68,18 +68,12 @@ def buy():
         if check == None:
             return apology("ticker not found")
 
-        while True:
-            try:
-                shares = int(request.form.get("shares"))
-                break
-            except ValueError:
-                return apology("Shares cannot be string!")
-
         shares = request.form.get("shares")
-        ##if isinstance(shares, str):
-        ##    return apology("shares cannot be string")
 
-        if shares < 0:
+        if isinstance(shares, str):
+            return apology("shares cannot be string")
+
+        elif shares < 0:
             return apology("shares cannot be negative")
 
         elif int(shares) != shares:
