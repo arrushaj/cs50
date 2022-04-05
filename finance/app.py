@@ -73,7 +73,7 @@ def buy():
         if int(shares) != float(shares):
             return apology("shares cannot be fraction")
 
-        shares = float(shares)
+        shares = float(int(shares))
 
         if shares < 0:
             return apology("shares cannot be negative")
