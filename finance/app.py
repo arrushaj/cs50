@@ -44,7 +44,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker", session["user_id"])
+    rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker HAVING SUM(shares) > 0", session["user_id"])
 
     sum = 0
     for row in rows:
@@ -236,7 +236,7 @@ def sell():
         if shares < 0:
             return apology("shares cannot be negative")
 
-        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? AND ticker = ? GROUP BY ticker", session["user_id"], ticker)
+        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? AND ticker = ? GROUP BY ticker HAVING SUM(shares) > 0", session["user_id"], ticker)
 
         if len(rows) != 1:
             return apology("ticker not found in portfolio")
@@ -267,7 +267,7 @@ def sell():
         return redirect("/")
 
     else:
-        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker", session["user_id"])
+        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker HAVING SUM(shares) > 0", session["user_id"])
         return render_template("sell.html", rows=rows)
 
 @app.route("/password", methods=["GET", "POST"])
