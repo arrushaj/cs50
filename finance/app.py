@@ -245,8 +245,8 @@ def sell():
         db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, gain, time)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
 
-        flash('Buy successful!')
-        return render_template("buy.html")
+        flash('Sell successful!')
+        return render_template("index.html")
 
-
-    return apology("TODO")
+    else:
+        return render_template("sell.html")
