@@ -203,5 +203,7 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    
+    ticker = request.form.get("symbol")
+
+    rows =  SELECT
     return apology("TODO")
