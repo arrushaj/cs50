@@ -186,7 +186,7 @@ def register():
             return apology("username already taken")
 
         elif not request.form.get("password"):
-            return apology("must provide username")
+            return apology("must provide password")
 
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("passwords don't match")
@@ -254,20 +254,31 @@ def sell():
     else:
         return render_template("sell.html")
 
-@app.route("/password")
+@app.route("/password", methods=["GET", "POST"])
 @login_required
 def password():
     """Change Password"""
     if request.method == "POST":
 
-        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("current")):
-                return apology("invalid password")
+            return apology("invalid password and/or username")
 
-        
+        elif not request.form.get("password"):
+            return apology("must provide password")
+
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("passwords don't match")
+
+
+        new_pass = request.form.get("password")
+        hash = generate_password_hash(new_pass)
+
+        db.execute("UPDATE users SET hash = ? WHERE username = ?", hash, request.form.get("username"))
+
+        flash('Password change successful!')
+        return render_template("password.html")
 
     else:
-
-
-    return apology("NOT DONE YET")
+        return render_template("password.html")
