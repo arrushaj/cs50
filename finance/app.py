@@ -253,3 +253,16 @@ def sell():
 
     else:
         return render_template("sell.html")
+
+@app.route("/password")
+@login_required
+def password():
+    """Change Password"""
+    if request.method == "POST":
+        
+
+
+    else:
+
+
+    return apology("NOT DONE YET")
