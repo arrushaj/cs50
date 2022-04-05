@@ -205,7 +205,16 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    ticker = request.form.get("symbol")
+    if request.method == "POST":
 
-    rows =  SELECT
+        ticker = request.form.get("symbol")
+
+        check = lookup(ticker)
+
+        if check == None:
+            return apology("ticker not found")
+        
+        shares = float(request.form.get("shares"))
+
+
     return apology("TODO")
