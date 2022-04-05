@@ -73,8 +73,13 @@ def buy():
         if shares < 0:
             return apology("shares cannot be negative")
 
+        if isinstance(shares, str):
+            return apology("shares cannot be string")
+
         if int(shares) != shares:
             return apology("shares cannot be fraction")
+
+
 
         id = session["user_id"]
 
