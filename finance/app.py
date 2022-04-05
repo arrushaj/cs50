@@ -225,6 +225,7 @@ def sell():
 
         if (rows[0]["SUM(shares)"] < shares):
             return apology("you own less shares than that")
+            
 
-        
+
     return apology("TODO")
