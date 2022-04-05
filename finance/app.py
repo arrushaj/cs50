@@ -224,5 +224,5 @@ def sell():
             return apology("ticker not found in portfolio")
 
         if (rows[0]["SUM(shares)"] < shares):
-            return apology("too many shares")
+            return apology("you own less shares than that")
     return apology("TODO")
