@@ -214,7 +214,9 @@ def sell():
         if check == None:
             return apology("ticker not found")
 
-        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker", session["user_id"])
+        rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? AND ticker = ? GROUP BY ticker", session["user_id"], ticker)
+
+        if len
         shares = float(request.form.get("shares"))
 
 
