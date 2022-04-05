@@ -92,7 +92,7 @@ def buy():
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
 
         flash('Buy successful!')
-        return render_template("buy.html")
+        return redirect("/")
 
     else:
         return render_template("buy.html")
