@@ -70,7 +70,7 @@ def buy():
 
         shares = request.form.get("shares")
 
-        elif shares < 0:
+        if shares < 0:
             return apology("shares cannot be negative")
 
         elif int(shares) != shares:
