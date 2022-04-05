@@ -267,6 +267,7 @@ def sell():
         return redirect("/")
 
     else:
+        
         return render_template("sell.html")
 
 @app.route("/password", methods=["GET", "POST"])
