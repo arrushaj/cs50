@@ -208,6 +208,7 @@ def sell():
     if request.method == "POST":
 
         ticker = request.form.get("symbol")
+        shares = float(request.form.get("shares"))
 
         check = lookup(ticker)
 
@@ -216,8 +217,8 @@ def sell():
 
         rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? AND ticker = ? GROUP BY ticker", session["user_id"], ticker)
 
-        if len
-        shares = float(request.form.get("shares"))
+        if len(rows) != 1 or (rows[0]["SUM(shares)"] < shares):
+            return apology("not enough shares")
 
 
     return apology("TODO")
