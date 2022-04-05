@@ -70,11 +70,6 @@ def buy():
 
         shares = request.form.get("shares")
 
-        if float(int(shares)) != float(shares):
-            return apology("shares cannot be fraction")
-
-        shares = float(int(shares))
-
         if shares < 0:
             return apology("shares cannot be negative")
 
