@@ -70,13 +70,13 @@ def buy():
 
         shares = request.form.get("shares")
 
-        if shares < 0:
-            return apology("shares cannot be negative")
-
-        elif int(shares) != shares:
+        if int(shares) != shares:
             return apology("shares cannot be fraction")
 
         shares = float(shares)
+
+        if shares < 0:
+            return apology("shares cannot be negative")
 
         id = session["user_id"]
 
