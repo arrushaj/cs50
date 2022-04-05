@@ -63,8 +63,10 @@ def buy():
 
         ticker = request.form.get("symbol")
 
-        if ticker == None:
-            return apology("ticker doesn't exist")
+        check = lookup(ticker)
+
+        if check == None:
+            return apology("ticker not found")
 
         shares = float(request.form.get("shares"))
 
