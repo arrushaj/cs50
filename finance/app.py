@@ -255,7 +255,6 @@ def sell():
         return render_template("sell.html")
 
 @app.route("/password", methods=["GET", "POST"])
-@login_required
 def password():
     """Change Password"""
     if request.method == "POST":
