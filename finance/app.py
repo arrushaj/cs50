@@ -70,7 +70,9 @@ def buy():
 
         shares = float(request.form.get("shares"))
 
-        
+        if shares < 0:
+            return apology("shares cannot be negative")
+            
         id = session["user_id"]
 
         stock = lookup(ticker)
