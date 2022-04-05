@@ -70,6 +70,7 @@ def buy():
 
         shares = float(request.form.get("shares"))
 
+        
         id = session["user_id"]
 
         stock = lookup(ticker)
