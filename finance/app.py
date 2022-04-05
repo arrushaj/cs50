@@ -103,7 +103,7 @@ def buy():
 def history():
     """Show history of transactions"""
 
-    rows = db.execute()
+    rows = db.execute("SELECT ticker, shares, price, time FROM transactions WHERE user_id = 1 ORDER BY time", session["user_id"])
     return apology("TODO")
 
 
