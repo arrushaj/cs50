@@ -44,7 +44,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    rows = db.execute("SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker HAVING SUM(shares) > 0", session["user_id"])
+    rows = db.execute(
+        "SELECT ticker, SUM(shares) FROM transactions WHERE user_id = ? GROUP BY ticker HAVING SUM(shares) > 0", session["user_id"])
 
     sum = 0
     for row in rows:
@@ -103,7 +104,8 @@ def buy():
         # This is going to remove the milliseconds
         time = dt.replace(microsecond=0)
 
-        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)", id, ticker, shares, price, cost, time)
+        db.execute("INSERT INTO transactions (user_id, ticker, shares, price, cost, time) VALUES (?, ?, ?, ?, ?, ?)",
+                    id, ticker, shares, price, cost, time)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", new_cash, id)
 
         flash('Buy successful!')
