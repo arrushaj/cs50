@@ -291,7 +291,6 @@ def password():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("passwords don't match")
 
-
         new_pass = request.form.get("password")
         hash = generate_password_hash(new_pass)
 
