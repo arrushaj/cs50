@@ -35,7 +35,7 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    return apology("To do")
+    return apology("to do")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
