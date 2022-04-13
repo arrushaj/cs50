@@ -31,11 +31,10 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-
 @app.route("/")
 @login_required
 def index():
-    return apology("to do")
+    return render_template("home.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -71,3 +70,55 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    """Log user out"""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+    return redirect("/")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    """Register user"""
+    if request.method == "POST":
+
+        if not request.form.get("username"):
+            return apology("must provide username")
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        if len(rows) > 0:
+            return apology("username already taken")
+
+        elif not request.form.get("password"):
+            return apology("must provide password")
+
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("passwords don't match")
+
+        user = request.form.get("username")
+        password = request.form.get("password")
+        hash = generate_password_hash(password)
+
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", user, hash)
+
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        # Ensure username exists and password is correct
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            return apology("invalid username and/or password", 403)
+
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+
+        flash('Registered!')
+        return redirect("/")
+
+    else:
+        return render_template("register.html")
+
+
