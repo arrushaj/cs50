@@ -32,7 +32,6 @@ def after_request(response):
     return response
 
 @app.route("/")
-@login_required
 def index():
     return render_template("home.html")
 
@@ -120,5 +119,8 @@ def register():
 
     else:
         return render_template("register.html")
+
+@app.route("/music")
+def index():
 
 
