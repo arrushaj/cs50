@@ -141,7 +141,7 @@ def thread():
         username = rows[0]["username"]
 
         db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
-        db.execute("INSERT INTO replies (user, ))
+        db.execute("INSERT INTO replies (user,))
 
     else:
         return render_template("thread.html")
