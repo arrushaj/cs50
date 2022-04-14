@@ -124,3 +124,7 @@ def register():
 def index():
 
 
+@app.route("/thread", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+
