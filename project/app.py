@@ -134,16 +134,18 @@ def thread():
         elif not request.form.get("board"):
             return apology("must provide board")
 
-        elif not request.form.get("message")
+        elif not request.form.get("message"):
             return apology("must provide message")
 
-        rows = db.execute("SELECT * FROM users WHERE username = ?", session["user id"])
+        rows = db.execute("SELECT * FROM users WHERE username = ?", session["user_id"])
         username = rows[0]["username"]
 
         db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
 
-        rows2 = db.execute(")
-        db.execute("INSERT INTO replies (user,))
+        rows2 = db.execute("SELECT * FROM thread SORT BY creation")
+        id = rows[0]["id"]
+
+        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", id, username, request.form.get("message"))
 
     else:
         return render_template("thread.html")
