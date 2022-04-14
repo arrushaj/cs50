@@ -137,7 +137,10 @@ def thread():
         elif not request.form.get("message")
             return apology("must provide message")
 
-        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, ?, ?)", session["user_id"])
+        rows = db.execute("SELECT * FROM users WHERE username = ?", session["user id"])
+        username = rows[0]["username"]
+
+        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S')), strftime('%d/%m/%Y %H:%M:%S')", username, request.form.get("title"), request.form.get("board"))
 
     else:
         return render_template("thread.html")
