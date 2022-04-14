@@ -129,7 +129,14 @@ def thread():
     if request.method == "POST":
 
         if not request.form.get("title"):
-            return apology("must provide username")
+            return apology("must provide title")
+
+        elif not request.form.get("board"):
+            return apology("must provide board")
+
+        elif not request.form.get("message")
+            return apology("must provide message")
+
 
     else:
         return render_template("thread.html")
