@@ -143,7 +143,7 @@ def thread():
 
         db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
 
-        rows2 = db.execute("SELECT * FROM thread ORDER BY creation")
+        rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
         id = rows2[0]["id"]
 
         db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", id, username, request.form.get("message"))
