@@ -122,9 +122,9 @@ def register():
 
 @app.route("/music")
 def index():
-
+    return render_template("music.html")
 
 @app.route("/thread", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
+    return render_template("thread.html")
 
