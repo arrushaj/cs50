@@ -137,7 +137,7 @@ def thread():
         elif not request.form.get("message")
             return apology("must provide message")
 
-        db.execute("INSERT INTO)
+        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, ?, ?)", session["user_id"])
 
     else:
         return render_template("thread.html")
