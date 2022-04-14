@@ -137,6 +137,7 @@ def thread():
         elif not request.form.get("message")
             return apology("must provide message")
 
+        db.execute("INSERT INTO)
 
     else:
         return render_template("thread.html")
