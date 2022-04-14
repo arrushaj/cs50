@@ -126,5 +126,11 @@ def music():
 
 @app.route("/thread", methods=["GET", "POST"])
 def thread():
-    return render_template("thread.html")
+    if request.method == "POST":
+
+        if not request.form.get("title"):
+            return apology("must provide username")
+
+    else:
+        return render_template("thread.html")
 
