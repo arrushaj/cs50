@@ -125,6 +125,7 @@ def music():
     return render_template("music.html")
 
 @app.route("/thread", methods=["GET", "POST"])
+@login_required
 def thread():
     if request.method == "POST":
 
@@ -137,7 +138,7 @@ def thread():
         elif not request.form.get("message"):
             return apology("must provide message")
 
-        rows = db.execute("SELECT * FROM users WHERE username = ?", session["user_id"])
+        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
         db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
