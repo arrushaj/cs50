@@ -121,10 +121,10 @@ def register():
         return render_template("register.html")
 
 @app.route("/music")
-def index():
+def music():
     return render_template("music.html")
 
 @app.route("/thread", methods=["GET", "POST"])
-def index():
+def thread():
     return render_template("thread.html")
 
