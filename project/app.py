@@ -129,7 +129,7 @@ def music():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    if request.method == "GET":
+    if request.method == "POST":
 
         title = request.form.get("search")
         board = request.form.get("board")
