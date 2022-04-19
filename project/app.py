@@ -179,5 +179,5 @@ def viewthread():
 
         id = request.form.get("id")
 
-        db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
-        
+        rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
+
