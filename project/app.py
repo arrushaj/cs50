@@ -172,3 +172,6 @@ def thread():
     else:
         return render_template("thread.html")
 
+@app.route("/viewthread")
+def viewthread():
+
