@@ -25,7 +25,7 @@
                         <h5>
                             <form id="form__submit" action="/viewthread" method="post">
                                 <input type="hidden" name="title" value="{{ row["title"] }}">
-                                <a href="#" class="text-primary">{{ row["title"] }}</a>
+                                <a href="#" onclick="submitForm()"  class="text-primary">{{ row["title"] }}</a>
                             </form>
                         </h5>
                         <p class="text-sm">
