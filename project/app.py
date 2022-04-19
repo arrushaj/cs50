@@ -142,6 +142,7 @@ def search():
 
         return render_template(return_html, rows=rows)
 
+
 @app.route("/thread", methods=["GET", "POST"])
 @login_required
 def thread():
@@ -172,6 +173,10 @@ def thread():
     else:
         return render_template("thread.html")
 
-@app.route("/viewthread")
+@app.route("/viewthread", methods=["GET", "POST"])
 def viewthread():
+    if request.method == "POST":
 
+        id = request.form.get("id")
+
+        
