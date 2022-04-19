@@ -122,7 +122,11 @@ def register():
 
 @app.route("/music")
 def music():
-    return render_template("music.html")
+
+    rows = db.execute("SELECT * FROM thread WHERE board = music ORDER BY latest DESC")
+
+
+    return render_template("music.html", rows=rows)
 
 @app.route("/thread", methods=["GET", "POST"])
 @login_required
