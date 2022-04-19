@@ -133,7 +133,11 @@ def search():
     title = request.form.get("search")
     board = request.form.get("board")
 
-    rows = db.execute("SELECT * FROM thread WHERE board = ? ORDER BY latest DESC", board)
+    rows = db.execute("SELECT * FROM thread WHERE board = ? AND title LIKE %?% ORDER BY latest DESC", board, title)
+
+    return_html = board + ".html"
+
+    return render_template(return_html, rows=rows)
 
 @app.route("/thread", methods=["GET", "POST"])
 @login_required
