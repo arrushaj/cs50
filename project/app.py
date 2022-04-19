@@ -127,8 +127,8 @@ def music():
 
     return render_template("music.html", rows=rows)
 
-@app.route("/music")
-def music():
+@app.route("/search")
+def search():
 
     
 
