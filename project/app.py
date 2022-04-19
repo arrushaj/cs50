@@ -127,17 +127,20 @@ def music():
 
     return render_template("music.html", rows=rows)
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
+    if request.method == "POST":
 
-    title = request.form.get("search")
-    board = request.form.get("board")
+        title = request.form.get("search")
+        board = request.form.get("board")
 
-    rows = db.execute("SELECT * FROM thread WHERE board = ? AND title LIKE %?% ORDER BY latest DESC", board, title)
+        title = "%" + title + "%"
 
-    return_html = board + ".html"
+        rows = db.execute("SELECT * FROM thread WHERE board = ? AND title LIKE ? ORDER BY latest DESC", board, title)
 
-    return render_template(return_html, rows=rows)
+        return_html = board + ".html"
+
+        return render_template(return_html, rows=rows)
 
 @app.route("/thread", methods=["GET", "POST"])
 @login_required
