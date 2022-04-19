@@ -181,3 +181,5 @@ def viewthread():
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
+        return render_template("viewthread.html", rows=rows)
+
