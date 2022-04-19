@@ -130,7 +130,10 @@ def music():
 @app.route("/search")
 def search():
 
-    
+    title = request.form.get("search")
+    board = request.form.get("board")
+
+    rows = db.execute("SELECT * FROM thread WHERE board = ? ORDER BY latest DESC", board)
 
 @app.route("/thread", methods=["GET", "POST"])
 @login_required
