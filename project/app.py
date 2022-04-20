@@ -195,3 +195,9 @@ def reply():
         original_id = request.form.get("id")
         thread = request.form.get("thread_id")
         message = request.form.get("message")
+
+        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        username = rows[0]["username"]
+
+        db.execute("INSERT INTO replies (thread_id, user, message, date, response, original_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, original_id)
+        
