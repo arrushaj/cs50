@@ -35,6 +35,7 @@
                         <form id="form__submit" action="/reply" method="post">
                             <label for="message">Message</label>
                             <textarea class="form-control" name="message" rows="3"></textarea>
+                            <input type="hidden" name="id" value="{{ row["id"] }}">
                             <div class="px-4 pt-3">
                                 <button onclick="submitReply()" type="button" class="btn btn-primary"> Submit</button>
                             </div>
