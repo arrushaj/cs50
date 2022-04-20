@@ -27,31 +27,31 @@
                     </div>
                     <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                         <div class="px-4 pt-3">
-                            <button onclick="replySection()" type="button" id="reply_button" class="btn btn-primary" value="{{ row["id"] }}"> Reply</button>
+                            <button id="click" onclick="replySection()" type="button" id="reply_button" class="btn btn-primary" value="{{ row["id"] }}"> Reply</button>
                             <button type="button" class="btn btn-success"> Like</button>
                         </div>
                     </div>
+                    <div id="{{ row["id"] }}" style="display: none" class="form-group">
+                        <form id="form__submit" action="/reply" method="post">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" name="message" rows="3"></textarea>
+                            <input type="hidden" name="id" value="{{ row["id"] }}">
+                            <input type="hidden" name="thread_id" value="{{ row["thread_id"] }}">
+                            <div class="px-4 pt-3">
+                                <button onclick="submitReply()" type="button" class="btn btn-primary"> Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="{{ row["id"] }}" style="display: none" class="form-group">
-            <form id="form__submit" action="/reply" method="post">
-                <label for="message">Message</label>
-                <textarea class="form-control" name="message" rows="3"></textarea>
-                <input type="hidden" name="id" value="{{ row["id"] }}">
-                <input type="hidden" name="thread_id" value="{{ row["thread_id"] }}">
-                <div class="px-4 pt-3">
-                    <button onclick="submitReply()" type="button" class="btn btn-primary"> Submit</button>
-                </div>
-            </form>
         </div>
         {% endfor %}
     </div>
 
     <script>
         function replySection() {
-            let value = document.querySelector('#reply_button').value
-            document.getElementById(value).style.display = "initial";
+            let x = document.getElementById('click').value
+            document.getElementById(x).style.display = "initial";
         }
         function submitReply() {
             let form = document.getElementById("form__submit");
