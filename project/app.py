@@ -191,3 +191,6 @@ def reply():
 
         if not request.form.get("message"):
             return apology("must provide message")
+
+        original_id = request.form.get("id")
+        message = request.form.get("message")
