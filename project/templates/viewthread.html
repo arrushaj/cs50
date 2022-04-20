@@ -27,7 +27,7 @@
                     </div>
                     <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                         <div class="px-4 pt-3">
-                            <button type="button" id="reply_button" class="btn btn-primary" value="{{ row["id"] }}" onclick="replySection(this.id)"> Reply</button>
+                            <button type="button" id="reply_button" class="btn btn-primary" value="{{ row["id"] }}" onclick="replySection(this.value)"> Reply</button>
                             <button type="button" class="btn btn-success"> Like</button>
                         </div>
                     </div>
@@ -49,9 +49,8 @@
     </div>
 
     <script>
-        function replySection(id) {
-            var x = document.getElementById(id).value;
-            document.getElementById(x).style.display = "default";
+        function replySection(clicked_value) {
+            document.getElementById(clicked_value).style.display = "default";
         }
         function submitReply() {
             let form = document.getElementById("form__submit");
