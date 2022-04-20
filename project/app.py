@@ -183,3 +183,8 @@ def viewthread():
 
         return render_template("viewthread.html", rows=rows)
 
+
+@app.route("/reply", methods=["GET", "POST"])
+@login_required
+def reply():
+    if request.method == "POST":
