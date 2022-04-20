@@ -176,8 +176,10 @@ def thread():
 @app.route("/viewthread", methods=["GET", "POST"])
 def viewthread():
     if request.method == "POST":
-
-        id = request.form.get("id")
+        if request.form.get("id"):
+            id = request.form.get("id")
+        else:
+            id = id
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
