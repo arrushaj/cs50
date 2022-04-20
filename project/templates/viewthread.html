@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div id="reply" style="display: none" class="form-group">
+        <div id="reply{{ row["id"] }}" style="display: none" class="form-group">
             <form id="form__submit" action="/reply" method="post">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" rows="3"></textarea>
