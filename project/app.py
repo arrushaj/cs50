@@ -179,7 +179,7 @@ def viewthread():
         if request.form.get("id"):
             id = request.form.get("id")
         else:
-            id = id
+            id = thread
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
@@ -204,4 +204,4 @@ def reply():
         db.execute("INSERT INTO replies (thread_id, user, message, date, response, original_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, original_id)
         db.execute("UPDATE thread SET replies=replies + 1 WHERE id = ?", thread)
 
-        return redirect("/viewthread", id=thread)
+        return redirect("/viewthread", thread=thread)
