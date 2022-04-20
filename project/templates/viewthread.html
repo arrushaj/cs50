@@ -50,8 +50,14 @@
 
     <script>
         function replySection(clicked_value) {
-            
-            document.getElementById(clicked_value).style.display = "block";
+            if (document.getElementById(clicked_value).style.display == "block")
+            {
+                document.getElementById(clicked_value).style.display = "none";
+            }
+            else
+            {
+                document.getElementById(clicked_value).style.display = "block";
+            }
         }
         function submitReply() {
             let form = document.getElementById("form__submit");
