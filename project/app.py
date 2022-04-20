@@ -188,3 +188,6 @@ def viewthread():
 @login_required
 def reply():
     if request.method == "POST":
+
+        if not request.form.get("message"):
+            return apology("must provide message")
