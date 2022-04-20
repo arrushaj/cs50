@@ -193,4 +193,5 @@ def reply():
             return apology("must provide message")
 
         original_id = request.form.get("id")
+        thread = request.form.get("thread_id")
         message = request.form.get("message")
