@@ -200,4 +200,4 @@ def reply():
         username = rows[0]["username"]
 
         db.execute("INSERT INTO replies (thread_id, user, message, date, response, original_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, original_id)
-        
+        db.execute("UPDATE thread SET replies )
