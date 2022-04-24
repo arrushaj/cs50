@@ -7,10 +7,10 @@
 {% block main %}
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">Music</a>
-        <form action="/search" method="post" class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <input type="hidden" name="board" value="music">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form action="/search" method="get" class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <input type="hidden" name="board" value="music">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <a href="/thread" class="btn btn-primary">Create Thread</a>
     </nav>
@@ -23,10 +23,7 @@
                     <div class="row align-items-center">
                     <div class="col-md-8 mb-3 mb-sm-0">
                         <h5>
-                            <form id="form__submit" action="/viewthread" method="post">
-                                <input type="hidden" name="id" value="{{ row["id"] }}">
-                                <a href="#" onclick="submitForm()"  class="text-primary">{{ row["title"] }}</a>
-                            </form>
+                            <a href="/viewthread?id={{ row["id"] }}"  class="text-primary">{{ row["title"] }}</a>
                         </h5>
                         <p class="text-sm">
                             <span class="op-6">Posted</span> <a class="text-black" href="#">{{ row["creation"] }}</a>

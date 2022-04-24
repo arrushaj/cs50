@@ -129,10 +129,10 @@ def music():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    if request.method == "POST":
+    if request.method == "GET":
 
-        title = request.form.get("search")
-        board = request.form.get("board")
+        title = request.args.get("search")
+        board = request.args.get("board")
 
         title = "%" + title + "%"
 
@@ -175,15 +175,15 @@ def thread():
 
 @app.route("/viewthread", methods=["GET", "POST"])
 def viewthread():
-    if request.method == "POST":
-        if request.form.get("id"):
-            id = request.form.get("id")
-        else:
-            id = thread
+    if request.method == "GET":
+        id = request.args.get("id")
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
-        return render_template("viewthread.html", rows=rows)
+        if len(rows) < 1:
+            return apology("This thread doesn't exist!")
+
+        return render_template("viewthread.html", rows=rows, id=id)
 
 
 @app.route("/reply", methods=["GET", "POST"])
@@ -191,17 +191,22 @@ def viewthread():
 def reply():
     if request.method == "POST":
 
-        if not request.form.get("message"):
+        if request.form.get("thread_id") is None:
+            return apology("thread id does not exist")
+
+        if request.form.get("message") is "":
             return apology("must provide message")
 
-        original_id = request.form.get("id")
         thread = request.form.get("thread_id")
         message = request.form.get("message")
 
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date, response, original_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, original_id)
-        db.execute("UPDATE thread SET replies=replies + 1 AND latest=strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
+        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", thread, username, message)
+        db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread)
+        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
 
-        return redirect("/viewthread", thread=thread)
+        redir = "/viewthread?id=" + thread
+
+        return redirect(redir)
