@@ -6,6 +6,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask_login import current_user
 
 from helpers import apology, login_required
 
@@ -159,6 +160,12 @@ def search():
 @login_required
 def thread():
     if request.method == "POST":
+        
+        if current_user.is_authenticated:
+            return render_template("main_for_user.html")
+        else:
+            return render_template("main_for_anonymous.html")
+
 
         if not request.form.get("title"):
             return apology("must provide title")
