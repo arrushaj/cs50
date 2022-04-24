@@ -194,7 +194,7 @@ def reply():
         if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
-        if request.form.get("message") is "":
+        if request.form.get("message") == "":
             return apology("must provide message")
 
         thread = request.form.get("thread_id")
