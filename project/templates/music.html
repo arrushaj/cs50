@@ -30,7 +30,7 @@
                 {% for row in rows %}
                 <div class="card-body py-3">
                     <div class="row no-gutters align-items-center">
-                        <div class="col"> <a href="javascript:void(0)" class="text-big" data-abc="true">{{ row["title"] }}</a>
+                        <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
                             <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="javascript:void(0)" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
                         </div>
                         <div class="d-none d-md-block col-4">
