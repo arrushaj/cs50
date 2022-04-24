@@ -206,7 +206,7 @@ def viewthread():
 def reply():
     if request.method == "POST":
         if x == "":
-            return render_template("login.html")
+            return redirect("/login")
 
         if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
