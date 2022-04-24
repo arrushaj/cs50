@@ -122,15 +122,16 @@ def register():
 
 @app.route("/music")
 def music():
+    if session["user_id"] is None:
+        session["user_id"] = "foo"
 
-    
     rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-
+    user = rows[0]["username"]
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-    return render_template("music.html", rows=rows)
+    return render_template("music.html", rows=rows, user=user)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
