@@ -63,6 +63,7 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        global x
         x = request.form.get("username")
 
         # Redirect user to home page
@@ -78,6 +79,7 @@ def logout():
 
     # Forget any user_id
     session.clear()
+    global x
     x = ""
     # Redirect user to login form
     return redirect("/")
@@ -204,7 +206,7 @@ def viewthread():
 def reply():
     if request.method == "POST":
         if x == "":
-            return redirect('/login')
+            return render_template("login.html")
 
         if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
