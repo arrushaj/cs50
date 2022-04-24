@@ -141,9 +141,7 @@ def music():
     if session["user_id"] == "":
         session.clear()
 
-    global x
-
-    return render_template("music.html", rows=rows, user=user, x=x)
+    return render_template("music.html", rows=rows, user=user)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -203,7 +201,8 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
-        return render_template("viewthread.html", rows=rows, id=id)
+        global x
+        return render_template("viewthread.html", rows=rows, id=id, x=x)
 
 
 @app.route("/reply", methods=["GET", "POST"])
