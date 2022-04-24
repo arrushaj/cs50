@@ -23,6 +23,8 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
+global_user = None
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -113,6 +115,7 @@ def register():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        global_user =
 
         flash('Registered!')
         return redirect("/")
@@ -201,6 +204,7 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
+        if user is None:
 
         if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
