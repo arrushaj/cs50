@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block main %}
-<link href="/static/styles2.css" rel="stylesheet">
     <button onclick="myFunction()" class="btn btn-primary" >Reply</button>
+    <br><br>
     <div id='myDIV' style= "display:none">
         <form action="/reply" method="post">
             <div class="form-group">
@@ -14,9 +14,12 @@
                 <textarea class="form-control" name="message" rows="3"></textarea>
             </div>
             <input name="thread_id" hidden value="{{ id }}">
+            <br>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
+    <br>
+    <br>
     <div class="container-fluid mt-100">
         {% for row in rows %}
         <div class="row">
