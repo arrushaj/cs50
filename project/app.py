@@ -63,6 +63,8 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        global
+        x = 
 
         # Redirect user to home page
         return redirect("/")
@@ -189,6 +191,8 @@ def thread():
 def viewthread():
     if request.method == "GET":
         id = request.args.get("id")
+
+
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
