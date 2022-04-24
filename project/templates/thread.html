@@ -5,12 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/thread" method="post">
+    <form action="/thread" method="post" style="margin:auto; width:50%">
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="title" name="title" placeholder="Title" type="text">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
             <select class="form-control" name="board">
               <option disabled selected>Board</option>
               <option value="music">Music</option>
@@ -19,10 +18,12 @@
               <option value="books">Books</option>
             </select>
           </div>
+        <br>
         <div class="form-group">
             <label for="message">Message</label>
             <textarea class="form-control" name="message" rows="3"></textarea>
         </div>
+        <br>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 {% endblock %}
