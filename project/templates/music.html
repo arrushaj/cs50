@@ -18,7 +18,7 @@
     <div class="card mb-3">
         <div class="card-header pl-0 pr-0">
             <div class="row no-gutters w-100 align-items-center">
-                <div class="col ml-3">Topics</div>
+                <div class="col ml-3" style="position:relative; left:55px">Topics</div>
                 <div class="col-4 text-muted">
                     <div class="row no-gutters align-items-center">
                         <div class="col-4">Replies</div>
@@ -30,7 +30,7 @@
                 {% for row in rows %}
                 <div class="card-body py-3">
                     <div class="row no-gutters align-items-center">
-                        <div class="col">
+                        <div class="col-sm-auto">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
                         </div>
                         <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
