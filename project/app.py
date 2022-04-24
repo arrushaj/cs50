@@ -202,6 +202,7 @@ def viewthread():
 @login_required
 def reply():
     if request.method == "POST":
+        print(session["user_id"])
         if session["user_id"] == "":
             return redirect("/login")
 
