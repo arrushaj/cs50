@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+    {% if x != "" %}
     <button onclick="myFunction()" class="btn btn-secondary btn-lg" >Reply</button>
     <br><br>
     <div id='myDIV' style= "display:none">
@@ -15,15 +16,14 @@
             </div>
             <input name="thread_id" hidden value="{{ id }}">
             <br>
-            {% if x != "" %}
             <button class="btn btn-primary" type="submit">Submit</button>
-            {% else %}
-            <form method="get" action="/login">
-                <button type="submit">Submit</button>
-            </form>
-            {% endif %}
         </form>
     </div>
+    {% else %}
+    <form method="get" action="/login">
+        <button class="btn btn-secondary btn-lg type="submit">Submit</button>
+    </form>
+    {% endif %}
     <br><br>
     <div class="container-fluid mt-100">
         {% for row in rows %}
