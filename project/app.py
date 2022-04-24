@@ -201,11 +201,13 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
+        if session.get("user_id") is None:
+            session["user_id"] = ""
 
-        if foo == None:
+        elif session["user_id"] == "":
             return redirect('/login')
 
-        if request.form.get("thread_id") is None:
+        elif request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
         elif request.form.get("message") == "":
@@ -222,5 +224,8 @@ def reply():
         db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
 
         redir = "/viewthread?id=" + thread
+
+        if session["user_id"] == "":
+            session.clear()
 
         return redirect(redir)
