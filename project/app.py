@@ -122,13 +122,13 @@ def register():
 
 @app.route("/music")
 def music():
-    if session.get("user_id") is None:
-        session["user_id"] = ""
+    #if session.get("user_id") is None:
+    #    session["user_id"] = ""
 
     row_user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
     if len(row_user) < 1:
-        user = "foo"
+        user = ""
     else:
         user = row_user[0]["username"]
 
