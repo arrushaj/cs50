@@ -64,8 +64,6 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        user.is_authenticated = True
-
         # Redirect user to home page
         return redirect("/")
 
@@ -204,7 +202,6 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
-        if current_user.is_authenticated:
 
         if foo == None:
             return redirect('/login')
