@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block main %}
-    <button onclick="myFunction()" class="btn btn-primary" >Reply</button>
+    <button onclick="myFunction()" class="btn btn-secondary btn-lg" >Reply</button>
     <br><br>
     <div id='myDIV' style= "display:none">
-        <form action="/reply" method="post">
+        <form action="/reply" method="post" style="margin:auto; width:50%">
             <div class="form-group">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" rows="3"></textarea>
@@ -25,8 +25,8 @@
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <div class="media flex-wrap w-100"> <!-- <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt=""> -->
-                            <div class="media-body ml-3"> <a style="text-align:left" href="javascript:void(0)" data-abc="true">{{ row["user"] }}</a>
+                        <div style="text-align:left" class="media flex-wrap w-100"> <!-- <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt=""> -->
+                            <div class="media-body ml-3"> <a style="text-align:left" href="javascript:void(0)" data-abc="true"><h5>{{ row["user"] }}</h5></a>
                                 <div class="text-muted small">test</div>
                             </div>
                             <div class="text-muted small ml-3">
