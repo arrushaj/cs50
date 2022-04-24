@@ -134,6 +134,9 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
+    if session["user_id"] == "":
+        session.clear()
+
     return render_template("music.html", rows=rows, user=user)
 
 @app.route("/search", methods=["GET", "POST"])
@@ -201,7 +204,7 @@ def reply():
     if request.method == "POST":
         if session.get("user_id") is None:
             return redirect("/login")
-     
+
         elif request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
