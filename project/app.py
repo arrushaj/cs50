@@ -64,7 +64,7 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        current_user.is_authenticated = True
+        user.is_authenticated = True
 
         # Redirect user to home page
         return redirect("/")
