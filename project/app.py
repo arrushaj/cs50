@@ -201,13 +201,8 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
-        if "user_id" not in session:
-            session["user_id"] = "TEST"
 
-        elif session["user_id"] == "TEST":
-            return redirect('/login')
-
-        elif request.form.get("thread_id") is None:
+        if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
         elif request.form.get("message") == "":
