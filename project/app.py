@@ -160,34 +160,32 @@ def search():
 @login_required
 def thread():
     if request.method == "POST":
-        
+
         if current_user.is_authenticated:
-            return render_template("main_for_user.html")
+            if not request.form.get("title"):
+                return apology("must provide title")
+
+            elif not request.form.get("board"):
+                return apology("must provide board")
+
+            elif not request.form.get("message"):
+                return apology("must provide message")
+
+            rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+            username = rows[0]["username"]
+
+            db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
+
+            rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
+            id = rows2[0]["id"]
+
+            db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", id, username, request.form.get("message"))
+
+            flash('Thread posted!')
+            return redirect('/')
+
         else:
-            return render_template("main_for_anonymous.html")
-
-
-        if not request.form.get("title"):
-            return apology("must provide title")
-
-        elif not request.form.get("board"):
-            return apology("must provide board")
-
-        elif not request.form.get("message"):
-            return apology("must provide message")
-
-        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
-        username = rows[0]["username"]
-
-        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
-
-        rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
-        id = rows2[0]["id"]
-
-        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", id, username, request.form.get("message"))
-
-        flash('Thread posted!')
-        return redirect('/')
+            return render_template("login.html")
 
     else:
         return render_template("thread.html")
