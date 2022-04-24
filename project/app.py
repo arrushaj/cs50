@@ -203,12 +203,11 @@ def viewthread():
 def reply():
     if request.method == "POST":
         foo = session["user_id"]
-        x = db.execute("SELECT * FROM users WHERE)
 
-        if session["user_id"] == "":
+        if foo == "":
             return redirect("/login")
 
-        if request.form.get("thread_id") is None:
+        elif request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
         elif request.form.get("message") == "":
