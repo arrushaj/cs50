@@ -201,7 +201,7 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
-        if session is None:
+        if session in globals():
             session["user_id"] = ""
 
         elif session["user_id"] == "":
