@@ -122,12 +122,15 @@ def register():
 
 @app.route("/music")
 def music():
-    if if session.get("user_id") is None
-        session["user_id"] = "foo"
+    if session.get("user_id") is None:
+        session["user_id"] = ""
 
-    rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
-    user = rows[0]["username"]
+    if len(row_user) < 1:
+        user = "foo"
+    else:
+        user = row_user[0]["username"]
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
