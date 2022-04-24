@@ -27,35 +27,26 @@
                 </div>
             </div>
         </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 mb-3">
                 {% for row in rows %}
-                <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
-                    <div class="row align-items-center">
-                    <div class="col-md-8 mb-3 mb-sm-0">
-                        <h5>
-                            <a href="/viewthread?id={{ row["id"] }}"  class="text-primary">{{ row["title"] }}</a>
-                        </h5>
-                        <p class="text-sm">
-                            <span class="op-6">Posted</span> <a class="text-black" href="#">{{ row["creation"] }}</a>
-                            <span class="op-6">ago by</span> <a class="text-black" href="#">{{ row["user"] }}</a>
-                        </p>
-                        <div class="text-sm op-5"> <a class="text-black mr-2" href="#">#C++</a> <a class="text-black mr-2" href="#">#AppStrap Theme</a> <a class="text-black mr-2" href="#">#Wordpress</a> </div>
-                    </div>
-                    <div class="col-md-4 op-7">
-                        <div class="row text-center op-7">
-                        <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">141 Votes</span> </div>
-                        <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">{{ row["replies"] }} Replys</span> </div>
-                        <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">290 Views</span> </div>
+                <div class="card-body py-3">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col"> <a href="javascript:void(0)" class="text-big" data-abc="true">{{ row["title"] }}</a>
+                            <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="javascript:void(0)" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
                         </div>
-                    </div>
+                        <div class="d-none d-md-block col-4">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-4">{{ row["replies"] }}</div>
+                                <div class="media col-8 align-items-center"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1574583246/AAA/2.jpg" alt="" class="d-block ui-w-30 rounded-circle">
+                                    <div class="media-body flex-truncate ml-2">
+                                        <div class="line-height-1 text-truncate">{{ row["latest"] }}</div> <a href="javascript:void(0)" class="text-muted small text-truncate" data-abc="true">by Tim cook</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
+
 
     <script>
         function submitForm() {
