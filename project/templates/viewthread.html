@@ -8,14 +8,20 @@
     <button onclick="myFunction()" class="btn btn-secondary btn-lg" >Reply</button>
     <br><br>
     <div id='myDIV' style= "display:none">
-        <form {% if x != "" %}action="/reply"{% else %}action="/login" method="post" style="margin:auto; width:50%">
+        <form action="/reply" action="/login" method="post" style="margin:auto; width:50%">
             <div class="form-group">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" rows="3"></textarea>
             </div>
             <input name="thread_id" hidden value="{{ id }}">
             <br>
+            {% if x != "" %}
             <button class="btn btn-primary" type="submit">Submit</button>
+            {% else %}
+            <form method="get" action="/login">
+                <button type="submit">Submit</button>
+            </form>
+            {% endif %}
         </form>
     </div>
     <br><br>
