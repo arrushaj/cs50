@@ -8,7 +8,7 @@
     <button onclick="myFunction()" class="btn btn-secondary btn-lg" >Reply</button>
     <br><br>
     <div id='myDIV' style= "display:none">
-        <form action="/reply" method="post" style="margin:auto; width:50%">
+        <form {% if x != "" %}action="/reply"{% else %}action="/login" method="post" style="margin:auto; width:50%">
             <div class="form-group">
                 <label for="message">Message</label>
                 <textarea class="form-control" name="message" rows="3"></textarea>
