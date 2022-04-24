@@ -202,10 +202,8 @@ def viewthread():
 @login_required
 def reply():
     if request.method == "POST":
-        if session.get("user_id") is None:
-            return redirect("/login")
 
-        elif request.form.get("thread_id") is None:
+        if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
 
         elif request.form.get("message") == "":
