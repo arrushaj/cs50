@@ -202,7 +202,9 @@ def viewthread():
 @login_required
 def reply():
     if request.method == "POST":
-        print(session["user_id"])
+        foo = session["user_id"]
+        x = db.execute("SELECT * FROM users WHERE)
+
         if session["user_id"] == "":
             return redirect("/login")
 
