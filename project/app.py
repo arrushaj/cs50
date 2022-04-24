@@ -23,7 +23,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
-global_user = None
+x = ""
 
 @app.after_request
 def after_request(response):
@@ -40,7 +40,6 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
-
     # Forget any user_id
     session.clear()
 
@@ -64,6 +63,7 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        x = request.form.get("username")
 
         # Redirect user to home page
         return redirect("/")
@@ -78,7 +78,7 @@ def logout():
 
     # Forget any user_id
     session.clear()
-
+    x = ""
     # Redirect user to login form
     return redirect("/")
 
@@ -115,7 +115,6 @@ def register():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
-        global_user =
 
         flash('Registered!')
         return redirect("/")
@@ -204,7 +203,8 @@ def viewthread():
 @app.route("/reply", methods=["GET", "POST"])
 def reply():
     if request.method == "POST":
-        if user is None:
+        if x == "":
+            return redirect('/login')
 
         if request.form.get("thread_id") is None:
             return apology("thread id does not exist")
