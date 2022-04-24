@@ -146,6 +146,15 @@ def music():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "GET":
+        if session.get("user_id") is None:
+            session["user_id"] = ""
+
+        row_user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+
+        if len(row_user) < 1:
+            user = ""
+        else:
+            user = row_user[0]["username"]
 
         title = request.args.get("search")
         board = request.args.get("board")
@@ -156,7 +165,10 @@ def search():
 
         return_html = board + ".html"
 
-        return render_template(return_html, rows=rows)
+        if session["user_id"] == "":
+            session.clear()
+
+        return render_template(return_html, rows=rows, user=user)
 
 
 @app.route("/thread", methods=["GET", "POST"])
