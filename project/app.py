@@ -206,8 +206,6 @@ def viewthread():
     if request.method == "GET":
         id = request.args.get("id")
 
-
-
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
         if len(rows) < 1:
