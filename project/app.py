@@ -211,10 +211,7 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
-        if session["user_id"]:
-            likes = db.execute("SELECT * FROM likes WHERE user_id = ?", session["user_id"])
-
-        return render_template("viewthread.html", rows=rows, id=id, likes=likes)
+        return render_template("viewthread.html", rows=rows, id=id)
 
 
 @app.route("/reply", methods=["GET", "POST"])
