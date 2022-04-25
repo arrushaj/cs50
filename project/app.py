@@ -266,8 +266,8 @@ def unlike():
         user_id = session["user_id"]
 
         rows = db.execute("SELECT * FROM likes WHERE reply_id = ? AND user_id = ?", reply_id, user_id)
-        if len(rows) >= 1:
-            return apology("You've already liked this post!")
+        if len(rows) < 1:
+            return apology("You haven't liked this post!")
 
         db.execute("DELETE FROM likes WHERE reply_id = ? AND user_id = ?", reply_id, user_id)
         db.execute("UPDATE replies SET likes = likes - 1 WHERE id = ?", reply_id)
