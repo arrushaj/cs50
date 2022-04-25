@@ -211,6 +211,7 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
+        global x
         if x != "":
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
             y = row[0]["username"]
