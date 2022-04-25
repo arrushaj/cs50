@@ -243,3 +243,9 @@ def reply():
             session.clear()
 
         return redirect(redir)
+
+@app.route("/like", methods=["GET", "POST"])
+def like():
+    if request.method == "POST":
+
+        
