@@ -244,8 +244,7 @@ def reply():
 
         return redirect(redir)
 
-@app.route("/like", methods=["GET", "POST"])
-def like():
-    if request.method == "POST":
+#@app.route("/like", methods=["GET", "POST"])
+#def like():
+    #if request.method == "POST":
 
-        
