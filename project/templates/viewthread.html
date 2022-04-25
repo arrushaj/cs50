@@ -48,18 +48,19 @@
                         {% if session["user_id"] %}
                         {% for like in likes %}
                         {% if row["id"] == like["reply_id"] %}
+                        <button type="button" class="btn btn-success"> Unlike</button>
+
+
+                        {% endfor %}
+                        {% else %}
+
                         <div class="px-4 pt-3">
                             <form id="like_form" action="/like" method="POST">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
                                 <button type="submit" class="btn btn-success"> Like</button>
                             </form>
                         </div>
-
                         {% endif %}
-
-                        {% endfor %}
-                        
-                        <button type="button" class="btn btn-success"> Unlike</button>
                         {% endif %}
                     </div>
                 </div>
