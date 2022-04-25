@@ -58,6 +58,8 @@
                             </form>
                         </div>
                         {% endif %}
+                        {% if row["user"] == username %}
+                        <button type="submit" class="btn btn-danger"> Delete</button>
                     </div>
                 </div>
             </div>
