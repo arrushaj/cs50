@@ -217,6 +217,7 @@ def viewthread():
                 for like in likes:
                     if row["id"] == like["reply_id"]:
                         x = 0
+                        break
                     else:
                         x = 1
 
