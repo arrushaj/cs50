@@ -253,4 +253,4 @@ def like():
         thread = thread_id[0]["thread_id"]
         redir = "/viewthread?id=" + thread
 
-        return render_template("viewthread.html", rows=rows, id=id
+        return render_template("viewthread.html", rows=rows, id=thread
