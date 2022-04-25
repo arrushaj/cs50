@@ -216,6 +216,9 @@ def viewthread():
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
             pls_work = row[0]["username"]
 
+        elif x == "":
+            pls_work = ""
+
         return render_template("viewthread.html", rows=rows, id=id, pls_work=pls_work)
 
 
