@@ -249,3 +249,5 @@ def like():
 
         db.execute("INSERT INTO likes (reply_id, user_id) VALUES (?, ?)", reply_id, user_id)
         db.execute("UPDATE replies SET likes = likes + 1 WHERE id = ?", reply_id)
+
+        
