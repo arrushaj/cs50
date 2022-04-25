@@ -256,13 +256,13 @@ def like():
         return redirect(redir)
 
 @app.route("/unlike", methods=["GET", "POST"])
-def like():
+def unlike():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
         user_id = session["user_id"]
 
-        db.execute("INSERT INTO likes (reply_id, user_id) VALUES (?, ?)", reply_id, user_id)
-        db.execute("UPDATE replies SET likes = likes + 1 WHERE id = ?", reply_id)
+        db.execute("DELETE FROM likes WHERE reply_id = ? AND user_id = ?", reply_id, user_id)
+        db.execute("UPDATE replies SET likes = likes - 1 WHERE id = ?", reply_id)
 
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
         thread = thread_id[0]["thread_id"]
