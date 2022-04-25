@@ -249,8 +249,9 @@ def like():
         db.execute("UPDATE replies SET likes = likes + 1 WHERE id = ?", reply_id)
 
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
-
         thread = thread_id[0]["thread_id"]
         #redir = "/viewthread?id=" + thread
 
-        return render_template("viewthread.html", rows=rows, id=thread
+        rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", thread)
+
+        return render_template("viewthread.html", rows=rows, id=thread)
