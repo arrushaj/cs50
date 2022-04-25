@@ -212,7 +212,7 @@ def viewthread():
             return apology("This thread doesn't exist!")
 
         if session["user_id"]:
-            likes = db.execute("SELECT reply_id FROM likes WHERE user_id = ?", session["user_id"])
+            likes = db.execute("SELECT * FROM likes WHERE user_id = ?", session["user_id"])
 
         return render_template("viewthread.html", rows=rows, id=id, likes=likes)
 
