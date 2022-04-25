@@ -213,9 +213,9 @@ def viewthread():
 
         if x != "":
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
-            username = row[0]["username"]
+            name = row[0]["username"]
 
-        return render_template("viewthread.html", rows=rows, id=id, username=username)
+        return render_template("viewthread.html", rows=rows, id=id, name=name)
 
 
 @app.route("/reply", methods=["GET", "POST"])
