@@ -206,17 +206,17 @@ def viewthread():
     if request.method == "GET":
         id = request.args.get("id")
 
+        global x
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
-        global x
-        if x != "":
+        elif x != "":
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
-            y = row[0]["username"]
+            pls_work = row[0]["username"]
 
-        return render_template("viewthread.html", rows=rows, id=id, y=y)
+        return render_template("viewthread.html", rows=rows, id=id, pls_work=pls_work)
 
 
 @app.route("/reply", methods=["GET", "POST"])
