@@ -211,8 +211,8 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
-        if session["user_id"]:
-            db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        if session != None:
+            db.execute("SELECT * FROM users WHERE id = ?", session)
 
         return render_template("viewthread.html", rows=rows, id=id)
 
