@@ -213,15 +213,8 @@ def viewthread():
 
         if session["user_id"]:
             likes = db.execute("SELECT * FROM likes WHERE user_id = ?", session["user_id"])
-            for row in rows:
-                for like in likes:
-                    if row["id"] == like["reply_id"]:
-                        x = 0
-                        break
-                    else:
-                        x = 1
 
-        return render_template("viewthread.html", rows=rows, id=id, x=x)
+        return render_template("viewthread.html", rows=rows, id=id, likes=likes)
 
 
 @app.route("/reply", methods=["GET", "POST"])
