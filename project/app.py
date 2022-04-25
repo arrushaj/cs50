@@ -244,7 +244,11 @@ def reply():
 
         return redirect(redir)
 
-#@app.route("/like", methods=["GET", "POST"])
-#def like():
-    #if request.method == "POST":
+@app.route("/like", methods=["GET", "POST"])
+def like():
+    if request.method == "POST":
+        reply_id = request.form.get("reply_id")
+        user_id = session["user_id"]
 
+        db.execute("INSERT INTO likes (reply_id, user_id) VALUES (?, ?)", reply_id, user_id)
+        db.execute("UPDATE relpies SET likes = likes + 1 WHERE id = ?", reply_id)
