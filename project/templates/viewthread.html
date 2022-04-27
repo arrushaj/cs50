@@ -60,7 +60,10 @@
                         {% endif %}
                         {% if row["user"] == pls_work %}
                         <div class="px-4 pt-3 btn-group">
-                            <button type="submit" class="btn btn-danger"> Delete</button>
+                            <form id="delete_comment" action="/delete_comment" method="POST">
+                                <input hidden name="reply_id" value="{{ row["id"] }}">
+                                <button type="submit" class="btn btn-danger"> Delete</button>
+                            </form>
                         </div>
                         {% endif %}
                     </div>

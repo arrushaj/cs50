@@ -291,3 +291,5 @@ def unlike():
 #@app.route("/delete_comment", methods=["GET", "POST"])
 #def delete_comment():
 #   if request.method == "POST":
+        reply_id = request.form.get("reply_id")
+        user_id = session["user_id"]
