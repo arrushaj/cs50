@@ -288,12 +288,15 @@ def unlike():
 
         return redirect(redir)
 
-#@app.route("/delete_comment", methods=["GET", "POST"])
-#def delete_comment():
-#   if request.method == "POST":
+@app.route("/delete_comment", methods=["GET", "POST"])
+def delete_comment():
+    if request.method == "POST":
         reply_id = request.form.get("reply_id")
 
         db.execute("DELETE FROM replies WHERE reply_id = ?", reply_id)
+
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
         thread = thread_id[0]["thread_id"]
+        redir = "/viewthread?id=" + str(thread)
 
+        return redirect(redir)
