@@ -288,3 +288,6 @@ def unlike():
 
         return redirect(redir)
 
+#@app.route("/delete_comment", methods=["GET", "POST"])
+#def delete_comment():
+#   if request.method == "POST":
