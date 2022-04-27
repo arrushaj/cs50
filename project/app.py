@@ -292,4 +292,8 @@ def unlike():
 #def delete_comment():
 #   if request.method == "POST":
         reply_id = request.form.get("reply_id")
-        user_id = session["user_id"]
+
+        db.execute("DELETE FROM replies WHERE reply_id = ?", reply_id)
+        thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
+        thread = thread_id[0]["thread_id"]
+
