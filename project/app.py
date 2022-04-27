@@ -295,8 +295,11 @@ def delete_comment():
 
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
         thread = thread_id[0]["thread_id"]
-        redir = "/viewthread?id=" + str(thread)
 
+
+        db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
         db.execute("DELETE FROM replies WHERE id = ?", reply_id)
+
+        redir = "/viewthread?id=" + str(thread)
 
         return redirect(redir)
