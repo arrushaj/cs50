@@ -91,21 +91,21 @@
 
     function myFunction2(id) {
         var x = document.getElementById(id);
-        let y = id.substring(4);
-        let z = 'editText';
-        let a = 'text';
-        let result = z.concat(y);
-        let result2 = a.concat(y);
-        var zz = document.getElementById(result);
-        var zzz = document.getElementById(result2);
+        const y = id.substring(4);
+        const z = 'editText';
+        //let a = 'text';
+        const result = z.concat(y);
+        //let result2 = a.concat(y);
+        const zz = document.getElementById(result);
+        //var zzz = document.getElementById(result2);
         if (x.innerHTML === 'Edit') {
             x.innerHTML = 'Submit';
             zz.style.display = 'block';
-            zzz.style.display = 'hidden';
+            //zzz.style.display = 'hidden';
         } else {
             x.innerHTML = 'Edit';
             zz.style.display = 'hidden';
-            zzz.style.display = 'visible';
+            //zzz.style.display = 'visible';
         }
     }
     </script>
