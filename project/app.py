@@ -291,7 +291,7 @@ def delete_comment():
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
         thread = thread_id[0]["thread_id"]
 
-
+        db.execute("UPDATE thread SET replies = replies - 1 WHERE id = ?", thread)
         db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
         db.execute("DELETE FROM replies WHERE id = ?", reply_id)
 
