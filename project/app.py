@@ -302,12 +302,10 @@ def delete_comment():
 @app.route("/delete_thread", methods=["GET", "POST"])
 def delete_thread():
     if request.method == "POST":
-        reply_id = request.form.get("reply_id")
-
-        thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
-        thread = thread_id[0]["thread_id"]
+        thread_id = request.form.get("thread")
 
 
+        
         db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
         db.execute("DELETE FROM replies WHERE id = ?", reply_id)
 
