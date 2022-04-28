@@ -304,6 +304,9 @@ def delete_thread():
     if request.method == "POST":
         thread_id = request.form.get("thread")
 
+        board = db.execute("SELECT board FROM thread WHERE id = ?", thread_id)
+        board_name = board[0]["board"]
+
         rows = db.execute("SELECT replies.thread_id, replies.id FROM replies JOIN thread ON thread.id = replies.thread_id AND thread.id = ?", thread_id)
 
         for row in rows:
