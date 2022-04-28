@@ -23,7 +23,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
-x = ""
 
 @app.after_request
 def after_request(response):
@@ -63,8 +62,6 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
-        global x
-        x = request.form.get("username")
 
         # Redirect user to home page
         return redirect("/")
@@ -79,8 +76,7 @@ def logout():
 
     # Forget any user_id
     session.clear()
-    global x
-    x = ""
+
     # Redirect user to login form
     return redirect("/")
 
@@ -206,7 +202,6 @@ def viewthread():
     if request.method == "GET":
         id = request.args.get("id")
 
-        global x
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
 
         if len(rows) < 1:
@@ -289,6 +284,22 @@ def unlike():
         return redirect(redir)
 
 @app.route("/delete_comment", methods=["GET", "POST"])
+def delete_comment():
+    if request.method == "POST":
+        reply_id = request.form.get("reply_id")
+
+        thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
+        thread = thread_id[0]["thread_id"]
+
+
+        db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
+        db.execute("DELETE FROM replies WHERE id = ?", reply_id)
+
+        redir = "/viewthread?id=" + str(thread)
+
+        return redirect(redir)
+
+@app.route("/delete_thread", methods=["GET", "POST"])
 def delete_comment():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
