@@ -300,7 +300,7 @@ def delete_comment():
         return redirect(redir)
 
 @app.route("/delete_thread", methods=["GET", "POST"])
-def delete_comment():
+def delete_thread():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
 
