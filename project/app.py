@@ -313,7 +313,8 @@ def delete_thread():
             db.execute("DELETE FROM likes WHERE reply_id = ?", row["id"])
             db.execute("DELETE FROM replies WHERE id = ?", row["id"])
 
+        db.execute("DELETE FROM thread WHERE id = ?", thread_id)
 
-        redir = "/viewthread?id=" + str(thread)
+        redir = "/" + board_name
 
         return redirect(redir)
