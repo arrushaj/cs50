@@ -212,15 +212,20 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
-
-        try session["user_id"]:
-
-        elif x != "":
+        try:
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
             pls_work = row[0]["username"]
 
-        elif x == "":
+        except KeyError:
             pls_work = ""
+        #elif x != "":
+            #row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+            #pls_work = row[0]["username"]
+
+        #elif x == "":
+            #pls_work = ""
+
+
 
         return render_template("viewthread.html", rows=rows, id=id, pls_work=pls_work)
 
