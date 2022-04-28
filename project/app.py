@@ -126,10 +126,13 @@ def register():
 
 @app.route("/music")
 def music():
-    if session.get("user_id") is None:
-        session["user_id"] = ""
+    try:
+        id = session["user_id"]
 
-    row_user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
 
     if len(row_user) < 1:
         user = ""
@@ -138,18 +141,18 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-    if session["user_id"] == "":
-        session.clear()
-
     return render_template("music.html", rows=rows, user=user)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "GET":
-        if session.get("user_id") is None:
-            session["user_id"] = ""
+        try:
+            id = session["user_id"]
 
-        row_user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        except KeyError:
+            id = ""
+
+        row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
 
         if len(row_user) < 1:
             user = ""
@@ -164,9 +167,6 @@ def search():
         rows = db.execute("SELECT * FROM thread WHERE board = ? AND title LIKE ? ORDER BY latest DESC", board, title)
 
         return_html = board + ".html"
-
-        if session["user_id"] == "":
-            session.clear()
 
         return render_template(return_html, rows=rows, user=user)
 
