@@ -21,3 +21,10 @@ nav .navbar-brand .green
 {
     color: #2e944b;
 }
+
+pre
+{
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  line-height: 1.5;
+}
