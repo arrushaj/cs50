@@ -304,10 +304,12 @@ def delete_thread():
     if request.method == "POST":
         thread_id = request.form.get("thread")
 
-        # SELECT replies.thread_id, replies.id FROM replies JOIN thread ON thread.id = replies.thread_id 
+        rows = db.execute("SELECT replies.thread_id, replies.id FROM replies JOIN thread ON thread.id = replies.thread_id AND thread.id = ?", thread_id)
 
-        db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
-        db.execute("DELETE FROM replies WHERE id = ?", reply_id)
+        for row in rows:
+            db.execute("DELETE FROM likes WHERE reply_id = ?", row["id"])
+            db.execute("DELETE FROM replies WHERE id = ?", row["id"])
+
 
         redir = "/viewthread?id=" + str(thread)
 
