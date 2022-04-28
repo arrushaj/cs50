@@ -212,6 +212,9 @@ def viewthread():
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
 
+
+        try session["user_id"]:
+
         elif x != "":
             row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
             pls_work = row[0]["username"]
