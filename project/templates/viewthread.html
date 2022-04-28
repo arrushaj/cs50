@@ -93,19 +93,19 @@
         var x = document.getElementById(id);
         const y = id.substring(4);
         const z = 'editText';
-        //let a = 'text';
+        const a = 'text';
         const result = z.concat(y);
-        //let result2 = a.concat(y);
+        const result2 = a.concat(y);
         const zz = document.getElementById(result);
-        //var zzz = document.getElementById(result2);
+        const zzz = document.getElementById(result2);
         if (x.innerHTML === 'Edit') {
             x.innerHTML = 'Submit';
             zz.style.display = 'block';
-            //zzz.style.display = 'hidden';
+            zzz.style.display = 'hidden';
         } else {
             x.innerHTML = 'Edit';
-            zz.style.display = 'hidden';
-            //zzz.style.display = 'visible';
+            zz.style.display = 'none';
+            zzz.style.display = 'block';
         }
     }
     </script>
