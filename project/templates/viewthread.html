@@ -104,7 +104,7 @@
         const zz = document.getElementById(result);
         const zzz = document.getElementById(result2);
         const form = document.getElementById(form_name);
-        //const form_text_change = document.getElementbyId(form_text);
+        const test = document.getElementById(form_text);
         if (x.innerHTML === 'Edit') {
             x.innerHTML = 'Submit';
             zz.style.display = 'block';
@@ -113,7 +113,7 @@
             x.innerHTML = 'Edit';
             zz.style.display = 'none';
             zzz.style.display = 'block';
-            //form_text_change.val = zz.innerHTML;
+            test.val = zz.innerHTML;
             form.submit()
         }
     }
