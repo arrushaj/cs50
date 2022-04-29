@@ -322,6 +322,7 @@ def delete_thread():
 @app.route("/update_post", methods=["GET", "POST"])
 def update_post():
     if request.method == "POST":
+        thislist = []
         keys = request.form.keys()
         keys = [key for key in keys if key.startswith("item")]
         keys = sorted(keys)
@@ -329,5 +330,8 @@ def update_post():
         for key in keys:
             #print(key, request.form[key])
             print(key, request.form.get(key))
-        return(keys)
+            thislist.append(key)
+
+        print(thislist)
+        return('hi')
 
