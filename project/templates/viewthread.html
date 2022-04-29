@@ -62,8 +62,8 @@
                         {% if row["user"] == pls_work %}
                         <div class="px-4 pt-3 btn-group">
                             <form id="submit_edit{{ row["id"] }}" action="/update_post" method="POST">
-                                <input hidden name="reply_id" value="{{ row["id"] }}">
-                                <input hidden name="reply_text{{ row["id"] }}" value="{{ row["message"] }}"
+                                <input hidden id="reply_id{{ row["id"] }}" value="{{ row["id"] }}">
+                                <input hidden id="reply_text{{ row["id"] }}" value="">
                                 <button id="edit{{ row["id"] }}" onclick="myFunction2(this.id)" type="button" class="btn btn-secondary">Edit</button>
                             </form>
                             &nbsp
@@ -96,12 +96,15 @@
         const z = 'editText';
         const a = 'text';
         const f = 'submit_edit';
+        const f_text = 'reply_text';
         const result = z.concat(y);
         const result2 = a.concat(y);
         const form_name = f.concat(y);
+        const form_text = f_text.concat(y);
         const zz = document.getElementById(result);
         const zzz = document.getElementById(result2);
         const form = document.getElementById(form_name);
+        const form_text = document.getElementbyId(form_text);
         if (x.innerHTML === 'Edit') {
             x.innerHTML = 'Submit';
             zz.style.display = 'block';
@@ -110,6 +113,7 @@
             x.innerHTML = 'Edit';
             zz.style.display = 'none';
             zzz.style.display = 'block';
+            form_text.value = zz.innerHTML;
             form.submit()
         }
     }
