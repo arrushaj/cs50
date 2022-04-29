@@ -113,7 +113,8 @@
             x.innerHTML = 'Edit';
             zz.style.display = 'none';
             zzz.style.display = 'block';
-            test.value = zz.innerHTML;
+            test.value = zz.innerText;
+            console.log(test)
             form.submit()
         }
     }
