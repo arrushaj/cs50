@@ -63,6 +63,7 @@
                         <div class="px-4 pt-3 btn-group">
                             <form id="submit_edit{{ row["id"] }}" action="/update_post" method="POST">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
+                                <input hidden name="reply_text{{ row["id"] }}" value="{{ row["message"] }}"
                                 <button id="edit{{ row["id"] }}" onclick="myFunction2(this.id)" type="button" class="btn btn-secondary">Edit</button>
                             </form>
                             &nbsp
