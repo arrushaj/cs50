@@ -322,7 +322,8 @@ def delete_thread():
 @app.route("/update_post", methods=["GET", "POST"])
 def update_post():
     if request.method == "POST":
-        request.form.keys
-        print(key, request.form.get(key))
+        keys = request.form.keys
+        for key in keys:
+            print(key, request.form.get(key))
 
         return('/')
