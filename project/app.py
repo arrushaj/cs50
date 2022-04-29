@@ -329,5 +329,5 @@ def update_post():
         for key in keys:
             #print(key, request.form[key])
             print(key, request.form.get(key))
-        return('/index')
+        return(keys)
 
