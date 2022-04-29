@@ -318,3 +318,11 @@ def delete_thread():
         redir = "/" + board_name
 
         return redirect(redir)
+
+@app.route("/update_post", methods=["GET", "POST"])
+def update_post():
+    if request.method == "POST":
+        request.form.keys
+        print(key, request.form.get(key))
+
+        return('/')
