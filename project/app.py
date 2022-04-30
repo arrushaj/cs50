@@ -335,7 +335,6 @@ def update_post():
         id = request.args.get("reply_id")
 
         message_row = db.execute("SELECT * FROM replies WHERE id = ?", id)
-        message = message_row[0]["message"]
 
         x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = x[0]["username"]
@@ -345,7 +344,7 @@ def update_post():
         if len(y) < 1:
             return apology("Post unable to be edited")
 
-        return render_template("edit.html", message=message, id=id)
+        return render_template("edit.html", message_row=message_row)
 
 @app.route("/update", methods=["GET", "POST"])
 def update():

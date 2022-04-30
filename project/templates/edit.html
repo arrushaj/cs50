@@ -9,10 +9,10 @@
         <div class="form-group">
             <label for="message">Message</label>
             <br>
-            <textarea class="form-control" name="message" rows="10">{{message}}</textarea>
+            <textarea class="form-control" name="message" rows="10">{{ message_row["message"] }}</textarea>
         </div>
         <br>
-        <input hidden name="reply_id" value="{{ id }}">
+        <input hidden name="reply_id" value="{{ message_row["id"] }}">
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 {% endblock %}
