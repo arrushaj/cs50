@@ -340,6 +340,8 @@ def update():
     if request.method == "POST":
         message = request.form.get("message")
         id = request.form.get("reply_id")
+        print(message)
+        print(id)
 
         x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = x[0]["username"]
