@@ -396,6 +396,8 @@ def reply_legit():
 
         thread_id = row[0]["thread_id"]
         response_message = row[0]["message"]
+        response_user = row[0]["user"]
+        response_date = row[0]["date"]
 
         y = db.execute("SELECT * FROM replies WHERE id = ? AND thread_id = ?", id, thread_id)
 
