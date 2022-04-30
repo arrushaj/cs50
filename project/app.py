@@ -371,5 +371,14 @@ def update():
 
 @app.route("/reply_form", methods=["GET", "POST"])
 def reply_form():
+    if request.method == "GET":
+        id = request.args.get("reply_id")
+
+        message_row = db.execute("SELECT * FROM replies WHERE id = ?", id)
+
+        x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        username = x[0]["username"]
+
+        y = db.execute("SELECT * FROM replies WHERE user = ? AND id = ?", username, id)
 
 

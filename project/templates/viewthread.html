@@ -58,11 +58,8 @@
                                 <button type="submit" class="btn btn-danger"> Unlike</button>
                             </form>
                             &nbsp
-                            <form id="reply_form" action="/reply_form" method="POST">
+                            <form id="reply_form" action="/reply_form" method="GET">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
-                                <input hidden name="reply_user" value="{{ row["user"] }}">
-                                <input hidden name="reply_text" value="{{ row["message"] }}">
-                                <input hidden name="reply_date" value="{{ row["date"] }}">
                                 <button type="submit" class="btn btn-primary"> Reply</button>
                             </form>
                         </div>
