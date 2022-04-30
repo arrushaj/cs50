@@ -341,8 +341,20 @@ def update():
         message = request.form.get("message")
         id = request.form.get("reply_id")
 
+        x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        username = x[0]["username"]
+
+        y = db.execute("SELECT * FROM replies WHERE user = ? AND id = ?", username, id)
+
+        if len(y) < 1:
+            return apology("Post unable to be edited")
+
         db.execute("UPDATE replies SET message = ? WHERE reply_id = ?", message, id)
 
-        x = db.execute("SELECT * FROM replies WHERE id = ?", id)
-        thread = x[0]["thread_id"]
+        a = db.execute("SELECT * FROM replies WHERE id = ?", id)
+        thread = a[0]["thread_id"]
+
+        redir = "/viewthread?id=" + thread
+
+        return redirect(redir)
 
