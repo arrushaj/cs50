@@ -71,7 +71,6 @@
                         <div class="px-4 pt-3 btn-group">
                             <form id="submit_edit" action="/update_post" method="GET">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
-                                <input hidden name="reply_text" value="{{ row["message"] }}">
                                 <button id="edit" type="submit" class="btn btn-secondary">Edit</button>
                             </form>
                             &nbsp
