@@ -385,4 +385,20 @@ def reply_form():
 
         return render_template("reply.html", row=row)
 
+@app.route("/reply", methods=["GET", "POST"])
+def reply()):
+    if request.method == "POST":
+        id = request.args.get("reply_id")
+
+        row = db.execute("SELECT * FROM replies WHERE id = ?", id)
+
+        thread_id = row[0]["thread_id"]
+
+        y = db.execute("SELECT * FROM replies WHERE id = ? AND thread_id = ?", id, thread_id)
+
+        if len(y) < 1:
+            return apology("That post is not in this thread!")
+
+        return render_template("reply.html", row=row)
+
 
