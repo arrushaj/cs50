@@ -388,7 +388,9 @@ def reply_form():
 @app.route("/reply_legit", methods=["GET", "POST"])
 def reply_legit():
     if request.method == "POST":
-        id = request.args.get("reply_id")
+        id = request.form.get("reply_id")
+
+        print(id)
 
         row = db.execute("SELECT * FROM replies WHERE id = ?", id)
 
@@ -411,7 +413,7 @@ def reply_legit():
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread_id)
         db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread_id)
 
-        redir = "/viewthread?id=" + thread_id
+        redir = "/viewthread?id=" + str(thread_id)
 
         return redirect(redir)
 
