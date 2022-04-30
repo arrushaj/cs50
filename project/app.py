@@ -330,7 +330,7 @@ def update_post():
 
         y = db.execute("SELECT * FROM replies WHERE id = ? AND user = ?", id, username)
 
-        if len(y) < 0:
+        if len(y) < 1:
             return apology("Post unable to be edited")
 
         return render_template("edit.html", message=message, id=id)
