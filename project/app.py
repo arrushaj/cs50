@@ -331,9 +331,11 @@ def delete_thread():
 
 @app.route("/update_post", methods=["GET", "POST"])
 def update_post():
-    if request.method == "POST":
-        message = request.form.get("reply_text")
-        id = request.form.get("reply_id")
+    if request.method == "GET":
+        id = request.args.get("reply_id")
+
+        message_row = db.execute("SELECT * FROM replies WHERE id = ?", id)
+        message = message_row[0]["message"]
 
         x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = x[0]["username"]
@@ -350,8 +352,6 @@ def update():
     if request.method == "POST":
         message = request.form.get("message")
         id = request.form.get("reply_id")
-        print(message)
-        print(id)
 
         x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = x[0]["username"]
@@ -369,4 +369,8 @@ def update():
         redir = "/viewthread?id=" + str(thread)
 
         return redirect(redir)
+
+#@app.route("/reply_form", methods=["GET", "POST"])
+#def reply_form():
+
 
