@@ -351,12 +351,12 @@ def update():
         if len(y) < 1:
             return apology("Post unable to be edited")
 
-        db.execute("UPDATE replies SET message = ? WHERE reply_id = ?", message, id)
+        db.execute("UPDATE replies SET message = ? WHERE id = ?", message, id)
 
         a = db.execute("SELECT * FROM replies WHERE id = ?", id)
         thread = a[0]["thread_id"]
 
-        redir = "/viewthread?id=" + thread
+        redir = "/viewthread?id=" + str(thread)
 
         return redirect(redir)
 
