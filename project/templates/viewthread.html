@@ -64,7 +64,7 @@
                             <form id="submit_edit" action="/update_post" method="POST">
                                 <input hidden id="reply_id" value="{{ row["id"] }}">
                                 <input hidden id="reply_text" value="{{ row["message"] }}">
-                                <button id="edit" type="button" class="btn btn-secondary">Edit</button>
+                                <button id="edit" type="submit" class="btn btn-secondary">Edit</button>
                             </form>
                             &nbsp
                             <form id="delete_comment" action="/delete_comment" method="POST">
