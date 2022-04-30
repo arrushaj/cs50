@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body d-flex">
                         <pre style="white-space: pre-wrap" id="text{{ row["id"] }}">{{ row["message"] }}</pre>
-                        <textarea style="display: none" class="form-control" id="editText{{ row["id"] }}" rows="5">{{ row["message"] }}</textarea>
+                        <!--<textarea style="display: none" class="form-control" id="editText{{ row["id"] }}" rows="5">{{ row["message"] }}</textarea>-->
                     </div>
                     <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                         {% if session["user_id"] %}
@@ -56,6 +56,14 @@
                             <form id="unlike_form" action="/unlike" method="POST">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
                                 <button type="submit" class="btn btn-danger"> Unlike</button>
+                            </form>
+                            &nbsp
+                            <form id="reply_form" action="/reply" method="POST">
+                                <input hidden name="reply_id" value="{{ row["id"] }}">
+                                <input hidden name="reply_user" value="{{ row["user"] }}">
+                                <input hidden name="reply_text" value="{{ row["message"] }}">
+                                <input hidden name="reply_date" value="{{ row["date"] }}">
+                                <button type="submit" class="btn btn-primary"> Reply</button>
                             </form>
                         </div>
                         {% endif %}
