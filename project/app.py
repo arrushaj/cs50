@@ -385,8 +385,8 @@ def reply_form():
 
         return render_template("reply.html", row=row)
 
-@app.route("/reply", methods=["GET", "POST"])
-def reply():
+@app.route("/reply_legit", methods=["GET", "POST"])
+def reply_legit():
     if request.method == "POST":
         id = request.args.get("reply_id")
 
