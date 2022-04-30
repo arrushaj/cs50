@@ -399,6 +399,19 @@ def reply()):
         if len(y) < 1:
             return apology("That post is not in this thread!")
 
-        return render_template("reply.html", row=row)
+        elif request.form.get("message") == "":
+            return apology("must provide message")
 
+        message = request.form.get("message")
+
+        rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        username = rows[0]["username"]
+
+        db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, id)
+        db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread)
+        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
+
+        redir = "/viewthread?id=" + thread
+
+        return redirect(redir)
 
