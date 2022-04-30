@@ -322,8 +322,17 @@ def delete_thread():
 @app.route("/update_post", methods=["GET", "POST"])
 def update_post():
     if request.method == "POST":
-       message = request.form.get("reply_text")
-       id = request.form.get("reply_id")
+        message = request.form.get("reply_text")
+        id = request.form.get("reply_id")
 
-        
+        x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        username = x[0]["username"]
+
+        y = db.execute("SELECT * FROM replies WHERE id = ? AND user = ?", id, username)
+
+        if len(y) < 0:
+            return apology("Post unable to be edited")
+
+        return render_template("edit.html", message=message, id=id)
+
 
