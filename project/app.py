@@ -376,9 +376,13 @@ def reply_form():
 
         message_row = db.execute("SELECT * FROM replies WHERE id = ?", id)
 
-        x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
-        username = x[0]["username"]
+        thread_id = message_row[0]["thread_id"]
 
-        y = db.execute("SELECT * FROM replies WHERE user = ? AND id = ?", username, id)
+        y = db.execute("SELECT * FROM replies WHERE id = ? AND thread_id = ?", id, thread_id)
+
+        if len(y) < 1:
+            return apology("That post is not in this thread!")
+
+        return render_template("reply.html", message_row=message_row)
 
 
