@@ -3,6 +3,7 @@
 {% block title %}
     Reply
 {% endblock %}
+{% for row in row %}
 <div class="card mb-4">
     <div class="card-header">
         <div style="text-align:left" class="media flex-wrap w-100"> <!-- <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt=""> -->
@@ -20,4 +21,5 @@
         <!--<textarea style="display: none" class="form-control" id="editText{{ row["id"] }}" rows="5">{{ row["message"] }}</textarea>-->
     </div>
 </div>
+{% endfor %}
 {% endblock %}
