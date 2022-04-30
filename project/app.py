@@ -395,6 +395,7 @@ def reply_legit():
         row = db.execute("SELECT * FROM replies WHERE id = ?", id)
 
         thread_id = row[0]["thread_id"]
+        response_message = row[0]["]
 
         y = db.execute("SELECT * FROM replies WHERE id = ? AND thread_id = ?", id, thread_id)
 
@@ -409,7 +410,7 @@ def reply_legit():
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread_id, username, message, 1, id)
+        db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id, response_message, response_user, response_date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread_id, username, message, 1, id)
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread_id)
         db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread_id)
 
