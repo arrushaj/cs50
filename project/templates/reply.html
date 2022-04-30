@@ -3,6 +3,21 @@
 {% block title %}
     Reply
 {% endblock %}
-
-
+<div class="card mb-4">
+    <div class="card-header">
+        <div style="text-align:left" class="media flex-wrap w-100"> <!-- <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt=""> -->
+            <div class="media-body ml-3"> <a style="text-align:left" href="javascript:void(0)" data-abc="true"><h5>{{ row["user"] }}</h5></a>
+                <div class="text-muted small">test</div>
+            </div>
+            <div class="text-muted small ml-3">
+                <div>Posted <strong>{{ row["date"] }}</strong></div>
+                <div><strong>{{ row["likes"] }}</strong> Likes</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body d-flex">
+        <pre style="white-space: pre-wrap" id="text{{ row["id"] }}">{{ row["message"] }}</pre>
+        <!--<textarea style="display: none" class="form-control" id="editText{{ row["id"] }}" rows="5">{{ row["message"] }}</textarea>-->
+    </div>
+</div>
 {% endblock %}
