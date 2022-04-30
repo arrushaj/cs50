@@ -328,7 +328,7 @@ def update_post():
         x = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = x[0]["username"]
 
-        y = db.execute("SELECT * FROM replies WHERE id = ? AND user = ?", id, username)
+        y = db.execute("SELECT * FROM replies WHERE user = ?", username)
 
         if len(y) < 1:
             return apology("Post unable to be edited")
