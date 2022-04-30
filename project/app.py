@@ -369,7 +369,7 @@ def update():
 
         return redirect(redir)
 
-#@app.route("/reply_form", methods=["GET", "POST"])
-#def reply_form():
+@app.route("/reply_form", methods=["GET", "POST"])
+def reply_form():
 
 
