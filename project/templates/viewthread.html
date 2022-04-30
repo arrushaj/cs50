@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     {% if row["response"] == 1 %}
-                    <div style="text-align:left" class="card">
+                    <div style="text-align:left" class="card bg-secondary mb-3">
                       <div class="card" style="width: auto;">
                         <div class="card-header">
                         Posted by {{ row["user"] }} on {{ row["date"] }}
@@ -51,6 +51,7 @@
                           <li class="list-group-item">{{ row["response_message"] }}</li>
                         </ul>
                       </div>
+                    </div>
                     {% endif %}
                     <div class="card-body d-flex">
                         <pre style="white-space: pre-wrap" id="text{{ row["id"] }}">{{ row["message"] }}</pre>
