@@ -8,10 +8,11 @@
     <form action="/update" method="post" style="margin:auto; width:50%">
         <div class="form-group">
             <label for="message">Message</label>
+            <br>
             <textarea class="form-control" name="message" rows="10">{{message}}</textarea>
         </div>
         <br>
-        <input hidden id="reply_id" value="{{ id }}">
+        <input hidden name="reply_id" value="{{ id }}">
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 {% endblock %}

@@ -335,4 +335,14 @@ def update_post():
 
         return render_template("edit.html", message=message, id=id)
 
+@app.route("/update", methods=["GET", "POST"])
+def update():
+    if request.method == "POST":
+        message = request.form.get("message")
+        id = request.form.get("reply_id")
+
+        db.execute("UPDATE replies SET message = ? WHERE reply_id = ?", message, id)
+
+        x = db.execute("SELECT * FROM replies WHERE id = ?", id)
+        thread = x[0]["thread_id"]
 
