@@ -386,7 +386,7 @@ def reply_form():
         return render_template("reply.html", row=row)
 
 @app.route("/reply", methods=["GET", "POST"])
-def reply()):
+def reply():
     if request.method == "POST":
         id = request.args.get("reply_id")
 
@@ -407,11 +407,11 @@ def reply()):
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread, username, message, 1, id)
-        db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread)
-        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
+        db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), ?, ?)", thread_id, username, message, 1, id)
+        db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread_id)
+        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread_id)
 
-        redir = "/viewthread?id=" + thread
+        redir = "/viewthread?id=" + thread_id
 
         return redirect(redir)
 
