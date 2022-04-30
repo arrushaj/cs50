@@ -299,7 +299,7 @@ def delete_comment():
             db.execute("DELETE FROM likes WHERE reply_id = ?", reply_id)
             db.execute("DELETE FROM replies WHERE id = ?", reply_id)
             db.execute("DELETE FROM thread WHERE id = ?", thread)
-            redir = "/index"
+            redir = "/"
 
         else:
             db.execute("UPDATE thread SET replies = replies - 1 WHERE id = ?", thread)
