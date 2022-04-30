@@ -417,6 +417,6 @@ def reply_legit():
         db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread_id)
 
         redir = "/viewthread?id=" + str(thread_id)
-
+        flash("Reply posted!")
         return redirect(redir)
 
