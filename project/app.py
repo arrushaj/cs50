@@ -4,6 +4,7 @@ import datetime
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
+from flask-paginate import paginate
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -138,7 +139,7 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-
+    test = paginate(rowasd)
 
     return render_template("music.html", rows=rows, user=user)
 
