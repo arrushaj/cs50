@@ -191,12 +191,12 @@ def thread():
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'), strftime('%d/%m/%Y %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
+        db.execute("INSERT INTO thread (user, title, board, creation, latest) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), strftime('%Y/%m/%d %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
 
         rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
         id = rows2[0]["id"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", id, username, request.form.get("message"))
+        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'))", id, username, request.form.get("message"))
 
         flash('Thread posted!')
         return redirect('/')
@@ -240,9 +240,9 @@ def reply():
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%d/%m/%Y %H:%M:%S'))", thread, username, message)
+        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'))", thread, username, message)
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread)
-        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread)
+        db.execute("UPDATE thread SET latest = strftime('%Y/%m/%d %H:%M:%S') WHERE id = ?", thread)
 
         redir = "/viewthread?id=" + thread
 
