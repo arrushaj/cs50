@@ -23,6 +23,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
+ROWS_PER_PAGE = 5
 
 @app.after_request
 def after_request(response):
