@@ -139,9 +139,9 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-    test = paginate(rowasd)
+    test = Pagination(rows=rows, per_page=ROWS_PER_PAGE)
 
-    return render_template("music.html", rows=rows, user=user)
+    return render_template("music.html", rows=rows, user=user, test=test)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
