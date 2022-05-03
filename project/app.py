@@ -24,13 +24,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
-users = list(range(100))
-
-
-def get_users(offset=0, per_page=10):
-    return users[offset: offset + per_page]
-
-
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -129,6 +122,10 @@ def register():
 
 @app.route("/music")
 def music():
+
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+                                           
     try:
         id = session["user_id"]
 
@@ -144,7 +141,7 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-    rows = rows.paginate(per_page=3)
+    rows = Pagination(rows,)
 
     return render_template("music.html", rows=rows, user=user, test=test)
 
