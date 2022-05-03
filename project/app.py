@@ -4,9 +4,9 @@ import datetime
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, Blueprint
 from flask_session import Session
-from flask-paginate import Pagination, get_page_args
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask_paginate import Pagination, get_page_args
 
 from helpers import apology, login_required
 
@@ -26,7 +26,6 @@ db = SQL("sqlite:///forum.db")
 
 ROWS_PER_PAGE = 4
 
-rows = Pagination
 
 @app.after_request
 def after_request(response):
