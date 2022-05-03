@@ -23,7 +23,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
-ROWS_PER_PAGE = 5
+ROWS_PER_PAGE = 4
 
 @app.after_request
 def after_request(response):
@@ -137,6 +137,8 @@ def music():
         user = row_user[0]["username"]
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
+
+    
 
     return render_template("music.html", rows=rows, user=user)
 
