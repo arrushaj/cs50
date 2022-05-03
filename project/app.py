@@ -2,9 +2,9 @@ import os
 import datetime
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, Blueprint
 from flask_session import Session
-from flask-paginate import 
+from flask-paginate import Pagination, get_page_parameter
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
