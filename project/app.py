@@ -421,7 +421,7 @@ def reply_legit():
 
         db.execute("INSERT INTO replies (thread_id, user, message, date, response, response_id, response_message, response_user, response_date) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), ?, ?, ?, ?, ?)", thread_id, username, message, 1, id, response_message, response_user, response_date)
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread_id)
-        db.execute("UPDATE thread SET latest = strftime('%d/%m/%Y %H:%M:%S') WHERE id = ?", thread_id)
+        db.execute("UPDATE thread SET latest = strftime('%Y/%m/%d %H:%M:%S') WHERE id = ?", thread_id)
 
         redir = "/viewthread?id=" + str(thread_id)
         flash("Reply posted!")
