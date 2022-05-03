@@ -141,7 +141,7 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-
+    rows = rows.paginate(per_page=3)
 
     return render_template("music.html", rows=rows, user=user, test=test)
 
