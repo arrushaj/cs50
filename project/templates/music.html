@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block main %}
+{{ pagination.info }}
+{{ pagination.links }}
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">Music</a>
         <form action="/search" method="get" class="form-inline">

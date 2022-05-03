@@ -6,7 +6,7 @@ from flask import Flask, flash, redirect, render_template, request, session, Blu
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_paginate import Pagination, get_page_args
+from flask_paginate import Pagination, get_page_parameter
 
 from helpers import apology, login_required
 
@@ -123,9 +123,6 @@ def register():
 @app.route("/music")
 def music():
 
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-                                           
     try:
         id = session["user_id"]
 
@@ -141,9 +138,12 @@ def music():
 
     rows = db.execute("SELECT * FROM thread WHERE board = 'music' ORDER BY latest DESC")
 
-    rows = Pagination(rows,)
+    page = request.args.get(get_page_parameter(), type=int, default=1)
 
-    return render_template("music.html", rows=rows, user=user, test=test)
+    pagination = Pagination(page=page, total=len(rows), record_name='rows')
+
+
+    return render_template("music.html", rows=rows, user=user, pagination=pagination)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
