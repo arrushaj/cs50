@@ -142,7 +142,6 @@ def music():
 
     pagination = Pagination(page=page, total=len(rows), record_name='rows')
 
-
     return render_template("music.html", rows=rows, user=user, pagination=pagination)
 
 @app.route("/search", methods=["GET", "POST"])
