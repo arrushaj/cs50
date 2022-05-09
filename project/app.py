@@ -196,7 +196,7 @@ def thread():
         rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
         id = rows2[0]["id"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'))", id, username, request.form.get("message"))
+        db.execute("INSERT INTO replies (thread_id, user, message, date, user_id) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), ?)", id, username, request.form.get("message"), session["user_id"])
 
         flash('Thread posted!')
         return redirect('/')
