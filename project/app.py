@@ -447,5 +447,5 @@ def profile():
     user = get[0]["username"]
     bio = get[0]["bio"]
 
-    return render_template("profile.html", user=user, bio=bio)
+    return render_template("profile.html", user=user, bio=bio, id=id)
 

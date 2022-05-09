@@ -10,7 +10,9 @@
         <h3 class="card-title">{{ user }}</h3>
         <br>
         <p class="card-text">{{ bio }}</p>
+        {% if session["user_id"] == id %}
         <a href="#" class="card-link">Edit Bio</a>
+        {% endif %}
         </div>
     </div>
 
