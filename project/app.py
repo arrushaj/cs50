@@ -269,7 +269,9 @@ def like():
 
         thread_id = db.execute("SELECT thread_id FROM replies WHERE id = ?", reply_id)
         thread = thread_id[0]["thread_id"]
-        redir = "/viewthread?id=" + str(thread)
+
+        page = request.
+        redir = "/viewthread?id=" + str(thread) + "&page="
 
         #rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", thread)
         flash("Post liked!")
