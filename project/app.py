@@ -191,7 +191,7 @@ def thread():
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO thread (user, title, board, creation, latest, user_id) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), strftime('%Y/%m/%d %H:%M:%S'))", username, request.form.get("title"), request.form.get("board"))
+        db.execute("INSERT INTO thread (user, title, board, creation, latest, user_id) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), strftime('%Y/%m/%d %H:%M:%S'), ?)", username, request.form.get("title"), request.form.get("board"), session["user_id"])
 
         rows2 = db.execute("SELECT * FROM thread ORDER BY creation DESC")
         id = rows2[0]["id"]
