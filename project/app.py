@@ -227,7 +227,7 @@ def viewthread():
         i=(page-1) * 5
         rows1=rows[i:i+5]
 
-        return render_template("viewthread.html", rows=rows, id=id, pls_work=pls_work)
+        return render_template("viewthread.html", rows=rows1, id=id, pls_work=pls_work, pagination=pagination)
 
 
 @app.route("/reply", methods=["GET", "POST"])
