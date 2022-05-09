@@ -144,7 +144,7 @@ def music():
 
     i=(page-1) * 5
     rows1=rows[i:i+5]
-    
+    return render_template('music.html', pagination=pagination, rows=rows1, user=user,)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
