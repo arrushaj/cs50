@@ -24,8 +24,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///forum.db")
 
-global_username = ""
-
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -65,9 +63,6 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        global global_username
-        global_username = request.form.get("username")
-
         # Redirect user to home page
         return redirect("/")
 
@@ -81,8 +76,7 @@ def logout():
 
     # Forget any user_id
     session.clear()
-    global global_username
-    global_username = ""
+
     # Redirect user to login form
     return redirect("/")
 
