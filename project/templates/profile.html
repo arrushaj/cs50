@@ -7,7 +7,7 @@
 {% block main %}
     <div class="card">
         <div class="card-body">
-        <h3 class="card-title">{{ user }}</h3>
+        <h2 class="card-title"><b>{{ user }}</b></h2>
         <br>
         <p class="card-text">{{ bio }}</p>
         {% if session["user_id"] == id %}
