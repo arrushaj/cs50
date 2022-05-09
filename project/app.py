@@ -440,3 +440,8 @@ def reply_legit():
         flash("Reply posted!")
         return redirect(redir)
 
+@app.route("/music")
+def music():
+    user = request.args.get("user")
+    
+
