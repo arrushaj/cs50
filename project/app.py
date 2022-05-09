@@ -272,7 +272,7 @@ def like():
         redir = "/viewthread?id=" + str(thread)
 
         #rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", thread)
-
+        flash("Post liked!")
         return redirect(redir)
 
 @app.route("/unlike", methods=["GET", "POST"])
@@ -294,6 +294,7 @@ def unlike():
 
         #rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", thread)
 
+        flash("Post unliked!")
         return redirect(redir)
 
 @app.route("/delete_comment", methods=["GET", "POST"])
@@ -320,6 +321,7 @@ def delete_comment():
             db.execute("DELETE FROM replies WHERE id = ?", reply_id)
             redir = "/viewthread?id=" + str(thread)
 
+        flash("Successfully deleted!")
         return redirect(redir)
 
 @app.route("/delete_thread", methods=["GET", "POST"])
@@ -340,6 +342,7 @@ def delete_thread():
 
         redir = "/" + board_name
 
+        flash("Successfully deleted")
         return redirect(redir)
 
 @app.route("/update_post", methods=["GET", "POST"])
