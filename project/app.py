@@ -442,10 +442,10 @@ def reply_legit():
 
 @app.route("/profile")
 def profile():
-    user = request.args.get("user")
-    get = db.execute("SELECT * FROM users WHERE username = ?", user)
-    user_id = get[0]["id"]
+    id = request.args.get("id")
+    get = db.execute("SELECT * FROM users WHERE id = ?", id)
+    user = get[0]["username"]
     bio = get[0]["bio"]
 
-    return render_template("profile.html", user, bio)
+    return render_template("profile.html", user=user, bio=bio)
 
