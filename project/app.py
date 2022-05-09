@@ -440,8 +440,11 @@ def reply_legit():
         flash("Reply posted!")
         return redirect(redir)
 
-@app.route("/music")
-def music():
+@app.route("/profile")
+def profile():
     user = request.args.get("user")
-    
+    user_id_get = db.execute("SELECT * FROM users WHERE username = ?", user)
+    user_id = user_id_get[0]["id"]
+
+
 
