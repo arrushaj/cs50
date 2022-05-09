@@ -71,6 +71,7 @@
                             &nbsp
                             <form id="unlike_form" action="/unlike" method="POST">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
+                                <input hidden name="page" value="{{ pagination.page }}">
                                 <button type="submit" class="btn btn-danger"> Unlike</button>
                             </form>
                             &nbsp
