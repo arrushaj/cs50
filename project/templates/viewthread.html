@@ -27,6 +27,7 @@
     <br><br>
     {{ pagination.info }}
     {{ pagination.links }}
+    {{ pagination.page }}
     <div class="container-fluid mt-100">
         {% for row in rows %}
         <div class="row">
@@ -64,6 +65,7 @@
                         <div class="px-4 pt-3 btn-group">
                             <form id="like_form" action="/like" method="POST">
                                 <input hidden name="reply_id" value="{{ row["id"] }}">
+                                <input hidden name="page" value="{{ pagination.page }}">
                                 <button type="submit" class="btn btn-success"> Like</button>
                             </form>
                             &nbsp
