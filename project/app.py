@@ -65,7 +65,7 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        global
+        global global_username
         global_username = request.form.get("username")
 
         # Redirect user to home page
@@ -81,8 +81,8 @@ def logout():
 
     # Forget any user_id
     session.clear()
-    global
-    global_username.clear
+    global global_username
+    global_username = ""
     # Redirect user to login form
     return redirect("/")
 
