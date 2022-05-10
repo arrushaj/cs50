@@ -451,18 +451,14 @@ def profile():
     return render_template("profile.html", user=user, bio=bio, id=int(id))
 
 @app.route("/edit_bio_form", methods=["GET", "POST"])
+@login_required
 def edit_bio_form():
     if request.method == "GET":
-        id = request.args.get("reply_id")
+        id = session["user_id"]
 
-        row = db.execute("SELECT * FROM replies WHERE id = ?", id)
+        row = db.execute("SELECT * FROM users WHERE id = ?", id)
 
-        thread_id = row[0]["thread_id"]
+        bio = row[0]["bio"]
 
-        y = db.execute("SELECT * FROM replies WHERE id = ? AND thread_id = ?", id, thread_id)
-
-        if len(y) < 1:
-            return apology("That post is not in this thread!")
-
-        return render_template("reply.html", row=row)
+        return render_template("edit_bio.html", bio=bio)
 
