@@ -171,7 +171,14 @@ def search():
 
         return_html = board + ".html"
 
-        return render_template(return_html, rows=rows, user=user)
+        page = request.args.get(get_page_parameter(), type=int, default=1)
+
+        pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+        i=(page-1) * 5
+        rows1=rows[i:i+5]
+
+        return render_template(return_html, rows=rows1, user=user, pagination=pagination)
 
 
 @app.route("/thread", methods=["GET", "POST"])
