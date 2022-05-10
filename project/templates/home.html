@@ -4,14 +4,16 @@
     Home
 {% endblock %}
 {% block main %}
-    <nav class="nav flex-column">
-        <a class="nav-link active" href="/music">Music</a>
-        <a class="nav-link" href="/film">TV & Film</a>
-        <a class="nav-link" href="/fashion">Fashion</a>
-        <a class="nav-link" href="/books">Books</a>
-        <a class="nav-link" href="/gaming">Gaming</a>
-        <a class="nav-link" href="/sports">Sports</a>
-        <a class="nav-link" href="/life">Life</a>
-        <a class="nav-link" href="/tech">Tech</a>
-    </nav>
+    <div class="list-group" style="margin:auto; width:25%">
+        <a href="/music" class="list-group-item list-group-item-action">
+          Music
+        </a>
+        <a href="/film" class="list-group-item list-group-item-action">TV & Film</a>
+        <a href="/fashion" class="list-group-item list-group-item-action">Fashion</a>
+        <a href="/books" class="list-group-item list-group-item-action">Books</a>
+        <a href="/gaming" class="list-group-item list-group-item-action">Gaming</a>
+        <a href="/sports" class="list-group-item list-group-item-action">Sports</a>
+        <a href="/life" class="list-group-item list-group-item-action">Life</a>
+        <a href="/tech" class="list-group-item list-group-item-action">Tech</a>
+      </div>
 {% endblock %}
