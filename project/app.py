@@ -473,6 +473,7 @@ def update_bio():
 
         redir = "/profile?id=" + str(session["user_id"])
 
+        flash("Bio updated!")
         return redirect(redir)
 
 
