@@ -498,4 +498,30 @@ def update_bio():
         flash("Bio updated!")
         return redirect(redir)
 
+@app.route("/film")
+def film():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'film' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('film.html', pagination=pagination, rows=rows1, user=user)
+
 
