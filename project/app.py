@@ -217,6 +217,8 @@ def viewthread():
         id = request.args.get("id")
 
         rows = db.execute("SELECT * FROM replies WHERE thread_id = ?", id)
+        title_row = db.execute("SELECT * FROM thread WHERE id = ?", id)
+        title = title_row[0]["title"]
 
         if len(rows) < 1:
             return apology("This thread doesn't exist!")
@@ -234,7 +236,7 @@ def viewthread():
         i=(page-1) * 5
         rows1=rows[i:i+5]
 
-        return render_template("viewthread.html", rows=rows1, id=id, pls_work=pls_work, pagination=pagination)
+        return render_template("viewthread.html", rows=rows1, id=id, pls_work=pls_work, pagination=pagination, title=title)
 
 
 @app.route("/reply", methods=["GET", "POST"])
