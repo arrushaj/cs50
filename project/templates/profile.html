@@ -17,21 +17,20 @@
         {% endif %}
         </div>
     </div>
-    {% for row in rows %}
-    <div class="card-body py-3">
-        <div class="row no-gutters align-items-center">
-            <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
-                <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="/profile?id={{ row["user_id"] }}" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
+    <div class="card mb-3" style="margin:auto; width:50%">
+        <div class="card-header pl-0 pr-0">
+            <div class="row no-gutters w-100 align-items-center">
+                <div class="col ml-3" style="position:relative">Threads</div>
             </div>
-            <div class="d-none d-md-block col-4">
-                <div class="row no-gutters align-items-center">
-                    <div class="col-4" style="position:relative; top:25px; left:-15px">{{ row["replies"] }}</div>
-                        <div class="media-body flex-truncate ml-2">
-                            <div class="col-8" style="margin-left: 180px">{{ row["latest"] }}</div> <a href="javascript:void(0)" class="col-8" style="margin-left: 160px" data-abc="true">by Billy Donovan</a>
-                        </div>
+        </div>
+    {% for row in rows %}
+        <div class="card-body py-3">
+            <div class="row no-gutters align-items-center">
+                <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
+                    <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="/profile?id={{ row["user_id"] }}" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
                 </div>
             </div>
         </div>
-    </div>
     {% endfor %}
+    </div>
 {% endblock %}
