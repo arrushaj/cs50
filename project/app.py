@@ -231,6 +231,7 @@ def viewthread():
 
 
 @app.route("/reply", methods=["GET", "POST"])
+@login_required
 def reply():
     if request.method == "POST":
 
@@ -255,6 +256,7 @@ def reply():
         return redirect(redir)
 
 @app.route("/like", methods=["GET", "POST"])
+@login_required
 def like():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
@@ -278,6 +280,7 @@ def like():
         return redirect(redir)
 
 @app.route("/unlike", methods=["GET", "POST"])
+@login_required
 def unlike():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
@@ -302,6 +305,7 @@ def unlike():
         return redirect(redir)
 
 @app.route("/delete_comment", methods=["GET", "POST"])
+@login_required
 def delete_comment():
     if request.method == "POST":
         reply_id = request.form.get("reply_id")
@@ -329,6 +333,7 @@ def delete_comment():
         return redirect(redir)
 
 @app.route("/delete_thread", methods=["GET", "POST"])
+@login_required
 def delete_thread():
     if request.method == "POST":
         thread_id = request.form.get("thread")
@@ -350,6 +355,7 @@ def delete_thread():
         return redirect(redir)
 
 @app.route("/update_post", methods=["GET", "POST"])
+@login_required
 def update_post():
     if request.method == "GET":
         id = request.args.get("reply_id")
@@ -367,6 +373,7 @@ def update_post():
         return render_template("edit.html", message_row=message_row)
 
 @app.route("/update", methods=["GET", "POST"])
+@login_required
 def update():
     if request.method == "POST":
         message = request.form.get("message")
@@ -390,6 +397,7 @@ def update():
         return redirect(redir)
 
 @app.route("/reply_form", methods=["GET", "POST"])
+@login_required
 def reply_form():
     if request.method == "GET":
         id = request.args.get("reply_id")
@@ -406,6 +414,7 @@ def reply_form():
         return render_template("reply.html", row=row)
 
 @app.route("/reply_legit", methods=["GET", "POST"])
+@login_required
 def reply_legit():
     if request.method == "POST":
         id = request.form.get("reply_id")
