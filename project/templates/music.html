@@ -49,7 +49,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col-4" style="position:relative; top:25px; left:-15px">{{ row["replies"] }}</div>
                                     <div class="media-body flex-truncate ml-2">
-                                        <div class="col-8" style="margin-left: 180px">{{ row["latest"] }}</div> <a href="javascript:void(0)" class="col-8" style="margin-left: 160px" data-abc="true">by Billy Donovan</a>
+                                        <div class="col-8" style="margin-left: 180px">{{ row["latest"] }}</div> <a href="/profile?id={{ row["latest_id"] }}" class="col-8" style="margin-left: 160px" data-abc="true">by {{ row["latest_user"] }}</a>
                                     </div>
                             </div>
                         </div>
