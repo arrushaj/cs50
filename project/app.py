@@ -462,16 +462,16 @@ def edit_bio_form():
 
         return render_template("edit_bio.html", bio=bio)
 
-@app.route("/update_biography", methods=["GET", "POST"])
+@app.route("/update_bio", methods=["GET", "POST"])
 @login_required
-def edit_bio_form():
+def update_bio():
     if request.method == "POST":
         id = session["user_id"]
         bio = request.form.get("bio")
 
-        row = db.execute("UPDATE users SET bio = ? WHERE id = ?", bio, id)
+        db.execute("UPDATE users SET bio = ? WHERE id = ?", bio, id)
 
-        redir = "/profile?id=" + session["user_id"]
+        redir = "/profile?id=" + str(session["user_id"])
 
         return redirect(redir)
 
