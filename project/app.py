@@ -457,7 +457,9 @@ def profile():
     user = get[0]["username"]
     bio = get[0]["bio"]
 
-    return render_template("profile.html", user=user, bio=bio, id=int(id))
+    rows = db.execute("SELECT * FROM thread WHERE user = ?", user)
+
+    return render_template("profile.html", user=user, bio=bio, id=int(id), rows=rows)
 
 @app.route("/edit_bio_form", methods=["GET", "POST"])
 @login_required

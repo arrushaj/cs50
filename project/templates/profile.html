@@ -20,13 +20,6 @@
     {% for row in rows %}
     <div class="card-body py-3">
         <div class="row no-gutters align-items-center">
-            <div  {% if user != row["user"] %}style="visibility: hidden"{% endif %} class="col-sm-auto">
-            <form action="/delete_thread" method="post">
-                <input type="hidden" name="thread" value="{{ row["id"] }}">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
-            </form>
-
-            </div>
             <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
                 <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="/profile?id={{ row["user_id"] }}" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
             </div>
