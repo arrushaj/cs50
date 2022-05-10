@@ -454,6 +454,8 @@ def reply_legit():
         thread_id, username, message, 1, id, response_message, response_user, response_date, session["user_id"])
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread_id)
         db.execute("UPDATE thread SET latest = strftime('%Y/%m/%d %H:%M:%S') WHERE id = ?", thread_id)
+        db.execute("UPDATE thread SET latest_user = ? WHERE id = ?", username, thread_id)
+        db.execute("UPDATE thread SET latest_id = ? WHERE id = ?", session["user_id"], thread_id)
 
         redir = "/viewthread?id=" + str(thread_id)
         flash("Reply posted!")
