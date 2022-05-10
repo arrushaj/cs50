@@ -11,7 +11,7 @@
         <br>
         <p class="card-text">{{ bio }}</p>
         {% if session["user_id"] == id %}
-        <form id="submit_edit" action="/edit_bio" method="GET">
+        <form id="submit_edit" action="/edit_bio_form" method="GET">
             <button id="edit" type="submit" class="btn btn-secondary">Edit Bio</button>
         </form>
         {% endif %}

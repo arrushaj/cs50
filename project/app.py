@@ -462,3 +462,16 @@ def edit_bio_form():
 
         return render_template("edit_bio.html", bio=bio)
 
+@app.route("/update_bio", methods=["GET", "POST"])
+@login_required
+def edit_bio_form():
+    if request.method == "GET":
+        id = session["user_id"]
+
+        row = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+        bio = row[0]["bio"]
+
+        return render_template("edit_bio.html", bio=bio)
+
+
