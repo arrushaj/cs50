@@ -254,9 +254,11 @@ def reply():
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         username = rows[0]["username"]
 
-        db.execute("INSERT INTO replies (thread_id, user, message, date, user_id, latest_user, latest_id) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), ?)", thread, username, message, session["user_id"], username, session["user_id"])
+        db.execute("INSERT INTO replies (thread_id, user, message, date, user_id) VALUES (?, ?, ?, strftime('%Y/%m/%d %H:%M:%S'), ?)", thread, username, message, session["user_id"])
         db.execute("UPDATE thread SET replies = replies + 1 WHERE id = ?", thread)
         db.execute("UPDATE thread SET latest = strftime('%Y/%m/%d %H:%M:%S') WHERE id = ?", thread)
+        db.execute("UPDATE thread SET latest_user = ? WHERE id = ?", username, thread)
+        db.execute("UPDATE thread SET latest_id = ? WHERE id = ?", session["user_id"], thread)
 
         redir = "/viewthread?id=" + thread
 
