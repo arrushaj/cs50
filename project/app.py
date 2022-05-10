@@ -524,4 +524,188 @@ def film():
     rows1=rows[i:i+5]
     return render_template('film.html', pagination=pagination, rows=rows1, user=user)
 
+@app.route("/books")
+def books():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'books' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('books.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/fashion")
+def fashion():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'fashion' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('fashion.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/gaming")
+def gaming():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'gaming' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('gaming.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/sports")
+def sports():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'sports' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('sports.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/gaming")
+def gaming():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'gaming' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('gaming.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/life")
+def life():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'life' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('life.html', pagination=pagination, rows=rows1, user=user)
+
+@app.route("/tech")
+def tech():
+
+    try:
+        id = session["user_id"]
+
+    except KeyError:
+        id = ""
+
+    row_user = db.execute("SELECT * FROM users WHERE id = ?", id)
+
+    if len(row_user) < 1:
+        user = ""
+    else:
+        user = row_user[0]["username"]
+
+    rows = db.execute("SELECT * FROM thread WHERE board = 'tech' ORDER BY latest DESC")
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    pagination = Pagination(page=page, per_page=5, total=len(rows), record_name='rows')
+
+    i=(page-1) * 5
+    rows1=rows[i:i+5]
+    return render_template('tech.html', pagination=pagination, rows=rows1, user=user)
+
+
+
 

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sports
+{% endblock %}
+
+{% block main %}
+{{ pagination.info }}
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Sports</a>
+        <form action="/search" method="get" class="form-inline">
+            <div class="d-flex">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <input type="hidden" name="board" value="music">
+                &nbsp
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+        </form>
+        <a href="/thread" class="btn btn-primary">Create Thread</a>
+    </nav>
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <div class="card mb-3">
+        <div class="card-header pl-0 pr-0">
+            <div class="row no-gutters w-100 align-items-center">
+                <div class="col ml-3" style="position:relative; left:55px">Topics</div>
+                <div class="col-4 text-muted">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-4">Replies</div>
+                        <div class="col-8">Last update</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                {% for row in rows %}
+                <div class="card-body py-3">
+                    <div class="row no-gutters align-items-center">
+                        <div  {% if user != row["user"] %}style="visibility: hidden"{% endif %} class="col-sm-auto">
+                        <form action="/delete_thread" method="post">
+                            <input type="hidden" name="thread" value="{{ row["id"] }}">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
+                        </form>
+
+                        </div>
+                        <div class="col"> <a href="/viewthread?id={{ row["id"] }}" class="text-big" data-abc="true">{{ row["title"] }}</a>
+                            <div class="text-muted small mt-1">Started {{ row["creation"] }} &nbsp;·&nbsp; <a href="/profile?id={{ row["user_id"] }}" class="text-muted" data-abc="true">{{ row["user"] }}</a></div>
+                        </div>
+                        <div class="d-none d-md-block col-4">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-4" style="position:relative; top:25px; left:-15px">{{ row["replies"] }}</div>
+                                    <div class="media-body flex-truncate ml-2">
+                                        <div class="col-8" style="margin-left: 180px">{{ row["latest"] }}</div> <a href="/profile?id={{ row["latest_id"] }}" class="col-8" style="margin-left: 160px" data-abc="true">by {{ row["latest_user"] }}</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+{{ pagination.links }}
+    <script>
+        function submitForm() {
+            let form = document.getElementById("form__submit");
+            form.submit();
+        }
+    </script>
+
+{% endblock %}
