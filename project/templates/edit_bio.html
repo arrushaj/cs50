@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+    <form action="/update" method="post" style="margin:auto; width:50%">
+        <div class="form-group">
+            <label for="message">Bio</label>
+            <br>
+            <textarea class="form-control" name="message" rows="10">{{ message_row[0]["message"] }}</textarea>
+        </div>
+        <br>
+        <input hidden name="reply_id" value="{{ message_row[0]["id"] }}">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}
