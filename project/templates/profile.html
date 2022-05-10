@@ -12,7 +12,6 @@
         <p class="card-text">{{ bio }}</p>
         {% if session["user_id"] == id %}
         <form id="submit_edit" action="/edit_bio" method="GET">
-            <input hidden name="reply_id" value="{{ session["user_id"] }}">
             <button id="edit" type="submit" class="btn btn-secondary">Edit Bio</button>
         </form>
         {% endif %}
