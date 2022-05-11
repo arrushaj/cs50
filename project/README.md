@@ -1,4 +1,4 @@
 # CS50 MESSAGE BOARD
-#### Video Demo:  <URL HERE>
+#### Video Demo:  https://youtu.be/I3w7p6Mb0pg
 #### Description:
 TODO
