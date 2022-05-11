@@ -20,6 +20,8 @@ I used Flask-session for logging in and logging out from CS50 Finance. It was a 
 
 Profiles are also available for each user (/profile route). Each profile contains a bio and their respective threads that they have created.
 
+Each sub-board has its own route and it populates their respective HTML form by searching the database for threads that were created for their board.
+
 To discuss the database a little more, it has 4 tables: users, thread, replies, and likes. Users includes users, passwords, and bios. Threads are threads and everything that pertains. Replies are replies to threads and have a thread id as a foreign key. Likes are a system that allows the database to indicate which user is liking which reply. When a reply is deleted, any like row related to it is deleted as well.
 
 I took the liberty of using functions that were used in previous Problem Sets in helpers.py like apology and login_required. These proved very helpful, especially login_required.
@@ -28,3 +30,6 @@ Going over the HTML templates, each of the sub-boards (music, film, fashion, etc
 Apology.html is self-explained and used from previous Problem Sets. Edit_bio is for editing a user's bio. Edit is explained above. Home is the first thing you see when you open the app.
 Layout is the skeleton of each HTML form and is mostly lifted from previous Problem Sets. Login is for logging in. Registering is for registering. Thread is for making a thread.
 Last but not least, Viewthread (which is the most complicated HTML form in my opinion) is what is used for each thread.
+
+The only thing holding this project back is the fact that no one is using it currently lol. If I were to expand on it, maybe I would add admin roles. I never really thought that deeply about
+roles and the issues that would rise up if people actually started using this forum. You're putting a lost of trust in the community without any roles.
