@@ -109,35 +109,5 @@
             x.style.display = 'none';
         }
     }
-
-    function myFunction2(id) {
-        var x = document.getElementById(id);
-        const y = id.substring(4);
-        const z = 'editText';
-        const a = 'text';
-        const f = 'submit_edit';
-        const f_text = 'reply_text';
-        const result = z.concat(y);
-        const result2 = a.concat(y);
-        const form_name = f.concat(y);
-        const form_text = f_text.concat(y);
-        const zz = document.getElementById(result);
-        const zzz = document.getElementById(result2);
-        const form = document.getElementById(form_name);
-        const test = document.getElementById(form_text);
-        if (x.innerHTML === 'Edit') {
-            x.innerHTML = 'Submit';
-            zz.style.display = 'block';
-            zzz.style.display = 'none';
-        } else {
-            x.innerHTML = 'Edit';
-            zz.style.display = 'none';
-            zzz.style.display = 'block';
-            test.value = zz.innerHTML;
-            console.log(result)
-            console.log(test)
-            form.submit()
-        }
-    }
     </script>
 {% endblock %}
