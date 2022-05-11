@@ -33,3 +33,5 @@ Last but not least, Viewthread (which is the most complicated HTML form in my op
 
 The only thing holding this project back is the fact that no one is using it currently lol. If I were to expand on it, maybe I would add admin roles. I never really thought that deeply about
 roles and the issues that would rise up if people actually started using this forum. You're putting a lost of trust in the community without any roles.
+
+I hope you enjoy this project, it took a lot of time to plan and program!
