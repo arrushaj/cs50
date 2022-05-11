@@ -16,7 +16,7 @@ It's worth mentioning that I desperately wanted to be able to create replies to 
 
 Likewise, if you want to edit or delete a comment, each of those have their own respective routes that involve database manipulation.
 
-Profiles are also available for each user. Each profile contains a bio
+Profiles are also available for each user (/profile route). Each profile contains a bio and their respective threads that they have created.
 
 To discuss the database a little more, it has 4 tables: users, thread, replies, and likes. Users includes users, passwords, and bios. Threads are threads and everything that pertains. Replies are replies to threads and have a thread id as a foreign key. Likes are a system that allows the database to indicate which user is liking which reply. When a reply is deleted, any like row related to it is deleted as well.
 
