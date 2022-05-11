@@ -32,6 +32,8 @@ Apology.html is self-explained and used from previous Problem Sets. Edit_bio is 
 Layout is the skeleton of each HTML form and is mostly lifted from previous Problem Sets. Login is for logging in. Registering is for registering. Thread is for making a thread.
 Last but not least, Viewthread (which is the most complicated HTML form in my opinion) is what is used for each thread.
 
+Statics folder is all CSS. ajax.js is UNUSED.
+
 The only thing holding this project back is the fact that no one is using it currently lol. If I were to expand on it, maybe I would add admin roles. I never really thought that deeply about
 roles and the issues that would rise up if people actually started using this forum. You're putting a lost of trust in the community without any roles.
 
