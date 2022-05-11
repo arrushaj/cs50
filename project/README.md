@@ -5,6 +5,7 @@ My project is a Message Board where you create threads, create replies, update r
 It is a Flask project created using mainly Python, HTML, CSS, and a little bit of Javascript. It's also important to mention that I installed a flask-pagination extension. Pagination will not
 work without this extension. Also Flask-session is necessary for this to work, crucial actually.
 I will go over all of the files contained in the folder.
+NOTE: TO RUN THE APP, CHANGE YOUR DIRECTORY TO THE PROJECT FOLDER AND TYPE 'flask run' IN THE TERMINAL
 
 To start with, the main file, app.py, contains many routes that direct you to their respective HTML forms contained in the templates folder. In addition, there is a database called forum.db
 that is updated in many of the routes. So for example, when a thread is created (using the /reply route), the forum database is updated by adding an entry in the thread table along with the replies table. Each time that thread has a response, the database is further updated by adding another entry to the replies table for that reply and setting the previously added thread row's replies field to itself + 1, indicating that there is more than one reply to that thread. If I went over each route and what they did it would take forever so for time's sake I will go over the most intricate routes.
