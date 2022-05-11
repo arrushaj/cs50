@@ -1,7 +1,7 @@
 # CS50 MESSAGE BOARD
 #### Video Demo:  https://youtu.be/I3w7p6Mb0pg
 #### Description:
-My project is a Message Board where you create threads, create replies, update replies, delete replies, delete threads, etc.
+My project is a Message Board where you login and are able to create threads, create replies, update replies, delete replies, delete threads, etc.
 It is a Flask project created using mainly Python, HTML, CSS, and a little bit of Javascript. It's also important to mention that I installed a flask-pagination extension. Pagination will not
 work without this extension. Also Flask-session is necessary for this to work, crucial actually.
 I will go over all of the files contained in the folder.
