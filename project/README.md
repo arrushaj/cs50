@@ -7,6 +7,5 @@ work without this extension.
 I will go over all of the files contained in the folder.
 
 To start with, the main file, app.py, contains many routes that direct you to their respective HTML forms contained in the templates folder. In addition, there is a database called forum.db
-that is updated in many of the routes. So for example, when a thread is created, the forum database is updated by adding an entry in the thread table along with the replies table. Each time that
-thread has a response, the database is further updated by adding another entry to the replies table for that reply and setting the previously added thread row's replies field to itself + 1, indicating that there is more than one reply to that thread. If I went over each route and what they did it would take forever so for time's sake I will go over the most complicated ones.
+that is updated in many of the routes. So for example, when a thread is created (using the /reply route), the forum database is updated by adding an entry in the thread table along with the replies table. Each time that thread has a response, the database is further updated by adding another entry to the replies table for that reply and setting the previously added thread row's replies field to itself + 1, indicating that there is more than one reply to that thread. If I went over each route and what they did it would take forever so for time's sake I will go over the most complicated ones.
 
